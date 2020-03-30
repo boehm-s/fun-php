@@ -1,0 +1,24 @@
+{
+    "name": "boehm_s/F",
+    "type": "library",
+    "description": "Functional programming utilities for PHP",
+    "keywords": [
+        "library",
+        "functional",
+        "FP",
+        "functional programming",
+        "ramda"
+    ],
+    "license": "GPL v3",
+    "authors": [
+        {
+            "name": "Steven BOEHM",
+            "email": "stevem.boehm.dev@gmail.com",
+            "homepage": "https://github.com/boehm-s"
+        }
+    ],
+    "readme": "./README.md",
+    "require": {
+        "php": "^7.2"
+    }
+}
