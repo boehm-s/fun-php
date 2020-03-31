@@ -34,5 +34,18 @@ class F {
         })(...$args);
     }
 
+    public static function map(...$args) {
+        return static::_curry2(function($fn, $array) {
+            return array_map($fn, $array);
+        })(...$args);
+    }
+
+    public static function flatMap(...$args) {
+        return static::_curry2(function($fn, $array) {
+            return array_merge( // [[1, 2], [3, 4], 5].flatMap(x => x) Not working this way !
+                ...array_map($fn, $array)
+            );
+        })(...$args);
+    }
 
 }
