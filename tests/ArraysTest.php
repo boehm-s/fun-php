@@ -7,7 +7,7 @@ final class ArrayTest extends TestCase
 {
     private $numArray10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     private $numArray5 = [1, 2, 3, 4, 5];
-    private $numArray5Nested = [[1, 2], [3, 4], 5];
+    private $numArray5Nested = [[1, 2], [3, 4], [5]];
 
     public function testFilter(): void
     {
@@ -47,7 +47,73 @@ final class ArrayTest extends TestCase
     {
         $flatten = F::flatMap(function($n) { return $n; }, $this->numArray5Nested);
         $this->assertEquals($flatten, $this->numArray5);
+
+        $curriedDoubles = F::flatMap(function($n) { return [$n, $n]; });
+        $doubles = $curriedDoubles($this->numArray5);
+
+        $this->assertEquals($doubles, [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
     }
 
+    public function testFind(): void
+    {
+        $moreThan5 = function($n) { return $n > 5; };
+        $fifth = function($_n, $i) { return $i === 4; };
+        $findFifth = F::find($fifth);
+
+        $this->assertEquals(F::find($moreThan5, $this->numArray10), 6);
+        $this->assertEquals($findFifth($this->numArray10), 5);
+    }
+
+    public function testFindIndex(): void
+    {
+        $moreThan5 = function($n) { return $n > 5; };
+        $fifth = function($_n, $i) { return $i === 4; };
+        $findFifth = F::findIndex($fifth);
+
+        $this->assertEquals(F::findIndex($moreThan5, $this->numArray10), 5);
+        $this->assertEquals($findFifth($this->numArray10), 4);
+    }
+
+    public function testSome(): void
+    {
+        $moreThan5 = function($n) { return $n > 5; };
+        $this->assertEquals(F::some($moreThan5, $this->numArray10), true);
+        $this->assertEquals(F::some($moreThan5, $this->numArray5), false);
+
+    }
+
+    public function testEvery(): void
+    {
+        $moreThan5 = function($n) { return $n > 5; };
+        $positiveIndex = function($_n, $i) { return $i >= 0; };
+        $allPositiveIndex = F::every($positiveIndex);
+
+        $this->assertEquals(F::every($moreThan5, $this->numArray10), false);
+        $this->assertEquals($allPositiveIndex($this->numArray5), true);
+    }
+
+    public function testSort(): void
+    {
+        $asc = function($a, $b) { return $a - $b; };
+        $array = [3, 5, 1, 4, 2];
+
+        $this->assertEquals(F::sort($asc, $array), $this->numArray5);
+        $this->assertEquals($array,  [3, 5, 1, 4, 2]);
+    }
+
+    public function testReduce(): void
+    {
+        $sum = function($acc, $val) { return $acc + $val; };
+        $sumNumbers = F::reduce($sum, 0);
+
+        $this->assertEquals($sumNumbers($this->numArray5), 15);
+    }
+
+    public function testIncludes(): void
+    {
+        $this->assertEquals(F::includes(4, $this->numArray5), true);
+        $this->assertEquals(F::includes(10, $this->numArray5), false);
+        $this->assertEquals(F::includes(3)($this->numArray5), true);
+    }
 
 }
