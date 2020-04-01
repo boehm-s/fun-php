@@ -128,6 +128,16 @@ class F {
         })(...$args);
     }
 
+    public static function reverse(...$args) {
+        return static::_curry1(function($array) {
+            $copiedArray = is_object($array)
+                         ? json_decode( json_encode($array), true) // a bit dirty
+                         : $array;
+
+            return array_reverse($copiedArray);
+        })(...$args);
+    }
+
     public static function reduce(...$args) {
         return static::_curry3(function($fn, $default, $array) {
             return array_reduce($array, $fn, $default);
@@ -139,5 +149,37 @@ class F {
             return in_array($value, $array);
         })(...$args);
     }
+
+
+
+    public static function prop(...$args) {
+        return static::_curry2(function($prop, $obj) {
+            return $obj[$prop];
+        })(...$args);
+    }
+
+    public static function pick(...$args) {
+        return static::_curry2(function($props, $obj) {
+            $newObj = [];
+            foreach ($props as $prop) {
+                $newObj[$prop] = $obj[$prop];
+            }
+
+            return $newObj;
+        })(...$args);
+    }
+
+    public static function propEq(...$args) {
+        return static::_curry3(function($prop, $value, $obj) {
+            return $obj[$prop] === $value;
+        })(...$args);
+    }
+
+    public static function propSatisfies(...$args) {
+        return static::_curry3(function($prop, $fn, $obj) {
+            return $fn($obj[$prop]) === true;
+        })(...$args);
+    }
+
 
 }

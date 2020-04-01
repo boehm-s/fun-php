@@ -3,7 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use boehm_s\F;
 
-final class ArrayTest extends TestCase
+final class ArraysTest extends TestCase
 {
     private $numArray10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     private $numArray5 = [1, 2, 3, 4, 5];
@@ -114,6 +114,15 @@ final class ArrayTest extends TestCase
         $this->assertEquals(F::includes(4, $this->numArray5), true);
         $this->assertEquals(F::includes(10, $this->numArray5), false);
         $this->assertEquals(F::includes(3)($this->numArray5), true);
+
+        $test = F::filter(F::includes(3))($this->numArray5Nested);
+        $this->assertEquals($test, [[3, 4]]);
     }
 
+    public function testReverse(): void
+    {
+        $reversed5 = F::reverse($this->numArray5);
+        $this->assertEquals($reversed5, [5, 4, 3, 2, 1]);
+        $this->assertEquals($this->numArray5, [1, 2, 3, 4, 5]);
+    }
 }
