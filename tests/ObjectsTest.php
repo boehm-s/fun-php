@@ -23,7 +23,7 @@ final class ObjectsTest extends TestCase
         $getKey1 = F::prop('key1');
 
         $this->assertIsCallable($getKey1);
-        $this->assertEquals($getKey1($this->obj1), 5);
+        $this->assertEquals(5, $getKey1($this->obj1));
     }
 
     public function testPick(): void
@@ -38,11 +38,21 @@ final class ObjectsTest extends TestCase
 
     public function testPropEq(): void
     {
-        // TODO
+        $compareKey1 = F::propEq('key1');
+        $key1Is5 = $compareKey1(5);
+        $key2Is42 = F::propEq('key2', 42);
+
+        $this->assertEquals(true, $key1Is5($this->obj1));
+        $this->assertEquals(false, $key1Is5($this->obj2));
+        $this->assertEquals(false, F::propEq('key2', 42, $this->obj2));
+        $this->assertEquals(true, $key2Is42($this->obj1));
     }
 
     public function testPropSatisfies(): void
     {
-        // TODO
+        $elemIsArray = function($el) { return is_array($el); };
+        $this->assertEquals(true, F::propSatisfies($elemIsArray, 'key1', $this->obj2));
+        $this->assertEquals(false, F::propSatisfies($elemIsArray, 'key1', $this->obj1));
+
     }
 }

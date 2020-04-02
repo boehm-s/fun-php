@@ -176,7 +176,7 @@ class F {
     }
 
     public static function propSatisfies(...$args) {
-        return static::_curry3(function($prop, $fn, $obj) {
+        return static::_curry3(function($fn, $prop, $obj) {
             return $fn($obj[$prop]) === true;
         })(...$args);
     }
