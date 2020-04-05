@@ -55,4 +55,20 @@ final class ObjectsTest extends TestCase
         $this->assertEquals(false, F::propSatisfies($elemIsArray, 'key1', $this->obj1));
 
     }
+
+    public function testMerge(): void
+    {
+        $a = [1];
+        $b = [2];
+        $c = ['c' => 3];
+        $d = ['d' => 4];
+
+        $mergeA = F::merge($a);
+        $this->assertIsCallable($mergeA);
+        $this->assertEquals([1, 2], $mergeA($b));
+
+        $abc = F::merge($a, $b, $c);
+        $this->assertEquals([1, 2, 'c' => 3], $abc);
+        $this->assertEquals([1, 2, 'c' => 3], $mergeA($b, $c));
+    }
 }

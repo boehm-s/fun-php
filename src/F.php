@@ -169,6 +169,12 @@ class F {
         })(...$args);
     }
 
+    public static function merge($obj, ...$objs) {
+        return empty($objs)
+            ? function(...$objs) use ($obj) { return array_merge($obj, ...$objs); }
+            : array_merge($obj, ...$objs);
+    }
+
     public static function propEq(...$args) {
         return static::_curry3(function($prop, $value, $obj) {
             return $obj[$prop] === $value;
@@ -182,4 +188,21 @@ class F {
     }
 
 
+    public static function pipe(...$fns) {
+        return function ($x) use ($fns) {
+            return array_reduce($fns, function($acc, $fn) {
+                return $fn($acc);
+            }, $x);
+        };
+    }
+
+    public static function compose(...$fns) {
+        return static::pipe(...array_reverse($fns));
+    }
+
+    public static function not(...$args) {
+        return static::_curry1(function($a) {
+            return !$a;
+        });
+    }
 }
