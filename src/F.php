@@ -6,18 +6,18 @@ class F {
     public static $filter;
 
     private static function _curry1($fn) {
-        return $_fn = function ($a) use ($fn) {
+        return function ($a = null) use ($fn) {
         	$args = func_get_args();
-            return count($args) === 0 ? $_fn : call_user_func_array($fn, $args);
+            return count($args) === 0 ? $fn : call_user_func_array($fn, $args);
         };
     }
 
     private static function _curry2($fn) {
-        return $_fn = function($a = null, $b = null) use ($fn) {
+        return function($a = null, $b = null) use ($fn) {
         	$args = func_get_args();
             switch (count($args)) {
             case 0:
-                return $_fn;
+                return $fn;
             case 1:
                 return static::_curry1(function ($_b) use ($fn, $a) {
                     return $fn($a, $_b);
@@ -29,11 +29,11 @@ class F {
     }
 
     private static function _curry3($fn) {
-        return $_fn = function($a = null, $b = null, $c = null) use ($fn) {
+        return function($a = null, $b = null, $c = null) use ($fn) {
         	$args = func_get_args();
             switch (count($args)) {
             case 0:
-                return $_fn;
+                return $fn;
             case 1:
                 return static::_curry2(function ($_b, $_c) use ($fn, $a) {
                     return $fn($a, $_b, $_c);
@@ -169,6 +169,12 @@ class F {
         })(...$args);
     }
 
+    public static function uniq(...$args) {
+        return static::_curry1(function($arr) {
+            return array_values(array_unique($arr, SORT_REGULAR));
+        })(...$args);
+    }
+
     public static function merge($obj, ...$objs) {
         return empty($objs)
             ? function(...$objs) use ($obj) { return array_merge($obj, ...$objs); }
@@ -203,6 +209,6 @@ class F {
     public static function not(...$args) {
         return static::_curry1(function($a) {
             return !$a;
-        });
+        })(...$args);
     }
 }

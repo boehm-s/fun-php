@@ -125,4 +125,12 @@ final class ArraysTest extends TestCase
         $this->assertEquals([5, 4, 3, 2, 1], $reversed5);
         $this->assertEquals([1, 2, 3, 4, 5], $this->numArray5);
     }
+
+    public function testUniq(): void
+    {
+        $array = [1, 2, 4, 2, 5, 1, 3];
+        $expected = [1, 2, 4, 5, 3];
+        $actual = F::uniq($array);
+        $this->assertEquals($expected, $actual);
+    }
 }
