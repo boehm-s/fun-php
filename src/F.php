@@ -3,8 +3,6 @@
 namespace boehm_s;
 
 class F {
-    public static $filter;
-
     private static function _curry1($fn) {
         return function ($a = null) use ($fn) {
         	$args = func_get_args();
@@ -211,4 +209,14 @@ class F {
             return !$a;
         })(...$args);
     }
+
+
+    // store static methods in variables
+    public static $uniq;
+
+    public static function init_lib() {
+        self::$uniq = static::uniq();
+    }
 }
+
+F::init_lib();
