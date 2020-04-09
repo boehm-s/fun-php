@@ -19,23 +19,23 @@ As with Ramda, F.php methods are automatically curried !
 
 ### For Lists / Arrays
 
-<h6> map </h6>    <h6> flatMap </h6>    <h6> filter </h6>    <h6> reduce </h6>
+**map**     &nbsp;   &nbsp;   &nbsp;   &nbsp; flatMap     &nbsp;   &nbsp;   &nbsp;   &nbsp; filter     &nbsp;   &nbsp;   &nbsp;   &nbsp; reduce 
 
-<h6> find </h6>    <h6> findIndex </h6>    <h6> some </h6>    <h6> every </h6>
+**find**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **findIndex**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **some**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **every** 
 
-<h6> sort </h6>    <h6> reverse </h6>    <h6> includes </h6>    <h6> uniq </h6>
+**sort**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **reverse**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **includes**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **uniq** 
 
 ### For Objects / Associative arrays
 
-<h6> prop </h6>    <h6> pick </h6>    <h6> propEq </h6>    <h6> propSatisfies </h6>
+**prop**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **pick**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **propEq**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **propSatisfies** 
 
 ### For function composition / functional programming
 
-<h6> compose </h6>    <h6> pipe </h6>
+**compose**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **pipe** 
 
 ### Others
 
-<h6> not </h6>
+**not** 
 
 ## Example
 
