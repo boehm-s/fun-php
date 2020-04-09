@@ -19,23 +19,23 @@ As with Ramda, F.php methods are automatically curried !
 
 ### For Lists / Arrays
 
-**map**     &nbsp;   &nbsp;   &nbsp;   &nbsp; flatMap     &nbsp;   &nbsp;   &nbsp;   &nbsp; filter     &nbsp;   &nbsp;   &nbsp;   &nbsp; reduce 
+*map*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *flatMap*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *filter*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *reduce* 
 
-**find**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **findIndex**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **some**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **every** 
+*find*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *findIndex*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *some*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *every* 
 
-**sort**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **reverse**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **includes**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **uniq** 
+*sort*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *reverse*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *includes*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *uniq* 
 
 ### For Objects / Associative arrays
 
-**prop**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **pick**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **propEq**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **propSatisfies** 
+*prop*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *pick*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *propEq*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *propSatisfies* 
 
 ### For function composition / functional programming
 
-**compose**     &nbsp;   &nbsp;   &nbsp;   &nbsp; **pipe** 
+*compose*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *pipe* 
 
 ### Others
 
-**not** 
+*not* 
 
 ## Example
 
