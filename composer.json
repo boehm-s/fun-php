@@ -1,5 +1,5 @@
 {
-    "name": "boehm_s/f",
+    "name": "boehm_s/fun",
     "type": "library",
     "description": "Functional programming utilities for PHP",
     "keywords": [
