@@ -1,6 +1,6 @@
-# F.php
+# fun-php
 
-Functional programming utilities for PHP !
+**fun**ctional programming utilities for PHP !
 
 Inspired by Javascript, Ramda, lodash and many other things !
 
