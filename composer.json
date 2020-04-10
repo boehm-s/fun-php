@@ -9,7 +9,7 @@
         "functional programming",
         "ramda"
     ],
-    "license": "GPL v3",
+    "license": "MIT",
     "authors": [
         {
             "name": "Steven BOEHM",
