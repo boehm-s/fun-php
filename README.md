@@ -13,25 +13,29 @@ Inspired by Javascript, Ramda, lodash and many other things !
 
 You can use it just like Ramda, in fact you can even rely on the excellent [Ramda documentation!](https://ramdajs.com/docs/) !
 
-As with Ramda, F.php methods are automatically curried !
+As with Ramda, fun-php methods are automatically curried : 
+
+```
+F::map($fn, $array)  <==>  F::map($fn)($array)  <==>  F::map()($fn)($array)
+```
 
 ## Implemented methods
 
 ### For Lists / Arrays
 
-*map*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *flatMap*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *filter*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *reduce* 
+`map` *((a, i, [a]) -> b) -> [a] -> [b]*    &nbsp;   &nbsp;   &nbsp; `flatMap` *((a, i, [a]) -> [b]) -> [a] -> [b]*  &nbsp;   &nbsp;   &nbsp; `filter` *((a, i, [a]) -> Bool) -> [a] -> [a]*    &nbsp;   &nbsp;   &nbsp; `reduce` *((a, b) -> a) -> a -> [b] -> a*
 
-*find*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *findIndex*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *some*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *every* 
+`find` *((a, i, [a]) -> Bool) -> [a] -> a*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `findIndex` *((a, i, [a]) -> Bool) -> [a] -> i*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `some` *((a, i, [a]) -> Bool) -> [a] -> Bool*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `every` *((a, i, [a]) -> Bool) -> [a] -> Bool* 
 
-*sort*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *reverse*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *includes*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *uniq* 
+`sort` *((a, a) -> Bool) -> [a] -> [a]*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `reverse` *[a] -> [a]*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `includes` *a -> [a] -> Bool*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `uniq` *[a] -> [a]* 
 
 ### For Objects / Associative arrays
 
-*prop*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *pick*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *propEq*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *propSatisfies* 
+`prop` *k -> {k: v} -> v | null*  &nbsp;   &nbsp;   &nbsp; `pick` *[k] -> {k: v} -> {k: v} | null* &nbsp;   &nbsp;   &nbsp; `propEq` *k -> v -> {k: v} -> Bool* &nbsp;   &nbsp;   &nbsp; `propSatisfies` *(v -> Bool) -> k -> {k: v} -> Bool* 
 
 ### For function composition / functional programming
 
-*compose*     &nbsp;   &nbsp;   &nbsp;   &nbsp; *pipe* 
+`compose`  *((y -> z), (x -> y), ... ,(a -> b)) -> (a -> z)*   &nbsp;   &nbsp;   &nbsp; `pipe` *((a -> b), (b -> c), ... , (y -> z)) -> (a -> z)* 
 
 ### Others
 

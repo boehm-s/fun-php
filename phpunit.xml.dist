@@ -2,7 +2,7 @@
 <phpunit bootstrap="./vendor/autoload.php" stopOnFailure="true">
 
   <testsuites>
-    <testsuite name="F.php test suite">
+    <testsuite name="fun-php test suite">
       <file> ./tests/ArraysTest.php </file>
       <file> ./tests/ObjectsTest.php</file>
       <file> ./tests/CompositionTest.php</file>

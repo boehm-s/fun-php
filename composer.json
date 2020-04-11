@@ -20,7 +20,7 @@
     "readme": "./README.md",
     "autoload": {
         "classmap": [
-            "./src/F.php"
+            "./src/fun.php"
         ]
     },
     "require": {
