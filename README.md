@@ -23,23 +23,27 @@ F::map($fn, $array)  <==>  F::map($fn)($array)  <==>  F::map()($fn)($array)
 
 ### For Lists / Arrays
 
-`map` *((a, i, [a]) -> b) -> [a] -> [b]*    &nbsp;   &nbsp;   &nbsp; `flatMap` *((a, i, [a]) -> [b]) -> [a] -> [b]*  &nbsp;   &nbsp;   &nbsp; `filter` *((a, i, [a]) -> Bool) -> [a] -> [a]*    &nbsp;   &nbsp;   &nbsp; `reduce` *((a, b) -> a) -> a -> [b] -> a*
+*map* `((a, i, [a]) → b) → [a] → [b]` &nbsp; &nbsp; &nbsp; *flatMap* `((a, i, [a]) → [b]) → [a] → [b]`  &nbsp; &nbsp; &nbsp; *filter* `((a, i, [a]) → Bool) → [a] → [a]`
 
-`find` *((a, i, [a]) -> Bool) -> [a] -> a*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `findIndex` *((a, i, [a]) -> Bool) -> [a] -> i*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `some` *((a, i, [a]) -> Bool) -> [a] -> Bool*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `every` *((a, i, [a]) -> Bool) -> [a] -> Bool* 
+*reduce* `((a, b) → a) → a → [b] → a` &nbsp; &nbsp; &nbsp; *find* `((a, i, [a]) → Bool) → [a] → a` &nbsp; &nbsp; &nbsp; *findIndex* `((a, i, [a]) → Bool) → [a] → i` 
 
-`sort` *((a, a) -> Bool) -> [a] -> [a]*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `reverse` *[a] -> [a]*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `includes` *a -> [a] -> Bool*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `uniq` *[a] -> [a]* 
+*some* `((a, i, [a]) → Bool) → [a] → Bool` &nbsp; &nbsp; &nbsp; *every* `((a, i, [a]) → Bool) → [a] → Bool` &nbsp; &nbsp; &nbsp; *sort* `((a, a) → Bool) → [a] → [a]`    &nbsp;&nbsp;&nbsp;&nbsp; 
+
+*reverse* `[a] → [a]` &nbsp; &nbsp; &nbsp; *includes* `a → [a] → Bool` &nbsp; &nbsp; &nbsp;  *uniq* `[a] → [a]` 
 
 ### For Objects / Associative arrays
 
-`prop` *k -> {k: v} -> v | null*  &nbsp;   &nbsp;   &nbsp; `pick` *[k] -> {k: v} -> {k: v} | null* &nbsp;   &nbsp;   &nbsp; `propEq` *k -> v -> {k: v} -> Bool* &nbsp;   &nbsp;   &nbsp; `propSatisfies` *(v -> Bool) -> k -> {k: v} -> Bool* 
+*prop* `k → {k: v} → v | null` &nbsp; &nbsp; &nbsp; *pick* `[k] → {k: v} → {k: v} | null` &nbsp; &nbsp; &nbsp; *propEq* `k → v → {k: v} → Bool` &nbsp;&nbsp;&nbsp; 
+
+*propSatisfies* `(v → Bool) → k → {k: v} → Bool` 
 
 ### For function composition / functional programming
 
-`compose`  *((y -> z), (x -> y), ... ,(a -> b)) -> (a -> z)*   &nbsp;   &nbsp;   &nbsp; `pipe` *((a -> b), (b -> c), ... , (y -> z)) -> (a -> z)* 
+*compose*  `((y → z), (x → y), ... ,(a → b)) → (a → z)` &nbsp; &nbsp; &nbsp; *pipe* `((a → b), (b → c), ... , (y → z)) → (a → z)` 
 
 ### Others
 
-*not* 
+*not* `* → Boolean`
 
 ## Example
 
