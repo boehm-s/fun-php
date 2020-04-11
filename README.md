@@ -6,8 +6,11 @@ Inspired by Javascript, Ramda, lodash and many other things !
 
 # Installation 
 
+You can clone the repo, just take the `src/fun.php` file or install the lb via composer : 
 
-
+```
+composer require boehm_s/fun
+```
 
 # How to use it ?
 
@@ -21,25 +24,37 @@ F::map($fn, $array)  <==>  F::map($fn)($array)  <==>  F::map()($fn)($array)
 
 ## Implemented methods
 
+**fun-php** is just a bunch of static methods. To use them, juste prefix the following functions with `F::`
+
 ### For Lists / Arrays
 
-`map` *((a, i, [a]) -> b) -> [a] -> [b]*    &nbsp;   &nbsp;   &nbsp; `flatMap` *((a, i, [a]) -> [b]) -> [a] -> [b]*  &nbsp;   &nbsp;   &nbsp; `filter` *((a, i, [a]) -> Bool) -> [a] -> [a]*    &nbsp;   &nbsp;   &nbsp; `reduce` *((a, b) -> a) -> a -> [b] -> a*
-
-`find` *((a, i, [a]) -> Bool) -> [a] -> a*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `findIndex` *((a, i, [a]) -> Bool) -> [a] -> i*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `some` *((a, i, [a]) -> Bool) -> [a] -> Bool*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `every` *((a, i, [a]) -> Bool) -> [a] -> Bool* 
-
-`sort` *((a, a) -> Bool) -> [a] -> [a]*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `reverse` *[a] -> [a]*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `includes` *a -> [a] -> Bool*    &nbsp;   &nbsp;   &nbsp;   &nbsp; `uniq` *[a] -> [a]* 
+| function   | type                                  | function     | type                                |
+| ---------  | ------------------------------------- | ------------ | ----------------------------------- |
+| *map*      | `((a, i, [a]) → b) → [a] → [b]`       | *flatMap*    | `((a, i, [a]) → [b]) → [a] → [b]`   |
+| *filter*   | `((a, i, [a]) → Bool) → [a] → [a]`    | *reduce*     | `((a, b) → a) → a → [b] → a`        |
+| *find*     | `((a, i, [a]) → Bool) → [a] → a`      | *findIndex*  | `((a, i, [a]) → Bool) → [a] → i`    |
+| *some*     | `((a, i, [a]) → Bool) → [a] → Bool`   | *every*      | `((a, i, [a]) → Bool) → [a] → Bool` |
+| *sort*     | `((a, a) → Bool) → [a] → [a]`         | *reverse*    | `[a] → [a]`                         |
+| *includes* | `a → [a] → Bool`                      | *uniq*       | `[a] → [a]`                         |
 
 ### For Objects / Associative arrays
 
-`prop` *k -> {k: v} -> v | null*  &nbsp;   &nbsp;   &nbsp; `pick` *[k] -> {k: v} -> {k: v} | null* &nbsp;   &nbsp;   &nbsp; `propEq` *k -> v -> {k: v} -> Bool* &nbsp;   &nbsp;   &nbsp; `propSatisfies` *(v -> Bool) -> k -> {k: v} -> Bool* 
+| function  | type                                  | function        | type                                |
+| --------- | ------------------------------------- | ------------    | ----------------------------------- |
+| *prop*    | `k → {k: v} → v \| null`              | *pick*          | `[k] → {k: v} → {k: v} \| null`     |
+| *propEq*  | `k → v → {k: v} → Bool`               | *propSatisfies* | `(v → Bool) → k → {k: v} → Bool`    |
 
 ### For function composition / functional programming
 
-`compose`  *((y -> z), (x -> y), ... ,(a -> b)) -> (a -> z)*   &nbsp;   &nbsp;   &nbsp; `pipe` *((a -> b), (b -> c), ... , (y -> z)) -> (a -> z)* 
+| function  | type                                         | function     | type                                          |
+| --------- | -------------------------------------------- | ------------ | --------------------------------------------  |
+| *compose* | `((y → z), (x → y), ... ,(a → b)) → (a → z)` | *pipe*       | `((a → b), (b → c), ... , (y → z)) → (a → z)` |
 
 ### Others
 
-*not* 
+| function  | type          | function | type  |
+| --------- | ------------- | -------- | ----- |
+| *not*     | `* → Boolean` |          |       |
 
 ## Example
 
