@@ -4,9 +4,13 @@
 
 Inspired by Javascript, Ramda, lodash and many other things !
 
+## Why ? 
+
+Because PHP lacks of simple and easy-to-use utilities for functional programming !
+
 # Installation 
 
-You can clone the repo, just take the `src/fun.php` file or install the lb via composer : 
+You can clone the repo, just take the `src/fun.php` file or install the lib via composer : 
 
 ```
 composer require boehm_s/fun
@@ -18,9 +22,7 @@ You can use it just like Ramda, in fact you can even rely on the excellent [Ramd
 
 As with Ramda, fun-php methods are automatically curried : 
 
-```
-F::map($fn, $array)  <==>  F::map($fn)($array)  <==>  F::map()($fn)($array)
-```
+`F::map($fn, $array)`  ⇔  `F::map($fn)($array)`  ⇔  `F::map()($fn)($array)`
 
 ## Implemented methods
 
@@ -46,15 +48,16 @@ F::map($fn, $array)  <==>  F::map($fn)($array)  <==>  F::map()($fn)($array)
 
 ### For function composition / functional programming
 
-| function  | type                                         | function     | type                                          |
-| --------- | -------------------------------------------- | ------------ | --------------------------------------------  |
-| *compose* | `((y → z), (x → y), ... ,(a → b)) → (a → z)` | *pipe*       | `((a → b), (b → c), ... , (y → z)) → (a → z)` |
+| function  | type                                          |
+| --------- | --------------------------------------------  |
+| *compose* | `((y → z), (x → y), ... ,(a → b)) → (a → z)`  |
+| *pipe*    | `((a → b), (b → c), ... , (y → z)) → (a → z)` |
 
 ### Others
 
-| function  | type          | function | type  |
-| --------- | ------------- | -------- | ----- |
-| *not*     | `* → Boolean` |          |       |
+| function  | type          |
+| --------- | ------------- |
+| *not*     | `* → Boolean` |
 
 ## Example
 
