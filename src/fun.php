@@ -3,10 +3,17 @@
 namespace boehm_s;
 
 class F {
+
+    const _ = '@@fun-php/placeholder';
+
+    private static function isPlaceholder($str) {
+        return $str === static::_;
+    }
+
     private static function _curry1($fn) {
         return function ($a = null) use ($fn) {
         	$args = func_get_args();
-            return count($args) === 0 ? $fn : call_user_func_array($fn, $args);
+            return count($args) === 0 || static::isPlaceholder($a)? $fn : call_user_func_array($fn, $args);
         };
     }
 
@@ -17,11 +24,23 @@ class F {
             case 0:
                 return $fn;
             case 1:
-                return static::_curry1(function ($_b) use ($fn, $a) {
+                return static::isPlaceholder($a) ? $fn : static::_curry1(function ($_b) use ($fn, $a) {
                     return $fn($a, $_b);
                 });
             default:
-                return $fn($a, $b);
+                if (static::isPlaceholder($a) && static::isPlaceholder($b)) {
+                    return $f2;
+                } else if (static::isPlaceholder($a)) {
+                    return static::_curry1(function ($_a) use($fn, $b) {
+                        return $fn($_a, $b);
+                    });
+                } else if(static::isPlaceholder($b)) {
+                    return static::_curry1(function ($_b) use($fn, $a) {
+                        return $fn($a, $_b);
+                    });
+                } else {
+                    return $fn($a, $b);
+                }
             }
         };
     }
@@ -33,15 +52,59 @@ class F {
             case 0:
                 return $fn;
             case 1:
-                return static::_curry2(function ($_b, $_c) use ($fn, $a) {
+                return static::isPlaceholder($a) ? $f3 : static::_curry2(function ($_b, $_c) use($a) {
                     return $fn($a, $_b, $_c);
                 });
             case 2:
-                return static::_curry1(function ($_c) use ($fn, $a, $b) {
-                    return $fn($a, $b, $_c);
-                });
+                if (static::isPlaceholder($a) && static::isPlaceholder($b)) {
+                    return $fn;
+                } else {
+                    if (static::isPlaceholder($a)) {
+                        return static::_curry2(function ($_a, $_c) use ($fn, $b) {
+                            return $fn($_a, $b, $_c);
+                        });
+                    } else if (static::isPlaceholder($b)) {
+                        return static::_curry2(function ($_b, $_c) use ($fn, $a) {
+                            return $fn($a, $_b, $_c);
+                        });
+                    } else {
+                        return static::_curry1(function ($_c) use ($fn, $a, $b) {
+                            return $fn($a, $b, $_c);
+                        });
+                    }
+                }
             default:
-                return $fn($a, $b, $c);
+                if (static::isPlaceholder($a) && static::isPlaceholder($b) && static::isPlaceholder($c)) {
+                    return $fn;
+                } else {
+                    if (static::isPlaceholder($a) && static::isPlaceholder($b)) {
+                        return static::_curry2(function ($_a, $_b) use ($fn, $c) {
+                            return $fn($_a, $_b, $c);
+                        });
+                    } else if (static::isPlaceholder($a) && static::isPlaceholder($c)) {
+                        return static::_curry2(function ($_a, $_c) use($fn, $b) {
+                            return $fn($_a, $b, $_c);
+                        });
+                    } else if (static::isPlaceholder($b) && static::isPlaceholder($c)) {
+                        return static::_curry2(function ($_b, $_c) use($fn, $a) {
+                            return $fn($a, $_b, $_c);
+                        });
+                    } else if (static::isPlaceholder($a)) {
+                        return static::_curry1(function ($_a) use($fn, $b, $c) {
+                            return $fn($_a, $b, $c);
+                        });
+                    } else if (static::isPlaceholder($b)) {
+                        return static::_curry1(function ($_b) use($fn, $a, $c) {
+                            return $fn($a, $_b, $c);
+                        });
+                    } else if (static::isPlaceholder($c)) {
+                        return static::_curry1(function ($_c) use($fn, $a, $b) {
+                            return $fn($a, $b, $_c);
+                        });
+                    } else {
+                        return $fn($a, $b, $c);
+                    }
+                }
             }
         };
     }
