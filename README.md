@@ -1,16 +1,12 @@
 # fun-php
 
-**fun**ctional programming utilities for PHP !
-
-Inspired by Javascript, Ramda, lodash and many other things !
+**fun**ctional programming utilities for PHP ! Inspired by *Ramda*, Javascript, lodash and many other things !
 
 ## Why ? 
 
 Because PHP lacks of simple and easy-to-use utilities for functional programming !
 
 # Installation 
-
-You can clone the repo, just take the `src/fun.php` file or install the lib via composer : 
 
 ```
 composer require boehm_s/fun
@@ -22,7 +18,58 @@ You can use it just like Ramda, in fact you can even rely on the excellent [Ramd
 
 As with Ramda, fun-php methods are automatically curried : 
 
-`F::map($fn, $array)`  ⇔  `F::map($fn)($array)`  ⇔  `F::map()($fn)($array)`
+`F::map($fn, $array)` &nbsp; ⇔  &nbsp; `F::map($fn)($array)` &nbsp; ⇔  &nbsp; `F::map()($fn)($array)`
+
+Also placeholders are implemented. fun-php placeholder is `F::_` : 
+
+`F::map(F::_, $array)($fn)` &nbsp; ⇔  &nbsp; `F::map($fn)(F::_)($fn)` &nbsp; ⇔  &nbsp; `F::map(F::_)($fn)($array)`
+
+
+## Example
+
+```json
+{
+  "items": [{
+      "id":1,
+      "type":"train",
+      "users":[
+        { "id":1, "name":"Jimmy Page"},
+        { "id":5, "name":"Roy Harper"}
+      ]
+    }, {
+      "id":421,
+      "type":"hotel",
+      "users":[
+        { "id":1, "name":"Jimmy Page" }, 
+        { "id":2, "name":"Robert Plant" }
+      ]
+    }, {
+      "id":876,
+      "type":"flight",
+      "users":[
+        { "id":3, "name":"John Paul Jones" },
+        { "id":4, "name":"John Bonham" }
+      ]
+    }]
+}
+```
+
+Get all users names 
+
+```php
+$get_all_users_names = F::pipe(
+    F::prop('items'),
+    F::flatMap(F::prop('users')),
+    F::map(F::prop('name')),
+    F::uniq()
+);
+
+$travel = json_decode($travelJSON);
+$travels_users = $get_all_users_names($travel);
+
+var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "John Paul Jones", "John Bonham"]
+```
+
 
 ## Implemented methods
 
@@ -58,54 +105,3 @@ As with Ramda, fun-php methods are automatically curried :
 | function  | type          |
 | --------- | ------------- |
 | *not*     | `* → Boolean` |
-
-## Example
-
-```json
-{
-  "items": [{
-      "id":1,
-      "type":"train",
-      "start":"2020-04-23T12:04:00.000Z",
-      "end":"2020-04-23T14:08:00.000Z",
-      "users":[
-        { "id":1, "name":"Jimmy Page"},
-        { "id":5, "name":"Roy Harper"}
-      ]
-    }, {
-      "id":421,
-      "type":"hotel",
-      "start":"2020-04-23T12:00:00.000Z",
-      "end":"2020-04-24T14:10:00.000Z",
-      "users":[
-        { "id":1, "name":"Jimmy Page" }, 
-        { "id":2, "name":"Robert Plant" }
-      ]
-    }, {
-      "id":876,
-      "type":"flight",
-      "start":"2020-04-23T12:04:00.000Z",
-      "end":"2020-04-23T14:08:00.000Z",
-      "users":[
-        { "id":3, "name":"John Paul Jones" },
-        { "id":4, "name":"John Bonham" }
-      ]
-    }]
-}
-```
-
-Get all users names 
-
-```
-$get_all_users_names = F::pipe(
-    F::prop('items'),
-    F::flatMap(F::prop('users')),
-    F::map(F::prop('name')),
-    F::uniq()
-);
-
-$travel = json_decode($travelJSON);
-$travels_users = $get_all_users_names($travel);
-
-var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "John Paul Jones", "John Bonham"]
-```

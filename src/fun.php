@@ -29,7 +29,7 @@ class F {
                 });
             default:
                 if (static::isPlaceholder($a) && static::isPlaceholder($b)) {
-                    return $f2;
+                    return $fn;
                 } else if (static::isPlaceholder($a)) {
                     return static::_curry1(function ($_a) use($fn, $b) {
                         return $fn($_a, $b);
@@ -52,7 +52,7 @@ class F {
             case 0:
                 return $fn;
             case 1:
-                return static::isPlaceholder($a) ? $f3 : static::_curry2(function ($_b, $_c) use($a) {
+                return static::isPlaceholder($a) ? $fn : static::_curry2(function ($_b, $_c) use ($fn, $a) {
                     return $fn($a, $_b, $_c);
                 });
             case 2:
