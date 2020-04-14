@@ -3,7 +3,6 @@
 language: php
 
 php:
-- 7.1
 - 7.2
 
 # Note: Code coverage requires php-xDebug extension enabled on CI server
