@@ -65,6 +65,7 @@ $get_all_users_names = F::pipe(
 );
 
 $travel = json_decode($travelJSON);
+
 $travels_users = $get_all_users_names($travel);
 
 var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "John Paul Jones", "John Bonham"]
