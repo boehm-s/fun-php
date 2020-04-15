@@ -1,6 +1,5 @@
-![Build Status](https://travis-ci.com/boehm-s/fun-php.svg?branch=master)
+# fun-php ![Build Status](https://travis-ci.com/boehm-s/fun-php.svg?branch=master)
 
-# fun-php
 
 **fun**ctional programming utilities for PHP ! Inspired by *Ramda*, Javascript, lodash and many other things !
 
