@@ -115,6 +115,14 @@ class F {
         })(...$args);
     }
 
+    public static function each($fn) {
+        return static::_curry2(function($fn, $array) {
+            foreach ($arr as $key => $value) {
+                $fn($value, $key, $array);
+            }
+        })(...$args);
+    }
+
     public static function map(...$args) {
         return static::_curry2(function($fn, $array) {
             return array_map($fn, $array);
@@ -267,19 +275,17 @@ class F {
         return static::pipe(...array_reverse($fns));
     }
 
+    public static function partial(...$args) {
+        return static::_curry2(function($fn, $args) {
+            return function() use ($fn, $args) {
+                return call_user_func_array($fn, array_merge($args, func_get_args()));
+            };
+        })(...$args);
+    }
+
     public static function not(...$args) {
         return static::_curry1(function($a) {
             return !$a;
         })(...$args);
     }
-
-
-    // store static methods in variables
-    public static $uniq;
-
-    public static function init_lib() {
-        self::$uniq = static::uniq();
-    }
 }
-
-F::init_lib();

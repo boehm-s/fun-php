@@ -114,4 +114,10 @@ final class CompositionTest extends TestCase
 
         $this->assertEquals($expected, $travels_users);
     }
+
+    public function testPartialApplication(): void
+    {
+        $this->assertEquals('TODO', 'TODO');
+
+    }
 }

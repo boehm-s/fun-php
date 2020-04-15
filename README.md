@@ -84,6 +84,7 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 | ---------  | ------------------------------------- | ------------ | ----------------------------------- |
 | *map*      | `((a, i, [a]) → b) → [a] → [b]`       | *flatMap*    | `((a, i, [a]) → [b]) → [a] → [b]`   |
 | *filter*   | `((a, i, [a]) → Bool) → [a] → [a]`    | *reduce*     | `((a, b) → a) → a → [b] → a`        |
+| *each*     | `((a, i, [a]) → ()) → [a] → ()`       |              |                                     |
 | *find*     | `((a, i, [a]) → Bool) → [a] → a`      | *findIndex*  | `((a, i, [a]) → Bool) → [a] → i`    |
 | *some*     | `((a, i, [a]) → Bool) → [a] → Bool`   | *every*      | `((a, i, [a]) → Bool) → [a] → Bool` |
 | *sort*     | `((a, a) → Bool) → [a] → [a]`         | *reverse*    | `[a] → [a]`                         |
@@ -96,14 +97,15 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 | *prop*    | `k → {k: v} → v \| null`              | *pick*          | `[k] → {k: v} → {k: v} \| null`     |
 | *propEq*  | `k → v → {k: v} → Bool`               | *propSatisfies* | `(v → Bool) → k → {k: v} → Bool`    |
 
-### For function composition / functional programming
+### For function composition
 
-| function  | type                                          |
-| --------- | --------------------------------------------  |
-| *compose* | `((y → z), (x → y), ... ,(a → b)) → (a → z)`  |
-| *pipe*    | `((a → b), (b → c), ... , (y → z)) → (a → z)` |
+| function  | type                                                        |
+| --------- | ----------------------------------------------------------- |
+| *compose* | `((y → z), (x → y), ... ,(a → b)) → (a → z)`                |
+| *pipe*    | `((a → b), (b → c), ... , (y → z)) → (a → z)`               |
+| *partial* | `((a, b, ..., n) → x) → [a, b, ...] → ((d, e, ..., n) → x)` |
 
-### Others
+### Logical operations
 
 | function  | type          |
 | --------- | ------------- |
