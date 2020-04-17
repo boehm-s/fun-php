@@ -5,7 +5,8 @@
 
 ## Why ? 
 
-Because PHP lacks of simple and easy-to-use utilities for functional programming !
+- Because PHP lacks of simple and easy-to-use utilities for functional programming !
+- To prove that we can still have fun with PHP (despite the fact that it's PHP) !!!
 
 # Installation 
 
