@@ -91,10 +91,11 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 
 ### For Objects / Associative arrays
 
-| function  | type                                  | function        | type                                |
-| --------- | ------------------------------------- | ------------    | ----------------------------------- |
-| *prop*    | `k → {k: v} → v \| null`              | *pick*          | `[k] → {k: v} → {k: v} \| null`     |
-| *propEq*  | `k → v → {k: v} → Bool`               | *propSatisfies* | `(v → Bool) → k → {k: v} → Bool`    |
+| function  | type                                      | function        | type                                |
+| --------- | ----------------------------------------- | ------------    | ----------------------------------- |
+| *prop*    | `k → {k: v} → v \| null`                  | *pick*          | `[k] → {k: v} → {k: v} \| null`     |
+| *propEq*  | `k → v → {k: v} → Bool`                   | *propSatisfies* | `(v → Bool) → k → {k: v} → Bool`    |
+| *merge*   | `{k: v} → ({k: v}, ..., {k: v}) → {k: v}` |                 |                                     |
 
 ### For function composition
 
