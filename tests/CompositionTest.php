@@ -117,7 +117,17 @@ final class CompositionTest extends TestCase
 
     public function testPartialApplication(): void
     {
-        $this->assertEquals('TODO', 'TODO');
+        $add = function($a, $b) {
+            return $a + $b;
+        };
 
+        $_add5 = function($b) {
+            return 5 + $b;
+        };
+
+        $add5 = F::partial($add, [5]);
+
+        $this->assertEquals($_add5, $add5);
+        $this->assertEquals(15, $add5(10));
     }
 }
