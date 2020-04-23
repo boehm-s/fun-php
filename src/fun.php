@@ -131,9 +131,9 @@ class F {
 
     public static function flatMap(...$args) {
         return static::_curry2(function($fn, $array) {
-            return array_merge(
-                ...array_map($fn, $array)
-            );
+            $results = array_map($fn, $array);
+
+            return empty($results) ? [] : array_merge(...$results);
         })(...$args);
     }
 

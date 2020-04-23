@@ -52,7 +52,15 @@ final class ArraysTest extends TestCase
         $doubles = $curriedDoubles($this->numArray5);
 
         $this->assertEquals([1, 1, 2, 2, 3, 3, 4, 4, 5, 5], $doubles);
-    }
+
+        $nothing = F::flatMap(function ($x) { return $x; }, []);
+
+        $this->assertEquals([], $nothing);
+
+        $flatEmpty = F::flatMap(function ($_x) { return []; }, $this->numArray5);
+
+        $this->assertEquals([], $flatEmpty);
+}
 
     public function testFind(): void
     {
