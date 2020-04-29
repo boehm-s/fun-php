@@ -115,9 +115,9 @@ class F {
         })(...$args);
     }
 
-    public static function each($fn) {
+    public static function each(...$args) {
         return static::_curry2(function($fn, $array) {
-            foreach ($arr as $key => $value) {
+            foreach ($array as $key => $value) {
                 $fn($value, $key, $array);
             }
         })(...$args);
