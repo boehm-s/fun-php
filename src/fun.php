@@ -227,6 +227,12 @@ class F {
         })(...$args);
     }
 
+    public static function propOr(...$args) {
+        return static::_curry3(function($prop, $default, $obj) {
+            return array_key_exists($prop, $obj) ? $obj[$prop] : $default;
+        })(...$args);
+    }
+
     public static function pick(...$args) {
         return static::_curry2(function($props, $obj) {
             $newObj = [];
