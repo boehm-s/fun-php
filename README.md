@@ -110,4 +110,4 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 
 | function  | type          |
 | --------- | ------------- |
-| *not*     | `* → Boolean` |
+| *not*     | `* → Bool`    |
