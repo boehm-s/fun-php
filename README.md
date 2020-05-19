@@ -111,3 +111,9 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 | function  | type          |
 | --------- | ------------- |
 | *not*     | `* → Bool`    |
+
+### String operations
+
+| function  | type                                  | function     | type                                |
+| --------- | ------------------------------------- | ------------ | ----------------------------------- |
+| *toUpper* | `String → String`                     | *toLower*    | `String → String`                   |

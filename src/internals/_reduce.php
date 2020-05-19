@@ -1,10 +1,10 @@
 <?php
 
-function _reduce(Callable $fn, Traversable $array, $identity) {
+function _reduce(Callable $fn, iterable $array, $identity) {
     $acc = $identity;
 
     foreach ($array as $key => $value) {
-        $acc = $fn($result, $value, $key, $array);
+        $acc = $fn($acc, $value, $key, $array);
     }
 
     return $acc;

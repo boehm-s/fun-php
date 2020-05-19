@@ -1,6 +1,6 @@
 <?php
 
-function _filter(Callable $fn, Traversable $array) {
+function _filter(Callable $fn, iterable $array) {
     $result = [];
 
     foreach ($array as $key => $value) {

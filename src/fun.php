@@ -2,121 +2,26 @@
 
 namespace boehm_s;
 
-class F {
+require_once(realpath(dirname(__FILE__) . '/internals/_curry1.php'));
+require_once(realpath(dirname(__FILE__) . '/internals/_curry2.php'));
+require_once(realpath(dirname(__FILE__) . '/internals/_curry3.php'));
+require_once(realpath(dirname(__FILE__) . '/internals/_isPlaceholder.php'));
+require_once(realpath(dirname(__FILE__) . '/internals/_filter.php'));
+require_once(realpath(dirname(__FILE__) . '/internals/_map.php'));
+require_once(realpath(dirname(__FILE__) . '/internals/_reduce.php'));
 
+
+class F {
     const _ = '@@fun-php/placeholder';
 
-    private static function isPlaceholder($str) {
-        return $str === static::_;
-    }
-
-    private static function _curry1($fn) {
-        return function ($a = null) use ($fn) {
-        	$args = func_get_args();
-            return count($args) === 0 || static::isPlaceholder($a)? $fn : call_user_func_array($fn, $args);
-        };
-    }
-
-    private static function _curry2($fn) {
-        return function($a = null, $b = null) use ($fn) {
-        	$args = func_get_args();
-            switch (count($args)) {
-            case 0:
-                return $fn;
-            case 1:
-                return static::isPlaceholder($a) ? $fn : static::_curry1(function ($_b) use ($fn, $a) {
-                    return $fn($a, $_b);
-                });
-            default:
-                if (static::isPlaceholder($a) && static::isPlaceholder($b)) {
-                    return $fn;
-                } else if (static::isPlaceholder($a)) {
-                    return static::_curry1(function ($_a) use($fn, $b) {
-                        return $fn($_a, $b);
-                    });
-                } else if(static::isPlaceholder($b)) {
-                    return static::_curry1(function ($_b) use($fn, $a) {
-                        return $fn($a, $_b);
-                    });
-                } else {
-                    return $fn($a, $b);
-                }
-            }
-        };
-    }
-
-    private static function _curry3($fn) {
-        return function($a = null, $b = null, $c = null) use ($fn) {
-        	$args = func_get_args();
-            switch (count($args)) {
-            case 0:
-                return $fn;
-            case 1:
-                return static::isPlaceholder($a) ? $fn : static::_curry2(function ($_b, $_c) use ($fn, $a) {
-                    return $fn($a, $_b, $_c);
-                });
-            case 2:
-                if (static::isPlaceholder($a) && static::isPlaceholder($b)) {
-                    return $fn;
-                } else {
-                    if (static::isPlaceholder($a)) {
-                        return static::_curry2(function ($_a, $_c) use ($fn, $b) {
-                            return $fn($_a, $b, $_c);
-                        });
-                    } else if (static::isPlaceholder($b)) {
-                        return static::_curry2(function ($_b, $_c) use ($fn, $a) {
-                            return $fn($a, $_b, $_c);
-                        });
-                    } else {
-                        return static::_curry1(function ($_c) use ($fn, $a, $b) {
-                            return $fn($a, $b, $_c);
-                        });
-                    }
-                }
-            default:
-                if (static::isPlaceholder($a) && static::isPlaceholder($b) && static::isPlaceholder($c)) {
-                    return $fn;
-                } else {
-                    if (static::isPlaceholder($a) && static::isPlaceholder($b)) {
-                        return static::_curry2(function ($_a, $_b) use ($fn, $c) {
-                            return $fn($_a, $_b, $c);
-                        });
-                    } else if (static::isPlaceholder($a) && static::isPlaceholder($c)) {
-                        return static::_curry2(function ($_a, $_c) use($fn, $b) {
-                            return $fn($_a, $b, $_c);
-                        });
-                    } else if (static::isPlaceholder($b) && static::isPlaceholder($c)) {
-                        return static::_curry2(function ($_b, $_c) use($fn, $a) {
-                            return $fn($a, $_b, $_c);
-                        });
-                    } else if (static::isPlaceholder($a)) {
-                        return static::_curry1(function ($_a) use($fn, $b, $c) {
-                            return $fn($_a, $b, $c);
-                        });
-                    } else if (static::isPlaceholder($b)) {
-                        return static::_curry1(function ($_b) use($fn, $a, $c) {
-                            return $fn($a, $_b, $c);
-                        });
-                    } else if (static::isPlaceholder($c)) {
-                        return static::_curry1(function ($_c) use($fn, $a, $b) {
-                            return $fn($a, $b, $_c);
-                        });
-                    } else {
-                        return $fn($a, $b, $c);
-                    }
-                }
-            }
-        };
-    }
-
     public static function filter(...$args) {
-        return static::_curry2(function($fn, $array) {
-            return array_values(array_filter($array, $fn, ARRAY_FILTER_USE_BOTH));
+        return _curry2(function($fn, $array) {
+            return _filter($fn, $array);
         })(...$args);
     }
 
     public static function each(...$args) {
-        return static::_curry2(function($fn, $array) {
+        return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
                 $fn($value, $key, $array);
             }
@@ -124,21 +29,21 @@ class F {
     }
 
     public static function map(...$args) {
-        return static::_curry2(function($fn, $array) {
-            return array_map($fn, $array);
+        return _curry2(function($fn, $array) {
+            return _map($fn, $array);
         })(...$args);
     }
 
     public static function flatMap(...$args) {
-        return static::_curry2(function($fn, $array) {
-            $results = array_map($fn, $array);
+        return _curry2(function($fn, $array) {
+            $results = _map($fn, $array);
 
             return empty($results) ? [] : array_merge(...$results);
         })(...$args);
     }
 
     public static function find(...$args) {
-        return static::_curry2(function($fn, $array) {
+        return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
                 if ($fn($value, $key, $array) === true) {
                     return $value;
@@ -150,7 +55,7 @@ class F {
     }
 
     public static function findIndex(...$args) {
-        return static::_curry2(function($fn, $array) {
+        return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
                 if ($fn($value, $key, $array) === true) {
                     return $key;
@@ -162,7 +67,7 @@ class F {
     }
 
     public static function some(...$args) {
-        return static::_curry2(function($fn, $array) {
+        return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
                 if ($fn($value, $key, $array) === true) {
                     return true;
@@ -174,7 +79,7 @@ class F {
     }
 
     public static function every(...$args) {
-        return static::_curry2(function($fn, $array) {
+        return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
                 if ($fn($value, $key, $array) === false) {
                     return false;
@@ -186,7 +91,7 @@ class F {
     }
 
     public static function sort(...$args) {
-        return static::_curry2(function($fn, $array) {
+        return _curry2(function($fn, $array) {
             $copiedArray = is_object($array)
                          ? json_decode( json_encode($array), true) // a bit dirty
                          : $array;
@@ -198,7 +103,7 @@ class F {
     }
 
     public static function reverse(...$args) {
-        return static::_curry1(function($array) {
+        return _curry1(function($array) {
             $copiedArray = is_object($array)
                          ? json_decode( json_encode($array), true) // a bit dirty
                          : $array;
@@ -208,13 +113,13 @@ class F {
     }
 
     public static function reduce(...$args) {
-        return static::_curry3(function($fn, $default, $array) {
-            return array_reduce($array, $fn, $default);
+        return _curry3(function($fn, $default, $array) {
+            return _reduce($fn, $array, $default);
         })(...$args);
     }
 
     public static function includes(...$args) {
-        return static::_curry2(function($value, $array) {
+        return _curry2(function($value, $array) {
             return in_array($value, $array);
         })(...$args);
     }
@@ -222,19 +127,19 @@ class F {
 
 
     public static function prop(...$args) {
-        return static::_curry2(function($prop, $obj) {
+        return _curry2(function($prop, $obj) {
             return $obj[$prop];
         })(...$args);
     }
 
     public static function propOr(...$args) {
-        return static::_curry3(function($prop, $default, $obj) {
+        return _curry3(function($prop, $default, $obj) {
             return array_key_exists($prop, $obj) ? $obj[$prop] : $default;
         })(...$args);
     }
 
     public static function pick(...$args) {
-        return static::_curry2(function($props, $obj) {
+        return _curry2(function($props, $obj) {
             $newObj = [];
             foreach ($props as $prop) {
                 $newObj[$prop] = $obj[$prop];
@@ -245,7 +150,7 @@ class F {
     }
 
     public static function uniq(...$args) {
-        return static::_curry1(function($arr) {
+        return _curry1(function($arr) {
             return array_values(array_unique($arr, SORT_REGULAR));
         })(...$args);
     }
@@ -257,23 +162,23 @@ class F {
     }
 
     public static function propEq(...$args) {
-        return static::_curry3(function($prop, $value, $obj) {
+        return _curry3(function($prop, $value, $obj) {
             return $obj[$prop] === $value;
         })(...$args);
     }
 
     public static function propSatisfies(...$args) {
-        return static::_curry3(function($fn, $prop, $obj) {
+        return _curry3(function($fn, $prop, $obj) {
             return $fn($obj[$prop]) === true;
         })(...$args);
     }
 
 
     public static function pipe(...$fns) {
-        return function ($x) use ($fns) {
-            return array_reduce($fns, function($acc, $fn) {
+        return function ($identity) use ($fns) {
+            return _reduce(function($acc, $fn) {
                 return $fn($acc);
-            }, $x);
+            }, $fns, $identity);
         };
     }
 
@@ -282,7 +187,7 @@ class F {
     }
 
     public static function partial(...$args) {
-        return static::_curry2(function($fn, $args) {
+        return _curry2(function($fn, $args) {
             return function() use ($fn, $args) {
                 return call_user_func_array($fn, array_merge($args, func_get_args()));
             };
@@ -290,8 +195,21 @@ class F {
     }
 
     public static function not(...$args) {
-        return static::_curry1(function($a) {
+        return _curry1(function($a) {
             return !$a;
         })(...$args);
     }
+
+    public static function toUpper(...$args) {
+        return _curry1(function($str) {
+            return strtoupper($str);
+        })(...$args);
+    }
+
+    public static function toLower(...$args) {
+        return _curry1(function($str) {
+            return strtolower($str);
+        })(...$args);
+    }
+
 }

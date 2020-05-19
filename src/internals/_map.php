@@ -1,6 +1,6 @@
 <?php
 
-function _map(Callable $fn, Traversable $array) {
+function _map(Callable $fn, iterable $array) {
     $result = [];
 
     foreach ($array as $key => $value) {
