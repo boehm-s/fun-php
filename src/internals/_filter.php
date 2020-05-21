@@ -1,10 +1,16 @@
 <?php
 
+require_once(realpath(dirname(__FILE__) . '/_arity.php'));
+
 function _filter(Callable $fn, iterable $array) {
     $result = [];
+    $fnArity = _arity($fn);
 
     foreach ($array as $key => $value) {
-        if ($fn($value, $key, $array)) {
+        $args = [$value, $key, $array];
+        $tailoredArgs = array_slice($args, 0, $fnArity);
+
+        if ($fn(...$tailoredArgs)) {
             $result[] = $value;
         }
     }
