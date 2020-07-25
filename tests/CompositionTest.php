@@ -102,7 +102,7 @@ final class CompositionTest extends TestCase
     {
         $ledzep_ids = [3, 4];
         $yellLedZepNames = F::compose(
-            F::map(F::toUpper()),
+            F::map('strtoupper'),
             F::map(F::prop('name')),
             F::filter(function($user) use ($ledzep_ids) {
                 return in_array($user['id'], $ledzep_ids);

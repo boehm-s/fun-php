@@ -200,16 +200,4 @@ class F {
         })(...$args);
     }
 
-    public static function toUpper(...$args) {
-        return _curry1(function($str) {
-            return strtoupper($str);
-        })(...$args);
-    }
-
-    public static function toLower(...$args) {
-        return _curry1(function($str) {
-            return strtolower($str);
-        })(...$args);
-    }
-
 }
