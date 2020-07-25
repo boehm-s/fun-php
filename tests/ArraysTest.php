@@ -41,6 +41,7 @@ final class ArraysTest extends TestCase
 
         $squared = $curried($this->numArray5);
         $this->assertEquals([1, 4, 9, 16, 25], $squared);
+
     }
 
     public function testFlatMap(): void

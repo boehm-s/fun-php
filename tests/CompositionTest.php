@@ -69,6 +69,34 @@ final class CompositionTest extends TestCase
         ]
     ];
 
+    private $jsonData = '
+[{
+    "id": 42,
+    "title": "Another travel in the wall",
+    "user_id": 45,
+    "items": [
+        { "type": 1,  "description": "Car travel item ..."},
+        { "type": 2,  "description": "Hotel travel item ..."},
+        { "type": 2,  "description": "Another Hotel ..."}
+    ]
+}, {
+    "id": 43,
+    "title": "This ain\'t the summer of travel",
+    "user_id": 1360,
+    "items": [
+        { "type": 2,  "description": "Hotel travel item ..."},
+        { "type": 3,  "description": "Flight travel item ..."}
+    ]
+}, {
+    "id": 44,
+    "title": "I\'d love to change the travel",
+    "user_id": 45,
+    "items": [
+        { "type": 2,  "description": "First hotel of the travel ..."},
+        { "type": 4,  "description": "Car travel item ..."},
+        { "type": 2,  "description": "Hotel travel item ..."}
+    ]
+}]';
 
     public function testCompose(): void
     {
@@ -129,5 +157,22 @@ final class CompositionTest extends TestCase
 
         $this->assertEquals($_add5, $add5);
         $this->assertEquals(15, $add5(10));
+    }
+
+    public function testMultipleDataProcessingBehaviors(): void
+    {
+        $travels = json_decode($this->jsonData, true);
+
+        $type2Items = F::flatMap(function ($travel, $i) {
+            return F::pipe(
+                F::prop('items'),
+                F::filter(F::propEq('type', 2)),
+                F::map(F::merge(['travel_index' => $i])) // keep index for faster access later
+            )($travel);
+        }, $travels);
+
+        $this->assertEquals(5, count($type2Items));
+
+        echo "\n" . json_encode($type2Items, JSON_PRETTY_PRINT);
     }
 }
