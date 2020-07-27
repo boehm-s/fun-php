@@ -14,17 +14,31 @@ require_once(realpath(dirname(__FILE__) . '/internals/_reduce.php'));
 class F {
     const _ = '@@fun-php/placeholder';
 
+    /**
+     * Takes a predicate and a `iterable` and returns an array containing the members
+     * of the given iterable which satisfy the given predicate
+     *
+     * @param Callable $predicate
+     * @param iterable $arr
+     * @return array
+     */
     public static function filter(...$args) {
         return _curry2(function($fn, $array) {
             return _filter($fn, $array);
         })(...$args);
     }
 
+    /**
+     * Iterate over an `iterable`, calling a provided function fn for each element.
+     *
+     *
+     */
     public static function each(...$args) {
         return _curry2(function($fn, $array) {
-            foreach ($array as $key => $value) {
-                $fn($value, $key, $array);
+            foreach ($array as $value) {
+                $fn($value);
             }
+            return $array;
         })(...$args);
     }
 

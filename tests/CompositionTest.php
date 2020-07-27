@@ -172,7 +172,5 @@ final class CompositionTest extends TestCase
         }, $travels);
 
         $this->assertEquals(5, count($type2Items));
-
-        echo "\n" . json_encode($type2Items, JSON_PRETTY_PRINT);
     }
 }

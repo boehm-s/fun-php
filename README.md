@@ -84,7 +84,7 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 | ---------  | ------------------------------------- | ------------ | ----------------------------------- |
 | *map*      | `((a, i, [a]) → b) → [a] → [b]`       | *flatMap*    | `((a, i, [a]) → [b]) → [a] → [b]`   |
 | *filter*   | `((a, i, [a]) → Bool) → [a] → [a]`    | *reduce*     | `((a, b) → a) → a → [b] → a`        |
-| *each*     | `((a, i, [a]) → ()) → [a] → ()`       |              |                                     |
+| *each*     | `a → [a] → [a]`                       |              |                                     |
 | *find*     | `((a, i, [a]) → Bool) → [a] → a`      | *findIndex*  | `((a, i, [a]) → Bool) → [a] → i`    |
 | *some*     | `((a, i, [a]) → Bool) → [a] → Bool`   | *every*      | `((a, i, [a]) → Bool) → [a] → Bool` |
 | *sort*     | `((a, a) → Bool) → [a] → [a]`         | *reverse*    | `[a] → [a]`                         |
