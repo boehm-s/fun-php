@@ -1,0 +1,90 @@
+\subsection*{What is it ?}
+
+
+\begin{DoxyItemize}
+\item It\textquotesingle{}s an {\bfseries easy-\/to-\/use} functional programming library for P\+HP
+\item It aim to be P\+HP\textquotesingle{}s Ramda, but with less functions since it\textquotesingle{}s just a side project.
+\item It\textquotesingle{}s a bunch of static functions in a class {\ttfamily F} that are very handy for maniuplating objects / arrays
+\end{DoxyItemize}
+
+\subsection*{Why ?}
+
+
+\begin{DoxyItemize}
+\item Because P\+HP lacks of simple and easy-\/to-\/use utilities for functional programming !
+\item To prove that we can still have fun with P\+HP (despite the fact that it\textquotesingle{}s P\+HP) !!!
+\end{DoxyItemize}
+
+\section*{Installation and Usage}
+
+Install the library using composer \+:
+
+
+\begin{DoxyCode}
+composer require boehm\_s/fun
+\end{DoxyCode}
+
+
+And then, import it in your files \+:
+
+
+\begin{DoxyCode}
+use \hyperlink{classboehm__s_1_1F}{boehm\_s\(\backslash\)F};
+\end{DoxyCode}
+
+
+Everything\textquotesingle{}s up and running, you can play with it !
+
+
+\begin{DoxyCode}
+$greetings = [
+    [\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}],
+    [\textcolor{stringliteral}{'how'}, \textcolor{stringliteral}{'are'}, \textcolor{stringliteral}{'you'}, \textcolor{charliteral}{'?'}]
+];
+
+$fn = F::compose(\textcolor{stringliteral}{'strtoupper'}, F::partial(\textcolor{stringliteral}{'implode'}, [\textcolor{charliteral}{' '}]));
+$values = F::map($fn, $greetings);
+
+echo $values[0]; \textcolor{comment}{// "HELLO WORLD !"}
+\end{DoxyCode}
+
+
+\section*{Philosophy}
+
+Using {\itshape fun-\/php} should be as painless as possible \+: no weird syntax, no O\+OP syntax, just functions (everywhere) !
+
+As with Ramda, all the functions are automatically curried, and data comes last so you can easely compose them. Also, placeholders are implemented ! It means that the followings are equivalent \+:
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// F::\_ is the placeholder}
+
+F::map(\textcolor{stringliteral}{'strtoupper'}, [\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}]);
+F::map(\textcolor{stringliteral}{'strtoupper'})([\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}]);
+F::map(F::\_, [\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}])(\textcolor{stringliteral}{'strtoupper'});
+\end{DoxyCode}
+
+
+\section*{Documentation}
+
+Please review the \href{/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864}{\tt A\+PI documentation}
+
+\section*{Running the test suite}
+
+To run the test suite, you\textquotesingle{}ll need {\ttfamily composer} to be installed.
+
+Then, install the dependencies (phpunit) \+:
+
+
+\begin{DoxyCode}
+composer install
+\end{DoxyCode}
+
+
+And run the test \+:
+
+
+\begin{DoxyCode}
+composer test
+\end{DoxyCode}
+ 

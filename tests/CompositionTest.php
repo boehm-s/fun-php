@@ -172,7 +172,18 @@ final class CompositionTest extends TestCase
         }, $travels);
 
         $this->assertEquals(5, count($type2Items));
+    }
 
-        echo "\n" . json_encode($type2Items, JSON_PRETTY_PRINT);
+    public function testDocExample(): void
+    {
+        $greetings = [
+            ['hello', 'world', '!'],
+            ['how', 'are', 'you', '?']
+        ];
+        $fn = F::compose('strtoupper', F::partial('implode', [' ']));
+        $values = F::map($fn, $greetings);
+
+        $this->assertEquals('HELLO WORLD !', $values[0]);
+        $this->assertEquals('HOW ARE YOU ?', $values[1]);
     }
 }

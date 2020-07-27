@@ -7,6 +7,7 @@
       <file> ./tests/PlaceholderTest.php </file>
       <file> ./tests/ObjectsTest.php</file>
       <file> ./tests/CompositionTest.php</file>
+      <file> ./tests/SpecialUseCasesTest.php</file>
     </testsuite>
   </testsuites>
 
