@@ -16,7 +16,7 @@ class F {
 
     /**
      * Takes a predicate and a `iterable` and returns an array containing the members
-     * of the given iterable which satisfy the given predicate
+     * of the given iterable which satisfy the given predicate.
      *
      * @param Callable $predicate
      * @param iterable $arr
@@ -29,9 +29,12 @@ class F {
     }
 
     /**
-     * Iterate over an `iterable`, calling a provided function fn for each element.
+     * Iterate over an `iterable`, calling a provided function $fn for each element.
+     * Returns the original array
      *
-     *
+     * @param Callable $fn
+     * @param iterable $arr
+     * @return array
      */
     public static function each(...$args) {
         return _curry2(function($fn, $array) {
@@ -42,12 +45,28 @@ class F {
         })(...$args);
     }
 
+    /**
+     * Takes a function and a `iterable` and returns an array containing the results
+     * of function applied to each iterable values.
+     *
+     * @param Callable $fn
+     * @param iterable $arr
+     * @return array
+     */
     public static function map(...$args) {
         return _curry2(function($fn, $array) {
             return _map($fn, $array);
         })(...$args);
     }
 
+    /**
+     * Takes a function and a `iterable`, apply the function to each of the iterable
+     * value and then flatten the result.
+     *
+     * @param Callable $fn
+     * @param iterable $arr
+     * @return array
+     */
     public static function flatMap(...$args) {
         return _curry2(function($fn, $array) {
             $results = _map($fn, $array);
@@ -56,6 +75,14 @@ class F {
         })(...$args);
     }
 
+    /**
+     * Returns the first element of the list which matches the predicate, or null if
+     * no element matches.
+     *
+     * @param Callable $predicate
+     * @param iterable $arr
+     * @return array
+     */
     public static function find(...$args) {
         return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
@@ -68,6 +95,14 @@ class F {
         })(...$args);
     }
 
+    /**
+     * Returns the index of the first element of the list which matches the predicate,
+     * or null if no element matches.
+     *
+     * @param Callable $predicate
+     * @param iterable $arr
+     * @return array
+     */
     public static function findIndex(...$args) {
         return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
