@@ -115,6 +115,14 @@ class F {
         })(...$args);
     }
 
+    /**
+     * Takes a predicate and a `iterable` and returns true if one of the
+     * iterable members satisfies the predicate
+     *
+     * @param Callable $predicate
+     * @param iterable $arr
+     * @return bool
+     */
     public static function some(...$args) {
         return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
@@ -127,6 +135,14 @@ class F {
         })(...$args);
     }
 
+    /**
+     * Takes a predicate and a `iterable` and returns true if all of the
+     * iterable members satisfies the predicate
+     *
+     * @param Callable $predicate
+     * @param iterable $arr
+     * @return bool
+     */
     public static function every(...$args) {
         return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
@@ -139,23 +155,32 @@ class F {
         })(...$args);
     }
 
+    /**
+     * Takes a comparison function and an array (NO OBJECTS) and return a copy of the array
+     * sorted according to the comparison function
+     *
+     * @param Callable $fn
+     * @param array $arr
+     * @return array
+     */
     public static function sort(...$args) {
         return _curry2(function($fn, $array) {
-            $copiedArray = is_object($array)
-                         ? json_decode( json_encode($array), true) // a bit dirty
-                         : $array;
-
+            $copiedArray = $array;
             usort($copiedArray, $fn);
             return $copiedArray;
 
         })(...$args);
     }
 
+    /**
+     * Takes an array (NO OBJECTS) and returns a reversed copy of the array
+     *
+     * @param array $arr
+     * @return array
+     */
     public static function reverse(...$args) {
         return _curry1(function($array) {
-            $copiedArray = is_object($array)
-                         ? json_decode( json_encode($array), true) // a bit dirty
-                         : $array;
+            $copiedArray = $array;
 
             return array_reverse($copiedArray);
         })(...$args);
