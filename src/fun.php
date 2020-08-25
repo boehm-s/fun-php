@@ -30,7 +30,7 @@ class F {
 
     /**
      * Iterate over an `iterable`, calling a provided function $fn for each element.
-     * Returns the original array
+     * Returns the original array.
      *
      * @param Callable $fn
      * @param iterable $arr
@@ -117,7 +117,7 @@ class F {
 
     /**
      * Takes a predicate and a `iterable` and returns true if one of the
-     * iterable members satisfies the predicate
+     * iterable members satisfies the predicate.
      *
      * @param Callable $predicate
      * @param iterable $arr
@@ -137,7 +137,7 @@ class F {
 
     /**
      * Takes a predicate and a `iterable` and returns true if all of the
-     * iterable members satisfies the predicate
+     * iterable members satisfies the predicate.
      *
      * @param Callable $predicate
      * @param iterable $arr
@@ -157,7 +157,7 @@ class F {
 
     /**
      * Takes a comparison function and an array (NO OBJECTS) and return a copy of the array
-     * sorted according to the comparison function
+     * sorted according to the comparison function.
      *
      * @param Callable $fn
      * @param array $arr
@@ -173,7 +173,7 @@ class F {
     }
 
     /**
-     * Takes an array (NO OBJECTS) and returns a reversed copy of the array
+     * Takes an array (NO OBJECTS) and returns a reversed copy of the array.
      *
      * @param array $arr
      * @return array
@@ -186,12 +186,29 @@ class F {
         })(...$args);
     }
 
+    /**
+     * Takes an iterable, a function and a starting (or default) value. Reduces the iterable to a single
+     * value by successively calling the function, passing it an accumulator value and the current value
+     * from the iterable, and then passing the result to the next call.
+     *
+     * @param Callable $fn
+     * @param mixed $arr
+     * @param iterable $arr
+     * @return mixed
+     */
     public static function reduce(...$args) {
         return _curry3(function($fn, $default, $array) {
             return _reduce($fn, $array, $default);
         })(...$args);
     }
 
+    /**
+     * Takes a value and an array. Returns true if the value is in the array and false otherwise.
+     *
+     * @param mixed $needle
+     * @param array $haystack
+     * @return bool
+     */
     public static function includes(...$args) {
         return _curry2(function($value, $array) {
             return in_array($value, $array);
@@ -199,19 +216,42 @@ class F {
     }
 
 
-
+    /**
+     * Takes a property and an array and returns the array's property value.
+     *
+     * @param string | int $prop
+     * @param array $array
+     * @return mixed
+     */
     public static function prop(...$args) {
         return _curry2(function($prop, $obj) {
             return $obj[$prop];
         })(...$args);
     }
 
+    /**
+     * Takes a property, an array and a default value. Returns the array's property value if it
+     * exists and the default value otherwise.
+     *
+     * @param string | int $prop
+     * @param mixed $default
+     * @param array $array
+     * @return mixed
+     */
     public static function propOr(...$args) {
         return _curry3(function($prop, $default, $obj) {
             return array_key_exists($prop, $obj) ? $obj[$prop] : $default;
         })(...$args);
     }
 
+    /**
+     * Takes a list of properties and an (associative) array. Returns a partial copy of the
+     * (associative) array containing only the keys specified.
+     *
+     * @param array $props
+     * @param array $array
+     * @return array
+     */
     public static function pick(...$args) {
         return _curry2(function($props, $obj) {
             $newObj = [];
