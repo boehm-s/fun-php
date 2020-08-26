@@ -263,24 +263,57 @@ class F {
         })(...$args);
     }
 
+    /**
+     * Takes an array and returns a new array containing only one copy of each element in the original one.
+     * Warning : re-indexes the array.
+     *
+     * @param array $array
+     * @return array
+     */
     public static function uniq(...$args) {
         return _curry1(function($arr) {
             return array_values(array_unique($arr, SORT_REGULAR));
         })(...$args);
     }
 
+    /**
+     * Takes an (associative) array and at leat one other (variadic on the second argument) and returns
+     * all these arrays merged together.
+     *
+     * @param array $array1
+     * @param array[] ...$array2
+     * @return array
+     */
     public static function merge($obj, ...$objs) {
         return empty($objs)
             ? function(...$objs) use ($obj) { return array_merge($obj, ...$objs); }
             : array_merge($obj, ...$objs);
     }
 
+    /**
+     * Takes a property, a value and an (associative) array. Returns true if the specified array property is
+     * equal to the supplied value and false otherwise.
+     *
+     * @param string $prop
+     * @param mixed $value
+     * @param array $array
+     * @return bool
+     */
     public static function propEq(...$args) {
         return _curry3(function($prop, $value, $obj) {
             return $obj[$prop] === $value;
         })(...$args);
     }
 
+    /**
+     * Takes a predicate, a property and an (associative) array. Returns true if the specified array property
+     * matches the predicate and false otherwise.
+     *
+     * @param callable $predicate
+     * @param mixed $prop
+     * @param array $array
+     * @return bool
+     */
     public static function propSatisfies(...$args) {
         return _curry3(function($fn, $prop, $obj) {
             return $fn($obj[$prop]) === true;
