@@ -18,7 +18,7 @@ class F {
      * Takes a predicate and a `iterable` and returns an array containing the members
      * of the given iterable which satisfy the given predicate.
      *
-     * @param Callable $predicate
+     * @param callable $predicate
      * @param iterable $arr
      * @return array
      */
@@ -32,7 +32,7 @@ class F {
      * Iterate over an `iterable`, calling a provided function $fn for each element.
      * Returns the original array.
      *
-     * @param Callable $fn
+     * @param callable $fn
      * @param iterable $arr
      * @return array
      */
@@ -49,7 +49,7 @@ class F {
      * Takes a function and a `iterable` and returns an array containing the results
      * of function applied to each iterable values.
      *
-     * @param Callable $fn
+     * @param callable $fn
      * @param iterable $arr
      * @return array
      */
@@ -63,7 +63,7 @@ class F {
      * Takes a function and a `iterable`, apply the function to each of the iterable
      * value and then flatten the result.
      *
-     * @param Callable $fn
+     * @param callable $fn
      * @param iterable $arr
      * @return array
      */
@@ -79,7 +79,7 @@ class F {
      * Returns the first element of the list which matches the predicate, or null if
      * no element matches.
      *
-     * @param Callable $predicate
+     * @param callable $predicate
      * @param iterable $arr
      * @return array
      */
@@ -99,7 +99,7 @@ class F {
      * Returns the index of the first element of the list which matches the predicate,
      * or null if no element matches.
      *
-     * @param Callable $predicate
+     * @param callable $predicate
      * @param iterable $arr
      * @return array
      */
@@ -119,7 +119,7 @@ class F {
      * Takes a predicate and a `iterable` and returns true if one of the
      * iterable members satisfies the predicate.
      *
-     * @param Callable $predicate
+     * @param callable $predicate
      * @param iterable $arr
      * @return bool
      */
@@ -139,7 +139,7 @@ class F {
      * Takes a predicate and a `iterable` and returns true if all of the
      * iterable members satisfies the predicate.
      *
-     * @param Callable $predicate
+     * @param callable $predicate
      * @param iterable $arr
      * @return bool
      */
@@ -159,7 +159,7 @@ class F {
      * Takes a comparison function and an array (NO OBJECTS) and return a copy of the array
      * sorted according to the comparison function.
      *
-     * @param Callable $fn
+     * @param callable $fn
      * @param array $arr
      * @return array
      */
@@ -191,7 +191,7 @@ class F {
      * value by successively calling the function, passing it an accumulator value and the current value
      * from the iterable, and then passing the result to the next call.
      *
-     * @param Callable $fn
+     * @param callable $fn
      * @param mixed $arr
      * @param iterable $arr
      * @return mixed
@@ -320,7 +320,12 @@ class F {
         })(...$args);
     }
 
-
+    /**
+     * Performs left-to-right function composition. Like the unix pipe (|). All the function must be unary.
+     *
+     * @param callable[] ...$fns
+     * @return callable
+     */
     public static function pipe(...$fns) {
         return function ($identity) use ($fns) {
             return _reduce(function($acc, $fn) {
@@ -329,10 +334,24 @@ class F {
         };
     }
 
+    /**
+     * Performs right-to-left function composition. Like the unix pipe (|). All the function must be unary.
+     *
+     * @param callable[] ...$fns
+     * @return callable
+     */
     public static function compose(...$fns) {
         return static::pipe(...array_reverse($fns));
     }
 
+    /**
+     * Takes a function and an array of arguments. Applies the arguments to the function and returns a new
+     * function awaiting the rest of the arguments.
+     *
+     * @param callable $fn
+     * @param array $args
+     * @return callable
+     */
     public static function partial(...$args) {
         return _curry2(function($fn, $args) {
             return function() use ($fn, $args) {
@@ -341,6 +360,12 @@ class F {
         })(...$args);
     }
 
+    /**
+     * Takes a value and returns the it's `!` (NOT Logical operator). Returns true when passed a falsy value, and false when passed a truthy one.
+     *
+     * @param mixed $value
+     * @return bool
+     */
     public static function not(...$args) {
         return _curry1(function($a) {
             return !$a;
