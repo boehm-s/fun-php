@@ -1,10 +1,10 @@
 <?php
 /**
- * fun-php | Bringing FP th PHP
- *
- * @package boehm_s\fun-php
+ * @brief fun-php | Bringing FP th PHP
+ * @file fun.php
  * @author  Steven BOEHM <steven.boehm.dev@gmail.com>
- * @version v1.2.1 (18/08/2020)
+ * @package boehm_s\fun-php
+ * @version v1.2.1
  */
 
 namespace boehm_s;
@@ -18,7 +18,7 @@ require_once(realpath(dirname(__FILE__) . '/internals/_map.php'));
 require_once(realpath(dirname(__FILE__) . '/internals/_reduce.php'));
 
 /**
- * Class F - fun.php
+ * @brief Class F - fun.php
  *
  * Contains all the methods to be used
  */

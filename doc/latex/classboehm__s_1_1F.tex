@@ -1,0 +1,487 @@
+\hypertarget{classboehm__s_1_1F}{}\section{boehm\+\_\+s\textbackslash{}F Class Reference}
+\label{classboehm__s_1_1F}\index{boehm\+\_\+s\textbackslash{}F@{boehm\+\_\+s\textbackslash{}F}}
+
+
+Class \hyperlink{classboehm__s_1_1F}{F} -\/ \hyperlink{fun_8php}{fun.\+php}.  
+
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classboehm__s_1_1F_a80fe06fb52d10a68a0d6b36ca821463f}{filter} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_adf594aee11edbf796efae99d00dc8f46}{each} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a5b9016a3452e48e05c20c3ca94e5b4e8}{map} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a92bf70afadb55e6b39bad69909c6e697}{flat\+Map} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a68db344c2eabeb0f3139ec3000a8b039}{find} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a385a847258b151462eb4fa8e6e06a069}{find\+Index} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_aee63ff04d9ecde792865a5435a6e8cc9}{some} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a559bfb165c4ec768a49830173fa709e3}{every} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a742910125ee71afd3149a16262506600}{sort} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a560daa6ae48b7a41c82c6e42e747ec6a}{reverse} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a110a6463a6551b88915ed3ce87d56fb3}{reduce} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_aa695a4a8ea655ab5d7011f205eb49de7}{includes} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a6c075d73d686e5bb71456a03e13d6d16}{prop} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a0b5ab6c3448ef372f531576bc390d88a}{prop\+Or} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a1ed294c2887f1f3bb520236a993259fd}{pick} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a9015b4c01377f2a42e1ec9069f79d9e4}{uniq} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_ac833c309186225e5587fd45dfef22aca}{merge} (\$obj,... \$objs)
+\item 
+static \hyperlink{classboehm__s_1_1F_ada046f8c33b77f3d3ca40e12bc42c5db}{prop\+Eq} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a6d71ddfdd2b6c90fe356808bd332bb3f}{prop\+Satisfies} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a353205345113144a6fd6f874097377bc}{pipe} (... \$fns)
+\item 
+static \hyperlink{classboehm__s_1_1F_a1712c41e5be41e6f6e2088ed5d54a864}{compose} (... \$fns)
+\item 
+static \hyperlink{classboehm__s_1_1F_ab29a37d2aca75028895148da5da15b4b}{partial} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a0cf3df6448dbfa748f755494974d13ab}{not} (... \$args)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}\label{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}} 
+const {\bfseries \+\_\+} = \textquotesingle{}@@fun-\/php/placeholder\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \hyperlink{classboehm__s_1_1F}{F} -\/ \hyperlink{fun_8php}{fun.\+php}. 
+
+Contains all the methods to be used 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classboehm__s_1_1F_a1712c41e5be41e6f6e2088ed5d54a864}\label{classboehm__s_1_1F_a1712c41e5be41e6f6e2088ed5d54a864}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!compose@{compose}}
+\index{compose@{compose}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{compose()}{compose()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::compose (\begin{DoxyParamCaption}\item[{}]{\$fns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Performs right-\/to-\/left function composition. Like the unix pipe ($\vert$). All the function must be unary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em callable\mbox{[}$\,$\mbox{]}} & ...\$fns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+callable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_adf594aee11edbf796efae99d00dc8f46}\label{classboehm__s_1_1F_adf594aee11edbf796efae99d00dc8f46}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!each@{each}}
+\index{each@{each}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{each()}{each()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::each (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Iterate over an {\ttfamily iterable}, calling a provided function \$fn for each element. Returns the original array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$fn} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a559bfb165c4ec768a49830173fa709e3}\label{classboehm__s_1_1F_a559bfb165c4ec768a49830173fa709e3}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!every@{every}}
+\index{every@{every}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{every()}{every()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::every (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a predicate and a {\ttfamily iterable} and returns true if all of the iterable members satisfies the predicate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$predicate} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a80fe06fb52d10a68a0d6b36ca821463f}\label{classboehm__s_1_1F_a80fe06fb52d10a68a0d6b36ca821463f}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!filter@{filter}}
+\index{filter@{filter}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{filter()}{filter()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::filter (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a predicate and a {\ttfamily iterable} and returns an array containing the members of the given iterable which satisfy the given predicate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$predicate} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a68db344c2eabeb0f3139ec3000a8b039}\label{classboehm__s_1_1F_a68db344c2eabeb0f3139ec3000a8b039}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!find@{find}}
+\index{find@{find}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::find (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns the first element of the list which matches the predicate, or null if no element matches.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$predicate} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a385a847258b151462eb4fa8e6e06a069}\label{classboehm__s_1_1F_a385a847258b151462eb4fa8e6e06a069}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!find\+Index@{find\+Index}}
+\index{find\+Index@{find\+Index}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{find\+Index()}{findIndex()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::find\+Index (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns the index of the first element of the list which matches the predicate, or null if no element matches.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$predicate} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a92bf70afadb55e6b39bad69909c6e697}\label{classboehm__s_1_1F_a92bf70afadb55e6b39bad69909c6e697}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!flat\+Map@{flat\+Map}}
+\index{flat\+Map@{flat\+Map}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{flat\+Map()}{flatMap()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::flat\+Map (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a function and a {\ttfamily iterable}, apply the function to each of the iterable value and then flatten the result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$fn} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_aa695a4a8ea655ab5d7011f205eb49de7}\label{classboehm__s_1_1F_aa695a4a8ea655ab5d7011f205eb49de7}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!includes@{includes}}
+\index{includes@{includes}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{includes()}{includes()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::includes (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a value and an array. Returns true if the value is in the array and false otherwise.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$needle} & \\
+\hline
+array & {\em \$haystack} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a5b9016a3452e48e05c20c3ca94e5b4e8}\label{classboehm__s_1_1F_a5b9016a3452e48e05c20c3ca94e5b4e8}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!map@{map}}
+\index{map@{map}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{map()}{map()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::map (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a function and a {\ttfamily iterable} and returns an array containing the results of function applied to each iterable values.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$fn} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_ac833c309186225e5587fd45dfef22aca}\label{classboehm__s_1_1F_ac833c309186225e5587fd45dfef22aca}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!merge@{merge}}
+\index{merge@{merge}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::merge (\begin{DoxyParamCaption}\item[{}]{\$obj,  }\item[{}]{\$objs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes an (associative) array and at leat one other (variadic on the second argument) and returns all these arrays merged together.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$array1} & \\
+\hline
+ & {\em array\mbox{[}$\,$\mbox{]}} & ...\$array2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a0cf3df6448dbfa748f755494974d13ab}\label{classboehm__s_1_1F_a0cf3df6448dbfa748f755494974d13ab}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!not@{not}}
+\index{not@{not}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{not()}{not()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::not (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a value and returns the it\textquotesingle{}s {\ttfamily !} (N\+OT Logical operator). Returns true when passed a falsy value, and false when passed a truthy one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_ab29a37d2aca75028895148da5da15b4b}\label{classboehm__s_1_1F_ab29a37d2aca75028895148da5da15b4b}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!partial@{partial}}
+\index{partial@{partial}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{partial()}{partial()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::partial (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a function and an array of arguments. Applies the arguments to the function and returns a new function awaiting the rest of the arguments.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$fn} & \\
+\hline
+array & {\em \$args} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+callable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a1ed294c2887f1f3bb520236a993259fd}\label{classboehm__s_1_1F_a1ed294c2887f1f3bb520236a993259fd}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!pick@{pick}}
+\index{pick@{pick}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{pick()}{pick()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::pick (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a list of properties and an (associative) array. Returns a partial copy of the (associative) array containing only the keys specified.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$props} & \\
+\hline
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a353205345113144a6fd6f874097377bc}\label{classboehm__s_1_1F_a353205345113144a6fd6f874097377bc}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!pipe@{pipe}}
+\index{pipe@{pipe}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{pipe()}{pipe()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::pipe (\begin{DoxyParamCaption}\item[{}]{\$fns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Performs left-\/to-\/right function composition. Like the unix pipe ($\vert$). All the function must be unary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em callable\mbox{[}$\,$\mbox{]}} & ...\$fns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+callable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a6c075d73d686e5bb71456a03e13d6d16}\label{classboehm__s_1_1F_a6c075d73d686e5bb71456a03e13d6d16}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!prop@{prop}}
+\index{prop@{prop}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{prop()}{prop()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::prop (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a property and an array and returns the array\textquotesingle{}s property value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string  |  int & {\em \$prop} & \\
+\hline
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_ada046f8c33b77f3d3ca40e12bc42c5db}\label{classboehm__s_1_1F_ada046f8c33b77f3d3ca40e12bc42c5db}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!prop\+Eq@{prop\+Eq}}
+\index{prop\+Eq@{prop\+Eq}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{prop\+Eq()}{propEq()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::prop\+Eq (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a property, a value and an (associative) array. Returns true if the specified array property is equal to the supplied value and false otherwise.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$prop} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a0b5ab6c3448ef372f531576bc390d88a}\label{classboehm__s_1_1F_a0b5ab6c3448ef372f531576bc390d88a}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!prop\+Or@{prop\+Or}}
+\index{prop\+Or@{prop\+Or}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{prop\+Or()}{propOr()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::prop\+Or (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a property, an array and a default value. Returns the array\textquotesingle{}s property value if it exists and the default value otherwise.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string  |  int & {\em \$prop} & \\
+\hline
+mixed & {\em \$default} & \\
+\hline
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a6d71ddfdd2b6c90fe356808bd332bb3f}\label{classboehm__s_1_1F_a6d71ddfdd2b6c90fe356808bd332bb3f}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!prop\+Satisfies@{prop\+Satisfies}}
+\index{prop\+Satisfies@{prop\+Satisfies}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{prop\+Satisfies()}{propSatisfies()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::prop\+Satisfies (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a predicate, a property and an (associative) array. Returns true if the specified array property matches the predicate and false otherwise.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$predicate} & \\
+\hline
+mixed & {\em \$prop} & \\
+\hline
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a110a6463a6551b88915ed3ce87d56fb3}\label{classboehm__s_1_1F_a110a6463a6551b88915ed3ce87d56fb3}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!reduce@{reduce}}
+\index{reduce@{reduce}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{reduce()}{reduce()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::reduce (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes an iterable, a function and a starting (or default) value. Reduces the iterable to a single value by successively calling the function, passing it an accumulator value and the current value from the iterable, and then passing the result to the next call.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$fn} & \\
+\hline
+mixed & {\em \$arr} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a560daa6ae48b7a41c82c6e42e747ec6a}\label{classboehm__s_1_1F_a560daa6ae48b7a41c82c6e42e747ec6a}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!reverse@{reverse}}
+\index{reverse@{reverse}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::reverse (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes an array (NO O\+B\+J\+E\+C\+TS) and returns a reversed copy of the array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_aee63ff04d9ecde792865a5435a6e8cc9}\label{classboehm__s_1_1F_aee63ff04d9ecde792865a5435a6e8cc9}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!some@{some}}
+\index{some@{some}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{some()}{some()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::some (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a predicate and a {\ttfamily iterable} and returns true if one of the iterable members satisfies the predicate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$predicate} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a742910125ee71afd3149a16262506600}\label{classboehm__s_1_1F_a742910125ee71afd3149a16262506600}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!sort@{sort}}
+\index{sort@{sort}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::sort (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a comparison function and an array (NO O\+B\+J\+E\+C\+TS) and return a copy of the array sorted according to the comparison function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$fn} & \\
+\hline
+array & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a9015b4c01377f2a42e1ec9069f79d9e4}\label{classboehm__s_1_1F_a9015b4c01377f2a42e1ec9069f79d9e4}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!uniq@{uniq}}
+\index{uniq@{uniq}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{uniq()}{uniq()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::uniq (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes an array and returns a new array containing only one copy of each element in the original one. Warning \+: re-\/indexes the array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{fun_8php}{fun.\+php}\end{DoxyCompactItemize}
