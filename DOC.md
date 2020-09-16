@@ -43,5 +43,18 @@ echo $values[0]; // "HELLO WORLD !"
 
 # Philosophy
 
+Using *fun-php* should be as painless as possible : no weird syntax, no OOP syntax, just functions (everywhere) !
+
+As with Ramda, all the functions are automatically curried, and data comes last so you can easely compose them. Also, placeholders are implemented !
+It means that the followings are equivalent : 
+
+```
+// F::_ is the placeholder
+F::map('strtoupper', ['hello', 'world', '!']);
+F::map('strtoupper')(['hello', 'world', '!']);
+F::map(F::_, ['hello', 'world', '!'])('strtoupper');
+```
+
+# Documentation
 
 # Running the test suite
