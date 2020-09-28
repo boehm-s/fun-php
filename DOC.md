@@ -50,6 +50,7 @@ It means that the followings are equivalent :
 
 ```
 // F::_ is the placeholder
+
 F::map('strtoupper', ['hello', 'world', '!']);
 F::map('strtoupper')(['hello', 'world', '!']);
 F::map(F::_, ['hello', 'world', '!'])('strtoupper');
