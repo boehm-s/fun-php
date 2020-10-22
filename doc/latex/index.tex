@@ -1,5 +1,3 @@
-functional programming utilities for P\+HP !
-
 \subsection*{What is it ?}
 
 
@@ -31,7 +29,7 @@ And then, import it in your files \+:
 
 
 \begin{DoxyCode}
-use boehm\_s\(\backslash\)F;
+use \hyperlink{classboehm__s_1_1F}{boehm\_s\(\backslash\)F};
 \end{DoxyCode}
 
 
@@ -40,14 +38,14 @@ Everything\textquotesingle{}s up and running, you can play with it !
 
 \begin{DoxyCode}
 $greetings = [
-    ['hello', 'world', '!'],
-    ['how', 'are', 'you', '?']
+    [\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}],
+    [\textcolor{stringliteral}{'how'}, \textcolor{stringliteral}{'are'}, \textcolor{stringliteral}{'you'}, \textcolor{charliteral}{'?'}]
 ];
 
-$fn = F::compose('strtoupper', F::partial('implode', [' ']));
+$fn = F::compose(\textcolor{stringliteral}{'strtoupper'}, F::partial(\textcolor{stringliteral}{'implode'}, [\textcolor{charliteral}{' '}]));
 $values = F::map($fn, $greetings);
 
-echo $values[0]; // "HELLO WORLD !"
+echo $values[0]; \textcolor{comment}{// "HELLO WORLD !"}
 \end{DoxyCode}
 
 
@@ -59,14 +57,34 @@ As with Ramda, all the functions are automatically curried, and data comes last 
 
 
 \begin{DoxyCode}
-// F::\_ is the placeholder
+\textcolor{comment}{// F::\_ is the placeholder}
 
-F::map('strtoupper', ['hello', 'world', '!']);
-F::map('strtoupper')(['hello', 'world', '!']);
-F::map(F::\_, ['hello', 'world', '!'])('strtoupper');
+F::map(\textcolor{stringliteral}{'strtoupper'}, [\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}]);
+F::map(\textcolor{stringliteral}{'strtoupper'})([\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}]);
+F::map(F::\_, [\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}])(\textcolor{stringliteral}{'strtoupper'});
 \end{DoxyCode}
 
 
 \section*{Documentation}
 
+Please review the \href{/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864}{\tt A\+PI documentation}
+
 \section*{Running the test suite}
+
+To run the test suite, you\textquotesingle{}ll need {\ttfamily composer} to be installed.
+
+Then, install the dependencies (phpunit) \+:
+
+
+\begin{DoxyCode}
+composer install
+\end{DoxyCode}
+
+
+And run the test \+:
+
+
+\begin{DoxyCode}
+composer test
+\end{DoxyCode}
+ 

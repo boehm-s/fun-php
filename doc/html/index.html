@@ -27,7 +27,7 @@
 				<tbody>
 					<tr style="height: 56px;">
 						<td id="projectalign" style="padding-left: 0.5em;">
-							<div id="projectname">fun-php
+							<div id="projectname" onclick='window.location.href = "/";'>fun-php
 								&#160;<span id="projectnumber">1.2</span>
 							</div>
 							<div id="projectbrief">functional programming utilities for PHP</div>
@@ -47,6 +47,9 @@
           </span>
         </div>
 </td>
+            <td><a href="/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864"> API Documentation </a></td>
+            <td><a href="https://github.com/boehm-s/fun-php"> On Github </a></td>
+            <td><a href="https://medium.com/swlh/functional-programming-in-php-why-not-291ded3a3bec"> Functional programming with PHP </a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -76,8 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">fun-php </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>functional programming utilities for PHP !</p>
-<h2>What is it ?</h2>
+<div class="textblock"><h2>What is it ?</h2>
 <ul>
 <li>It's an <b>easy-to-use</b> functional programming library for PHP</li>
 <li>It aim to be PHP's Ramda, but with less functions since it's just a side project.</li>
@@ -91,13 +93,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1>Installation and Usage</h1>
 <p>Install the library using composer :</p>
 <div class="fragment"><div class="line">composer require boehm_s/fun</div></div><!-- fragment --><p>And then, import it in your files :</p>
-<div class="fragment"><div class="line">use boehm_s\F;</div></div><!-- fragment --><p>Everything's up and running, you can play with it !</p>
-<div class="fragment"><div class="line">$greetings = [</div><div class="line">    [&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;],</div><div class="line">    [&#39;how&#39;, &#39;are&#39;, &#39;you&#39;, &#39;?&#39;]</div><div class="line">];</div><div class="line"></div><div class="line">$fn = F::compose(&#39;strtoupper&#39;, F::partial(&#39;implode&#39;, [&#39; &#39;]));</div><div class="line">$values = F::map($fn, $greetings);</div><div class="line"></div><div class="line">echo $values[0]; // &quot;HELLO WORLD !&quot;</div></div><!-- fragment --><h1>Philosophy</h1>
+<div class="fragment"><div class="line">use <a class="code" href="classboehm__s_1_1F.html">boehm_s\F</a>;</div></div><!-- fragment --><p>Everything's up and running, you can play with it !</p>
+<div class="fragment"><div class="line">$greetings = [</div><div class="line">    [<span class="stringliteral">&#39;hello&#39;</span>, <span class="stringliteral">&#39;world&#39;</span>, <span class="charliteral">&#39;!&#39;</span>],</div><div class="line">    [<span class="stringliteral">&#39;how&#39;</span>, <span class="stringliteral">&#39;are&#39;</span>, <span class="stringliteral">&#39;you&#39;</span>, <span class="charliteral">&#39;?&#39;</span>]</div><div class="line">];</div><div class="line"></div><div class="line">$fn = F::compose(<span class="stringliteral">&#39;strtoupper&#39;</span>, F::partial(<span class="stringliteral">&#39;implode&#39;</span>, [<span class="charliteral">&#39; &#39;</span>]));</div><div class="line">$values = F::map($fn, $greetings);</div><div class="line"></div><div class="line">echo $values[0]; <span class="comment">// &quot;HELLO WORLD !&quot;</span></div></div><!-- fragment --><h1>Philosophy</h1>
 <p>Using <em>fun-php</em> should be as painless as possible : no weird syntax, no OOP syntax, just functions (everywhere) !</p>
 <p>As with Ramda, all the functions are automatically curried, and data comes last so you can easely compose them. Also, placeholders are implemented ! It means that the followings are equivalent :</p>
-<div class="fragment"><div class="line">// F::_ is the placeholder</div><div class="line"></div><div class="line">F::map(&#39;strtoupper&#39;, [&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;]);</div><div class="line">F::map(&#39;strtoupper&#39;)([&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;]);</div><div class="line">F::map(F::_, [&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;])(&#39;strtoupper&#39;);</div></div><!-- fragment --><h1>Documentation</h1>
+<div class="fragment"><div class="line"><span class="comment">// F::_ is the placeholder</span></div><div class="line"></div><div class="line">F::map(<span class="stringliteral">&#39;strtoupper&#39;</span>, [<span class="stringliteral">&#39;hello&#39;</span>, <span class="stringliteral">&#39;world&#39;</span>, <span class="charliteral">&#39;!&#39;</span>]);</div><div class="line">F::map(<span class="stringliteral">&#39;strtoupper&#39;</span>)([<span class="stringliteral">&#39;hello&#39;</span>, <span class="stringliteral">&#39;world&#39;</span>, <span class="charliteral">&#39;!&#39;</span>]);</div><div class="line">F::map(F::_, [<span class="stringliteral">&#39;hello&#39;</span>, <span class="stringliteral">&#39;world&#39;</span>, <span class="charliteral">&#39;!&#39;</span>])(<span class="stringliteral">&#39;strtoupper&#39;</span>);</div></div><!-- fragment --><h1>Documentation</h1>
+<p>Please review the <a href="/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864" title="API documentation">API documentation</a></p>
 <h1>Running the test suite</h1>
-</div></div><!-- contents -->
+<p>To run the test suite, you'll need <code>composer</code> to be installed.</p>
+<p>Then, install the dependencies (phpunit) :</p>
+<div class="fragment"><div class="line">composer install</div></div><!-- fragment --><p>And run the test :</p>
+<div class="fragment"><div class="line">composer test</div></div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 		<script src="custom.js"></script>
 	</body>

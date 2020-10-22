@@ -1,7 +1,5 @@
 # fun-php
 
-functional programming utilities for PHP !
-
 ## What is it ? 
 
 - It's an **easy-to-use** functional programming library for PHP
@@ -23,13 +21,13 @@ composer require boehm_s/fun
 
 And then, import it in your files :
 
-```
+```php
 use boehm_s\F;
 ```
 
 Everything's up and running, you can play with it !
 
-```
+```php
 $greetings = [
     ['hello', 'world', '!'],
     ['how', 'are', 'you', '?']
@@ -48,7 +46,7 @@ Using *fun-php* should be as painless as possible : no weird syntax, no OOP synt
 As with Ramda, all the functions are automatically curried, and data comes last so you can easely compose them. Also, placeholders are implemented !
 It means that the followings are equivalent : 
 
-```
+```php
 // F::_ is the placeholder
 
 F::map('strtoupper', ['hello', 'world', '!']);
@@ -58,4 +56,20 @@ F::map(F::_, ['hello', 'world', '!'])('strtoupper');
 
 # Documentation
 
+Please review the [API documentation](/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864 "API documentation")
+
 # Running the test suite
+
+To run the test suite, you'll need `composer` to be installed. 
+
+Then, install the dependencies (phpunit) : 
+
+```
+composer install
+```
+
+And run the test : 
+
+```
+composer test
+```

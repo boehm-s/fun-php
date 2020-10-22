@@ -4,7 +4,11 @@ div.fragment, pre.fragment {
 }
 
 body {
-    display: flex;;
+    display: flex;
+}
+
+body, table, div, p, dl {
+    font: 400 18px/30px Roboto,sans-serif;
 }
 
 /*********************************************/
@@ -30,15 +34,24 @@ body {
     padding: 20px;
 }
 
+#projectname {
+    cursor: pointer;
+}
+
 #projectbrief {
     margin-top: 10px;
     font-style: italic;
 }
 
-#projectalign,
-#projectalign + td {
+#projectalign {
+    padding: 0;
+}
+
+#titlearea tr > td {
     display: flex;
     flex-direction: column;
+    margin-top: 1.5em;
+    font-size: 1.2em;
 }
 
 #MSearchBox {
@@ -46,7 +59,8 @@ body {
 }
 
 #MSearchBox .left img,
-#MSearchBox .right {
+#MSearchBox .right,
+#nav-path {
     display: none;
 }
 
@@ -56,6 +70,8 @@ body {
     display: flex;
     height: auto;
     width: 100%;
+    margin: 0;
+    left: 0;
 }
 
 #MSearchField {
