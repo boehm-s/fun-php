@@ -11,6 +11,26 @@ body, table, div, p, dl {
     font: 400 18px/30px Roboto,sans-serif;
 }
 
+.textblock > h1:first-of-type {
+    font-size: 4em;
+    height: 50px;
+    margin-top: 58px !important;
+    margin-bottom: 30px;
+    border: none;
+}
+
+.badges {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-size: 25px;
+    zoom: 1.5;
+}
+
+.badges > .images {
+    margin-right: 10px;
+}
+
 /*********************************************/
 /**               Main content              **/
 /*********************************************/
@@ -173,6 +193,103 @@ div.toc h3 {
 	  -moz-box-shadow: none;
 	  background-image: none;
 }
+
+.memproto {
+    display: none;
+}
+
+.memtitle {
+    border-bottom: 1px solid #32363d !important;
+}
+
+.memdoc {
+    display: flex;
+    flex-direction: column;
+    background: inherit;
+    border-color: #000000;
+}
+
+.memdoc > * {
+    order: 5;
+}
+
+.memdoc > dl,
+.memdoc > p {
+    margin-bottom: 0;
+}
+
+.memdoc > .fragment {
+    margin-top: 5px;
+    width: fit-content;
+    padding-left: 10px;
+}
+
+.memdoc > .fragment > .line {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+}
+
+.memdoc > .fragment:nth-of-type(1) {
+    order: 1;
+}
+
+.memdoc > .fragment:nth-of-type(2) {
+    order: 10;
+    margin-left: -11px;
+    margin-bottom: -3px;
+    width: calc(100% - 10px);
+    margin-top: 15px;
+    padding: 15px;
+    background: black;
+}
+
+.memdoc > .fragment:nth-of-type(2) > .line {
+    line-height: 2;
+}
+
+
+
+.memdoc > dl {
+    display: block;
+}
+
+.memdoc > .params.hide > dd,
+.memdoc > .params.hide + .return {
+    display: none;
+}
+
+.memdoc > .params > dt {
+    cursor: pointer;
+    text-decoration: underline;
+    width: fit-content;
+}
+
+.memdoc > .params > dt::after {
+    content: ' ';
+    width: 0;
+    height: 0px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #fff;
+    margin-left: 10px;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.memdoc > .params.hide > dt::after {
+    content: ' ';
+    width: 0;
+    height: 0px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #fff;
+    border-bottom: none !important;
+    margin-left: 10px;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
 
 /*********************************************/
 /**             TOP navigation              **/

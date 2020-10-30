@@ -27,7 +27,7 @@
 				<tbody>
 					<tr style="height: 56px;">
 						<td id="projectalign" style="padding-left: 0.5em;">
-							<div id="projectname" onclick='window.location.href = "/";'>fun-php
+							<div id="projectname" onclick='window.location.href = "/fun-php";'>fun-php
 								&#160;<span id="projectnumber">1.2</span>
 							</div>
 							<div id="projectbrief">functional programming utilities for PHP</div>
@@ -47,7 +47,7 @@
           </span>
         </div>
 </td>
-            <td><a href="/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864"> API Documentation </a></td>
+            <td><a href="/fun-php/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864"> API Documentation </a></td>
             <td><a href="https://github.com/boehm-s/fun-php"> On Github </a></td>
             <td><a href="https://medium.com/swlh/functional-programming-in-php-why-not-291ded3a3bec"> Functional programming with PHP </a></td>
 					</tr>
@@ -173,8 +173,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Performs right-to-left function composition. Like the unix pipe (|). All the function must be unary.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Performs right-to-left function composition. Like the unix pipe (|), but reversed ! All the function must be unary.</p>
+<div class="fragment"><div class="line">((y → z), (x → y), ... ,(a → b)) → (a → z) </div></div><!-- fragment --> <div class="fragment"><div class="line">$sayHello = <span class="keyword">function</span>($name) { <span class="keywordflow">return</span> <span class="stringliteral">&quot;Hello $name&quot;</span>; };</div><div class="line">$yellHello = <a class="code" href="classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864">F::compose</a>(<span class="stringliteral">&#39;strtoupper&#39;</span>, $sayHello);</div><div class="line"></div><div class="line">$yellHello(<span class="stringliteral">&#39;Punky&#39;</span>); <span class="comment">//=&gt; HELLO PUNKY</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callable[]</td><td>...$fns </td></tr>
   </table>
@@ -207,8 +207,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Iterate over an <code>iterable</code>, calling a provided function $fn for each element. Returns the original array.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Iterate over an iterable, calling a provided function $fn for each element. Returns the original array.</p>
+<div class="fragment"><div class="line">(a → _) → [a] → [a] </div></div><!-- fragment --> <div class="fragment"><div class="line">$isEven = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n % 2 == 0; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#adf594aee11edbf796efae99d00dc8f46">F::each</a>($isEven, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; [1, 2, 3, 4, 5]</span></div><div class="line"><span class="comment">// has no effect, returns the original input, good for logging / debugging</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -242,8 +242,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a predicate and a <code>iterable</code> and returns true if all of the iterable members satisfies the predicate.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a predicate and a iterable and returns true if all of the iterable members satisfies the predicate.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → Bool </div></div><!-- fragment --> <div class="fragment"><div class="line">$equals2 = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n === 2; };</div><div class="line">$moreThan0 = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n &gt; 0; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a559bfb165c4ec768a49830173fa709e3">F::every</a>($equals2, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; false</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a559bfb165c4ec768a49830173fa709e3">F::every</a>($moreThan0, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; true</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -277,8 +277,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a predicate and a <code>iterable</code> and returns an array containing the members of the given iterable which satisfy the given predicate.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a predicate and a iterable and returns an array containing the members of the given iterable which satisfy the given predicate.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → [a] </div></div><!-- fragment --> <div class="fragment"><div class="line">$isEven = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n % 2 == 0; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a80fe06fb52d10a68a0d6b36ca821463f">F::filter</a>($isEven, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; [2, 4]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -313,7 +313,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Returns the first element of the list which matches the predicate, or null if no element matches.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → a </div></div><!-- fragment --> <div class="fragment"><div class="line">$moreThan5 = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n &gt; 5; };</div><div class="line">$fifth = <span class="keyword">function</span>($_, $i) { <span class="keywordflow">return</span> $i === 4; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a68db344c2eabeb0f3139ec3000a8b039">F::find</a>($moreThan5, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; null</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a68db344c2eabeb0f3139ec3000a8b039">F::find</a>($fifth, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; 5</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -348,7 +348,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Returns the index of the first element of the list which matches the predicate, or null if no element matches.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → i </div></div><!-- fragment --> <div class="fragment"><div class="line">$moreThan2 = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n &gt; 2; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a385a847258b151462eb4fa8e6e06a069">F::findIndex</a>($moreThan2, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; 2</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -382,8 +382,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a function and a <code>iterable</code>, apply the function to each of the iterable value and then flatten the result.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a function and a iterable, apply the function to each of the iterable value and then flatten the result.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → [b]) → [a] → [b] </div></div><!-- fragment --> <div class="fragment"><div class="line">$pairWithIdx = <span class="keyword">function</span>($n, $i) { <span class="keywordflow">return</span> [$i, $n]; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a92bf70afadb55e6b39bad69909c6e697">F::flatMap</a>($pairWithIdx, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; [0, 1, 1, 2, 2, 3, 3, 4, 4, 5]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -418,7 +418,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a value and an array. Returns true if the value is in the array and false otherwise.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">a → [a] → Bool </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#aa695a4a8ea655ab5d7011f205eb49de7">F::includes</a>(4, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; true</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#aa695a4a8ea655ab5d7011f205eb49de7">F::includes</a>(8, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; false</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">mixed</td><td class="paramname">$needle</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$haystack</td><td></td></tr>
@@ -452,8 +452,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a function and a <code>iterable</code> and returns an array containing the results of function applied to each iterable values.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a function and a iterable and returns an array containing the results of function applied to each iterable values.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → b) → [a] → [b] </div></div><!-- fragment --> <div class="fragment"><div class="line">$square = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n * $n; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a5b9016a3452e48e05c20c3ca94e5b4e8">F::map</a>($isEven, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; [1, 4, 9, 16, 25]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -497,8 +497,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes an (associative) array and at leat one other (variadic on the second argument) and returns all these arrays merged together.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes an (associative) array and at least one other (variadic on the second argument) and returns all these arrays merged together.</p>
+<div class="fragment"><div class="line">{k: v} → ({k: v}, ..., {k: v}) → {k: v} </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#ac833c309186225e5587fd45dfef22aca">F::merge</a>([<span class="charliteral">&#39;x&#39;</span> =&gt; 42, <span class="charliteral">&#39;y&#39;</span> =&gt; 21], [<span class="charliteral">&#39;z&#39;</span> =&gt; 2]); <span class="comment">//=&gt; [&#39;x&#39; =&gt; 42, &#39;y&#39; =&gt; 21, &#39;z&#39; =&gt; 2]</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#ac833c309186225e5587fd45dfef22aca">F::merge</a>([<span class="charliteral">&#39;x&#39;</span> =&gt; 42], [<span class="charliteral">&#39;y&#39;</span> =&gt; 21], [<span class="charliteral">&#39;z&#39;</span> =&gt; 2]); <span class="comment">//=&gt; [&#39;x&#39; =&gt; 42, &#39;y&#39; =&gt; 21, &#39;z&#39; =&gt; 2]</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#ac833c309186225e5587fd45dfef22aca">F::merge</a>([<span class="charliteral">&#39;x&#39;</span> =&gt; 42, <span class="charliteral">&#39;y&#39;</span> =&gt; 21], [<span class="charliteral">&#39;x&#39;</span> =&gt; <span class="stringliteral">&#39;HAHA&#39;</span>, <span class="charliteral">&#39;z&#39;</span> =&gt; 2]); <span class="comment">//=&gt; [&#39;x&#39; =&gt; &#39;HAHA&#39;, &#39;y&#39; =&gt; 21, &#39;z&#39; =&gt; 2]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">array</td><td class="paramname">$array1</td><td></td></tr>
     <tr><td class="paramtype"></td><td class="paramname">array[]</td><td>...$array2 </td></tr>
@@ -533,7 +533,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a value and returns the it's <code>!</code> (NOT Logical operator). Returns true when passed a falsy value, and false when passed a truthy one.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">* → Bool </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#a0cf3df6448dbfa748f755494974d13ab">F::not</a>(<span class="keyword">true</span>); <span class="comment">//=&gt; false</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a0cf3df6448dbfa748f755494974d13ab">F::not</a>(<span class="keyword">false</span>); <span class="comment">//=&gt; true</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a0cf3df6448dbfa748f755494974d13ab">F::not</a>(<span class="stringliteral">&#39;Punky&#39;</span>); <span class="comment">//=&gt; false</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">mixed</td><td class="paramname">$value</td><td></td></tr>
   </table>
@@ -567,7 +567,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a function and an array of arguments. Applies the arguments to the function and returns a new function awaiting the rest of the arguments.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, b, ..., n) → x) → [a, b, ...] → ((d, e, ..., n) → x) </div></div><!-- fragment --> <div class="fragment"><div class="line">$greet = <span class="keyword">function</span>($salutation, $title, $name) { <span class="keywordflow">return</span> <span class="stringliteral">&quot;$salutation $title $name !&quot;</span>; };</div><div class="line">$greetDoctor = <a class="code" href="classboehm__s_1_1F.html#ab29a37d2aca75028895148da5da15b4b">F::partial</a>($greet, [<span class="stringliteral">&#39;Hello&#39;</span>, <span class="stringliteral">&#39;Dr.&#39;</span>]);</div><div class="line">$greetDoctor(<span class="stringliteral">&#39;Jekyll&#39;</span>); <span class="comment">//=&gt; Hello Dr. Jekyll !</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$args</td><td></td></tr>
@@ -602,7 +602,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a list of properties and an (associative) array. Returns a partial copy of the (associative) array containing only the keys specified.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">[k] → {k: v} → {k: v} | null </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#a1ed294c2887f1f3bb520236a993259fd">F::pick</a>([<span class="charliteral">&#39;x&#39;</span>, <span class="charliteral">&#39;z&#39;</span>], [<span class="charliteral">&#39;x&#39;</span> =&gt; 42, <span class="charliteral">&#39;y&#39;</span> =&gt; 21, <span class="charliteral">&#39;z&#39;</span> =&gt; 2]); <span class="comment">//=&gt; [&#39;x&#39; =&gt; 42, &#39;z&#39; =&gt; 2]</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a1ed294c2887f1f3bb520236a993259fd">F::pick</a>([<span class="charliteral">&#39;x&#39;</span>, <span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;b&#39;</span>], [<span class="charliteral">&#39;x&#39;</span> =&gt; 42, <span class="charliteral">&#39;y&#39;</span> =&gt; 21, <span class="charliteral">&#39;z&#39;</span> =&gt; 2]); <span class="comment">//=&gt; [&#39;x&#39; =&gt; 42]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">array</td><td class="paramname">$props</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$array</td><td></td></tr>
@@ -637,7 +637,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Performs left-to-right function composition. Like the unix pipe (|). All the function must be unary.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a → b), (b → c), ... , (y → z)) → (a → z) </div></div><!-- fragment --> <div class="fragment"><div class="line">$isEven     = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n % 2 == 0; };</div><div class="line">$square     = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n * $n; };</div><div class="line">$addReducer = <span class="keyword">function</span>($acc, $val) { <span class="keywordflow">return</span> $acc + $val; };</div><div class="line"></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a353205345113144a6fd6f874097377bc">F::pipe</a>(</div><div class="line">    <a class="code" href="classboehm__s_1_1F.html#a80fe06fb52d10a68a0d6b36ca821463f">F::filter</a>($isEven),       <span class="comment">//=&gt; [2, 4]</span></div><div class="line">    <a class="code" href="classboehm__s_1_1F.html#a5b9016a3452e48e05c20c3ca94e5b4e8">F::map</a>($square),          <span class="comment">//=&gt; [4, 16]</span></div><div class="line">    <a class="code" href="classboehm__s_1_1F.html#a110a6463a6551b88915ed3ce87d56fb3">F::reduce</a>($addReducer, 0) <span class="comment">//=&gt; 20</span></div><div class="line">)([1, 2, 3, 4, 5]);           <span class="comment">//=&gt; 20</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callable[]</td><td>...$fns </td></tr>
   </table>
@@ -671,7 +671,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a property and an array and returns the array's property value.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">k → {k: v} → v | null </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#a6c075d73d686e5bb71456a03e13d6d16">F::prop</a>(<span class="charliteral">&#39;x&#39;</span>, [<span class="charliteral">&#39;x&#39;</span> =&gt; 42]); <span class="comment">//=&gt; 42</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a6c075d73d686e5bb71456a03e13d6d16">F::prop</a>(<span class="charliteral">&#39;y&#39;</span>, [<span class="charliteral">&#39;x&#39;</span> =&gt; 42]); <span class="comment">//=&gt; null</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a6c075d73d686e5bb71456a03e13d6d16">F::prop</a>(1, [42, 21]); <span class="comment">//=&gt; 21</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string &#160;|&#160; int</td><td class="paramname">$prop</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$array</td><td></td></tr>
@@ -706,7 +706,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a property, a value and an (associative) array. Returns true if the specified array property is equal to the supplied value and false otherwise.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">k → v → {k: v} → Bool </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#ada046f8c33b77f3d3ca40e12bc42c5db">F::propEq</a>(<span class="charliteral">&#39;x&#39;</span>, 42, [<span class="charliteral">&#39;x&#39;</span> =&gt; 42]); <span class="comment">//=&gt; true</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#ada046f8c33b77f3d3ca40e12bc42c5db">F::propEq</a>(<span class="charliteral">&#39;x&#39;</span>, 666, [<span class="charliteral">&#39;x&#39;</span> =&gt; 42]); <span class="comment">//=&gt; false</span></div><div class="line"></div><div class="line">$travels = [[<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;train&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 11], [<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;flight&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 42], [<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;hotel&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 45]];</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a68db344c2eabeb0f3139ec3000a8b039">F::find</a>(<a class="code" href="classboehm__s_1_1F.html#ada046f8c33b77f3d3ca40e12bc42c5db">F::propEq</a>(<span class="stringliteral">&#39;type&#39;</span>, <span class="stringliteral">&#39;flight&#39;</span>), $travels); <span class="comment">//=&gt; [&#39;type&#39; =&gt; &#39;flight&#39;, &#39;id&#39; =&gt; 42]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string</td><td class="paramname">$prop</td><td></td></tr>
     <tr><td class="paramtype">mixed</td><td class="paramname">$value</td><td></td></tr>
@@ -742,7 +742,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a property, an array and a default value. Returns the array's property value if it exists and the default value otherwise.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">k → d → {k: v} → v | d </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#a0b5ab6c3448ef372f531576bc390d88a">F::propOr</a>(<span class="charliteral">&#39;x&#39;</span>, 666, [<span class="charliteral">&#39;x&#39;</span> =&gt; 42]); <span class="comment">//=&gt; 42</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a0b5ab6c3448ef372f531576bc390d88a">F::propOr</a>(<span class="charliteral">&#39;y&#39;</span>, 666, [<span class="charliteral">&#39;x&#39;</span> =&gt; 42]); <span class="comment">//=&gt; 666</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a0b5ab6c3448ef372f531576bc390d88a">F::propOr</a>(42, [<span class="stringliteral">&#39;foo&#39;</span> =&gt; <span class="stringliteral">&#39;bar&#39;</span>], [42, 21]); <span class="comment">//=&gt; [&#39;foo&#39; =&gt; &#39;bar&#39;]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string &#160;|&#160; int</td><td class="paramname">$prop</td><td></td></tr>
     <tr><td class="paramtype">mixed</td><td class="paramname">$default</td><td></td></tr>
@@ -778,7 +778,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a predicate, a property and an (associative) array. Returns true if the specified array property matches the predicate and false otherwise.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">(v → Bool) → k → {k: v} → Bool </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#a6d71ddfdd2b6c90fe356808bd332bb3f">F::propSatisfies</a>(<span class="keyword">function</span>($x) { <span class="keywordflow">return</span> $x &gt; 1; }, <span class="charliteral">&#39;p&#39;</span>, [<span class="charliteral">&#39;p&#39;</span> =&gt; 42]); <span class="comment">//=&gt; true</span></div><div class="line"></div><div class="line">$travels = [[<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;train&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 11], [<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;flight&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 42], [<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;hotel&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 45]];</div><div class="line">$isFlightOrTrain = <a class="code" href="classboehm__s_1_1F.html#aa695a4a8ea655ab5d7011f205eb49de7">F::includes</a>(F::_, [<span class="stringliteral">&#39;train&#39;</span>, <span class="stringliteral">&#39;flight&#39;</span>]);</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a80fe06fb52d10a68a0d6b36ca821463f">F::filter</a>(<a class="code" href="classboehm__s_1_1F.html#a6d71ddfdd2b6c90fe356808bd332bb3f">F::propSatisfies</a>($isFlightOrTrain, <span class="stringliteral">&#39;type&#39;</span>), $travels); <span class="comment">//=&gt; [[&#39;type&#39; =&gt; &#39;train&#39;, &#39;id&#39; =&gt; 11], [&#39;type&#39; =&gt; &#39;flight&#39;, &#39;id&#39; =&gt; 42]]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">mixed</td><td class="paramname">$prop</td><td></td></tr>
@@ -814,7 +814,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes an iterable, a function and a starting (or default) value. Reduces the iterable to a single value by successively calling the function, passing it an accumulator value and the current value from the iterable, and then passing the result to the next call.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, b) → a) → a → [b] → a </div></div><!-- fragment --> <div class="fragment"><div class="line">$addReducer = <span class="keyword">function</span>($acc, $val) { <span class="keywordflow">return</span> $acc + $val; };</div><div class="line">$sum = <a class="code" href="classboehm__s_1_1F.html#a110a6463a6551b88915ed3ce87d56fb3">F::reduce</a>($addReducer, 0); <span class="comment">// fun-php functions are automatically curried</span></div><div class="line">$sum([1, 2, 3, 4, 5]); <span class="comment">//=&gt; 15 (1 + 2 + 3 + 4 + 5)</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">mixed</td><td class="paramname">$arr</td><td></td></tr>
@@ -850,7 +850,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes an array (NO OBJECTS) and returns a reversed copy of the array.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">[a] → [a] </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#a560daa6ae48b7a41c82c6e42e747ec6a">F::reverse</a>([1, 2, 3, 4, 5]); <span class="comment">//=&gt; [5, 4, 3, 2, 1]</span></div><div class="line"><span class="comment">// Warning : Does not work with objects !</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">array</td><td class="paramname">$arr</td><td></td></tr>
   </table>
@@ -883,8 +883,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a predicate and a <code>iterable</code> and returns true if one of the iterable members satisfies the predicate.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a predicate and a iterable and returns true if one of the iterable members satisfies the predicate.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → Bool </div></div><!-- fragment --> <div class="fragment"><div class="line">$equals2 = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n === 2; };</div><div class="line">$moreThan5 = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n &gt; 5; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#aee63ff04d9ecde792865a5435a6e8cc9">F::some</a>($equals2, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; true</span></div><div class="line"><a class="code" href="classboehm__s_1_1F.html#aee63ff04d9ecde792865a5435a6e8cc9">F::some</a>($moreThan5, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; false</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -919,7 +919,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a comparison function and an array (NO OBJECTS) and return a copy of the array sorted according to the comparison function.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, a) → Bool) → [a] → [a] </div></div><!-- fragment --> <div class="fragment"><div class="line">$ascNum = <span class="keyword">function</span>($n1, $n2) { <span class="keywordflow">return</span> $n1 - $n2; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a742910125ee71afd3149a16262506600">F::sort</a>($ascNum, [4, 5, 3, 1, 2]); <span class="comment">//=&gt; [1, 2, 3, 4, 5]</span></div><div class="line"><span class="comment">// Warning : When working with objects, they will be modified !</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$arr</td><td></td></tr>
@@ -954,7 +954,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes an array and returns a new array containing only one copy of each element in the original one. Warning : re-indexes the array.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">[a] → [a] </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#a9015b4c01377f2a42e1ec9069f79d9e4">F::uniq</a>([1, 3, 2, 3, 4, 1, 5, 3, 4, 2]); <span class="comment">//=&gt; [1, 3, 2, 4, 5]</span></div><div class="line"></div><div class="line">$arr = [<span class="charliteral">&#39;a&#39;</span> =&gt; 1, <span class="charliteral">&#39;b&#39;</span> =&gt; 3, <span class="charliteral">&#39;c&#39;</span> =&gt; 2, <span class="charliteral">&#39;d&#39;</span> =&gt; 3, <span class="charliteral">&#39;e&#39;</span> =&gt; 4, <span class="charliteral">&#39;f&#39;</span> =&gt; 1, <span class="charliteral">&#39;g&#39;</span> =&gt; 5, <span class="charliteral">&#39;h&#39;</span> =&gt; 3, <span class="charliteral">&#39;i&#39;</span> =&gt; 4, <span class="charliteral">&#39;j&#39;</span> =&gt; 2];</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a9015b4c01377f2a42e1ec9069f79d9e4">F::uniq</a>($arr); <span class="comment">//=&gt; [1, 3, 2, 4, 5]</span></div><div class="line"><span class="comment">// WARNING : F::uniq re-indexes arrays</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">array</td><td class="paramname">$array</td><td></td></tr>
   </table>

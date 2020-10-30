@@ -1,4 +1,4 @@
-# fun-php ![Build Status](https://travis-ci.com/boehm-s/fun-php.svg?branch=master)
+# fun-php ![Build Status](https://travis-ci.com/boehm-s/fun-php.svg?branch=master) [![codecov](https://codecov.io/gh/boehm-s/fun-php/branch/master/graph/badge.svg?token=LIWXGDM2NN)](https://codecov.io/gh/boehm-s/fun-php)
 
 
 **fun**ctional programming utilities for PHP ! Inspired by *Ramda*, Javascript, lodash and many other things !
@@ -16,9 +16,9 @@ composer require boehm_s/fun
 
 # How to use it ?
 
-You can use it just like Ramda, in fact you can even rely on the excellent [Ramda documentation!](https://ramdajs.com/docs/) !
+You can review the [API Documentation](https://boehm-s.github.io/fun-php/)
 
-As with Ramda, fun-php methods are automatically curried : 
+Or, if you're familiar with Ramda, you can start writing code right now. As with Ramda, fun-php methods are automatically curried : 
 
 `F::map($fn, $array)` &nbsp; ⇔  &nbsp; `F::map($fn)($array)` &nbsp; ⇔  &nbsp; `F::map()($fn)($array)`
 
@@ -84,7 +84,7 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 | ---------  | ------------------------------------- | ------------ | ----------------------------------- |
 | *map*      | `((a, i, [a]) → b) → [a] → [b]`       | *flatMap*    | `((a, i, [a]) → [b]) → [a] → [b]`   |
 | *filter*   | `((a, i, [a]) → Bool) → [a] → [a]`    | *reduce*     | `((a, b) → a) → a → [b] → a`        |
-| *each*     | `a → [a] → [a]`                       |              |                                     |
+| *each*     | `(a → _) → [a] → [a]`                 |              |                                     |
 | *find*     | `((a, i, [a]) → Bool) → [a] → a`      | *findIndex*  | `((a, i, [a]) → Bool) → [a] → i`    |
 | *some*     | `((a, i, [a]) → Bool) → [a] → Bool`   | *every*      | `((a, i, [a]) → Bool) → [a] → Bool` |
 | *sort*     | `((a, a) → Bool) → [a] → [a]`         | *reverse*    | `[a] → [a]`                         |
@@ -96,7 +96,7 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 | --------- | ----------------------------------------- | ------------    | ----------------------------------------- |
 | *prop*    | `k → {k: v} → v \| null`                  | *pick*          | `[k] → {k: v} → {k: v} \| null`           |
 | *propEq*  | `k → v → {k: v} → Bool`                   | *propSatisfies* | `(v → Bool) → k → {k: v} → Bool`          |
-| *propOr*  | `k → v → {k: v} → v`                      | *merge*         | `{k: v} → ({k: v}, ..., {k: v}) → {k: v}` |
+| *propOr*  | `k → d → {k: v} → v | d`                  | *merge*         | `{k: v} → ({k: v}, ..., {k: v}) → {k: v}` |
 
 ### For function composition
 

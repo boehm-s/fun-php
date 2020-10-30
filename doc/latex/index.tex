@@ -1,3 +1,9 @@
+\section*{fun-\/php}
+
+   
+
+A practical functional library for P\+HP programmers.
+
 \subsection*{What is it ?}
 
 
@@ -12,7 +18,7 @@
 
 \begin{DoxyItemize}
 \item Because P\+HP lacks of simple and easy-\/to-\/use utilities for functional programming !
-\item To prove that we can still have fun with P\+HP (despite the fact that it\textquotesingle{}s P\+HP) !!!
+\item To prove that we can still have fun with P\+HP !
 \end{DoxyItemize}
 
 \section*{Installation and Usage}
@@ -37,15 +43,14 @@ Everything\textquotesingle{}s up and running, you can play with it !
 
 
 \begin{DoxyCode}
-$greetings = [
-    [\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}],
-    [\textcolor{stringliteral}{'how'}, \textcolor{stringliteral}{'are'}, \textcolor{stringliteral}{'you'}, \textcolor{charliteral}{'?'}]
-];
+$greetings = [\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'world'}, \textcolor{charliteral}{'!'}],
 
-$fn = F::compose(\textcolor{stringliteral}{'strtoupper'}, F::partial(\textcolor{stringliteral}{'implode'}, [\textcolor{charliteral}{' '}]));
-$values = F::map($fn, $greetings);
+$yellList = F::compose(
+  F::partial(\textcolor{stringliteral}{'implode'}, [\textcolor{charliteral}{' '}]),
+  F::map(\textcolor{stringliteral}{'strtoupper'})
+);
 
-echo $values[0]; \textcolor{comment}{// "HELLO WORLD !"}
+$yellList($greetings); \textcolor{comment}{// "HELLO WORLD !"}
 \end{DoxyCode}
 
 
@@ -67,7 +72,7 @@ F::map(F::\_, [\textcolor{stringliteral}{'hello'}, \textcolor{stringliteral}{'wo
 
 \section*{Documentation}
 
-Please review the \href{/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864}{\tt A\+PI documentation}
+Please review the \href{/fun-php/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864}{\tt A\+PI documentation}
 
 \section*{Running the test suite}
 

@@ -1,5 +1,14 @@
 # fun-php
 
+# fun-php 
+
+<div class="badges">
+![Build Status](https://travis-ci.com/boehm-s/fun-php.svg?branch=master) 
+![codecov](https://codecov.io/gh/boehm-s/fun-php/branch/master/graph/badge.svg?token=LIWXGDM2NN)
+</div>
+
+A practical functional library for PHP programmers.
+
 ## What is it ? 
 
 - It's an **easy-to-use** functional programming library for PHP
@@ -9,7 +18,7 @@
 ## Why ? 
 
 - Because PHP lacks of simple and easy-to-use utilities for functional programming !
-- To prove that we can still have fun with PHP (despite the fact that it's PHP) !!!
+- To prove that we can still have fun with PHP !
 
 # Installation and Usage
 
@@ -28,15 +37,14 @@ use boehm_s\F;
 Everything's up and running, you can play with it !
 
 ```php
-$greetings = [
-    ['hello', 'world', '!'],
-    ['how', 'are', 'you', '?']
-];
+$greetings = ['hello', 'world', '!'],
 
-$fn = F::compose('strtoupper', F::partial('implode', [' ']));
-$values = F::map($fn, $greetings);
+$yellList = F::compose(
+  F::partial('implode', [' ']),
+  F::map('strtoupper')
+);
 
-echo $values[0]; // "HELLO WORLD !"
+$yellList($greetings); // "HELLO WORLD !"
 ```
 
 # Philosophy
@@ -56,7 +64,7 @@ F::map(F::_, ['hello', 'world', '!'])('strtoupper');
 
 # Documentation
 
-Please review the [API documentation](/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864 "API documentation")
+Please review the [API documentation](/fun-php/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864 "API documentation")
 
 # Running the test suite
 
