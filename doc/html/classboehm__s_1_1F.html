@@ -173,8 +173,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Performs right-to-left function composition. Like the unix pipe (|). All the function must be unary.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Performs right-to-left function composition. Like the unix pipe (|), but reversed ! All the function must be unary.</p>
+<div class="fragment"><div class="line">((y → z), (x → y), ... ,(a → b)) → (a → z) </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callable[]</td><td>...$fns </td></tr>
   </table>
@@ -207,8 +207,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Iterate over an <code>iterable</code>, calling a provided function $fn for each element. Returns the original array.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Iterate over an iterable, calling a provided function $fn for each element. Returns the original array.</p>
+<div class="fragment"><div class="line">(a → _) → [a] → [a] </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -242,8 +242,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a predicate and a <code>iterable</code> and returns true if all of the iterable members satisfies the predicate.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a predicate and a iterable and returns true if all of the iterable members satisfies the predicate.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → Bool </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -277,8 +277,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a predicate and a <code>iterable</code> and returns an array containing the members of the given iterable which satisfy the given predicate.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a predicate and a iterable and returns an array containing the members of the given iterable which satisfy the given predicate.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → [a] </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -313,7 +313,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Returns the first element of the list which matches the predicate, or null if no element matches.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → a </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -348,7 +348,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Returns the index of the first element of the list which matches the predicate, or null if no element matches.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → i </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -382,8 +382,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a function and a <code>iterable</code>, apply the function to each of the iterable value and then flatten the result.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a function and a iterable, apply the function to each of the iterable value and then flatten the result.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → [b]) → [a] → [b] </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -418,7 +418,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a value and an array. Returns true if the value is in the array and false otherwise.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">a → [a] → Bool </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">mixed</td><td class="paramname">$needle</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$haystack</td><td></td></tr>
@@ -452,8 +452,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a function and a <code>iterable</code> and returns an array containing the results of function applied to each iterable values.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a function and a iterable and returns an array containing the results of function applied to each iterable values.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → b) → [a] → [b] </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -497,8 +497,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes an (associative) array and at leat one other (variadic on the second argument) and returns all these arrays merged together.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes an (associative) array and at least one other (variadic on the second argument) and returns all these arrays merged together.</p>
+<div class="fragment"><div class="line">{k: v} → ({k: v}, ..., {k: v}) → {k: v} </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">array</td><td class="paramname">$array1</td><td></td></tr>
     <tr><td class="paramtype"></td><td class="paramname">array[]</td><td>...$array2 </td></tr>
@@ -533,7 +533,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a value and returns the it's <code>!</code> (NOT Logical operator). Returns true when passed a falsy value, and false when passed a truthy one.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">* → Bool </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">mixed</td><td class="paramname">$value</td><td></td></tr>
   </table>
@@ -567,7 +567,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a function and an array of arguments. Applies the arguments to the function and returns a new function awaiting the rest of the arguments.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, b, ..., n) → x) → [a, b, ...] → ((d, e, ..., n) → x) </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$args</td><td></td></tr>
@@ -602,7 +602,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a list of properties and an (associative) array. Returns a partial copy of the (associative) array containing only the keys specified.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">[k] → {k: v} → {k: v} | null </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">array</td><td class="paramname">$props</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$array</td><td></td></tr>
@@ -637,7 +637,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Performs left-to-right function composition. Like the unix pipe (|). All the function must be unary.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a → b), (b → c), ... , (y → z)) → (a → z) </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callable[]</td><td>...$fns </td></tr>
   </table>
@@ -671,7 +671,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a property and an array and returns the array's property value.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">k → {k: v} → v | null </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string &#160;|&#160; int</td><td class="paramname">$prop</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$array</td><td></td></tr>
@@ -706,7 +706,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a property, a value and an (associative) array. Returns true if the specified array property is equal to the supplied value and false otherwise.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">k → v → {k: v} → Bool </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string</td><td class="paramname">$prop</td><td></td></tr>
     <tr><td class="paramtype">mixed</td><td class="paramname">$value</td><td></td></tr>
@@ -742,7 +742,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a property, an array and a default value. Returns the array's property value if it exists and the default value otherwise.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">k → d → {k: v} → v | d </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string &#160;|&#160; int</td><td class="paramname">$prop</td><td></td></tr>
     <tr><td class="paramtype">mixed</td><td class="paramname">$default</td><td></td></tr>
@@ -778,7 +778,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a predicate, a property and an (associative) array. Returns true if the specified array property matches the predicate and false otherwise.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">(v → Bool) → k → {k: v} → Bool </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">mixed</td><td class="paramname">$prop</td><td></td></tr>
@@ -814,7 +814,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes an iterable, a function and a starting (or default) value. Reduces the iterable to a single value by successively calling the function, passing it an accumulator value and the current value from the iterable, and then passing the result to the next call.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, b) → a) → a → [b] → a </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">mixed</td><td class="paramname">$arr</td><td></td></tr>
@@ -850,7 +850,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes an array (NO OBJECTS) and returns a reversed copy of the array.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">[a] → [a] </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">array</td><td class="paramname">$arr</td><td></td></tr>
   </table>
@@ -883,8 +883,8 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Takes a predicate and a <code>iterable</code> and returns true if one of the iterable members satisfies the predicate.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Takes a predicate and a iterable and returns true if one of the iterable members satisfies the predicate.</p>
+<div class="fragment"><div class="line">((a, i, [a]) → Bool) → [a] → Bool </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -919,7 +919,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a comparison function and an array (NO OBJECTS) and return a copy of the array sorted according to the comparison function.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">((a, a) → Bool) → [a] → [a] </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$arr</td><td></td></tr>
@@ -954,7 +954,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes an array and returns a new array containing only one copy of each element in the original one. Warning : re-indexes the array.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">[a] → [a] </div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">array</td><td class="paramname">$array</td><td></td></tr>
   </table>

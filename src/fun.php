@@ -26,8 +26,10 @@ class F {
     const _ = '@@fun-php/placeholder';
 
     /**
-     * Takes a predicate and a `iterable` and returns an array containing the members
+     * Takes a predicate and a iterable and returns an array containing the members
      * of the given iterable which satisfy the given predicate.
+     *
+     * @code ((a, i, [a]) → Bool) → [a] → [a] @endcode
      *
      * @param callable $predicate
      * @param iterable $arr
@@ -40,8 +42,10 @@ class F {
     }
 
     /**
-     * Iterate over an `iterable`, calling a provided function $fn for each element.
+     * Iterate over an iterable, calling a provided function $fn for each element.
      * Returns the original array.
+     *
+     * @code (a → _) → [a] → [a] @endcode
      *
      * @param callable $fn
      * @param iterable $arr
@@ -57,8 +61,10 @@ class F {
     }
 
     /**
-     * Takes a function and a `iterable` and returns an array containing the results
+     * Takes a function and a iterable and returns an array containing the results
      * of function applied to each iterable values.
+     *
+     * @code ((a, i, [a]) → b) → [a] → [b] @endcode
      *
      * @param callable $fn
      * @param iterable $arr
@@ -71,8 +77,10 @@ class F {
     }
 
     /**
-     * Takes a function and a `iterable`, apply the function to each of the iterable
+     * Takes a function and a iterable, apply the function to each of the iterable
      * value and then flatten the result.
+     *
+     * @code ((a, i, [a]) → [b]) → [a] → [b] @endcode
      *
      * @param callable $fn
      * @param iterable $arr
@@ -89,6 +97,8 @@ class F {
     /**
      * Returns the first element of the list which matches the predicate, or null if
      * no element matches.
+     *
+     * @code ((a, i, [a]) → Bool) → [a] → a @endcode
      *
      * @param callable $predicate
      * @param iterable $arr
@@ -110,6 +120,8 @@ class F {
      * Returns the index of the first element of the list which matches the predicate,
      * or null if no element matches.
      *
+     * @code ((a, i, [a]) → Bool) → [a] → i @endcode
+     *
      * @param callable $predicate
      * @param iterable $arr
      * @return array
@@ -127,8 +139,10 @@ class F {
     }
 
     /**
-     * Takes a predicate and a `iterable` and returns true if one of the
+     * Takes a predicate and a iterable and returns true if one of the
      * iterable members satisfies the predicate.
+     *
+     * @code ((a, i, [a]) → Bool) → [a] → Bool @endcode
      *
      * @param callable $predicate
      * @param iterable $arr
@@ -147,8 +161,10 @@ class F {
     }
 
     /**
-     * Takes a predicate and a `iterable` and returns true if all of the
+     * Takes a predicate and a iterable and returns true if all of the
      * iterable members satisfies the predicate.
+     *
+     * @code ((a, i, [a]) → Bool) → [a] → Bool @endcode
      *
      * @param callable $predicate
      * @param iterable $arr
@@ -170,6 +186,8 @@ class F {
      * Takes a comparison function and an array (NO OBJECTS) and return a copy of the array
      * sorted according to the comparison function.
      *
+     * @code ((a, a) → Bool) → [a] → [a] @endcode
+     *
      * @param callable $fn
      * @param array $arr
      * @return array
@@ -185,6 +203,8 @@ class F {
 
     /**
      * Takes an array (NO OBJECTS) and returns a reversed copy of the array.
+     *
+     * @code [a] → [a] @endcode
      *
      * @param array $arr
      * @return array
@@ -202,6 +222,8 @@ class F {
      * value by successively calling the function, passing it an accumulator value and the current value
      * from the iterable, and then passing the result to the next call.
      *
+     * @code ((a, b) → a) → a → [b] → a @endcode
+     *
      * @param callable $fn
      * @param mixed $arr
      * @param iterable $arr
@@ -215,6 +237,8 @@ class F {
 
     /**
      * Takes a value and an array. Returns true if the value is in the array and false otherwise.
+     *
+     * @code a → [a] → Bool @endcode
      *
      * @param mixed $needle
      * @param array $haystack
@@ -230,6 +254,8 @@ class F {
     /**
      * Takes a property and an array and returns the array's property value.
      *
+     * @code k → {k: v} → v | null @endcode
+     *
      * @param string | int $prop
      * @param array $array
      * @return mixed
@@ -243,6 +269,8 @@ class F {
     /**
      * Takes a property, an array and a default value. Returns the array's property value if it
      * exists and the default value otherwise.
+     *
+     * @code k → d → {k: v} → v | d @endcode
      *
      * @param string | int $prop
      * @param mixed $default
@@ -258,6 +286,8 @@ class F {
     /**
      * Takes a list of properties and an (associative) array. Returns a partial copy of the
      * (associative) array containing only the keys specified.
+     *
+     * @code [k] → {k: v} → {k: v} | null @endcode
      *
      * @param array $props
      * @param array $array
@@ -278,6 +308,8 @@ class F {
      * Takes an array and returns a new array containing only one copy of each element in the original one.
      * Warning : re-indexes the array.
      *
+     * @code [a] → [a] @endcode
+     *
      * @param array $array
      * @return array
      */
@@ -288,8 +320,10 @@ class F {
     }
 
     /**
-     * Takes an (associative) array and at leat one other (variadic on the second argument) and returns
+     * Takes an (associative) array and at least one other (variadic on the second argument) and returns
      * all these arrays merged together.
+     *
+     * @code {k: v} → ({k: v}, ..., {k: v}) → {k: v} @endcode
      *
      * @param array $array1
      * @param array[] ...$array2
@@ -304,6 +338,8 @@ class F {
     /**
      * Takes a property, a value and an (associative) array. Returns true if the specified array property is
      * equal to the supplied value and false otherwise.
+     *
+     * @code k → v → {k: v} → Bool @endcode
      *
      * @param string $prop
      * @param mixed $value
@@ -320,6 +356,8 @@ class F {
      * Takes a predicate, a property and an (associative) array. Returns true if the specified array property
      * matches the predicate and false otherwise.
      *
+     * @code (v → Bool) → k → {k: v} → Bool @endcode
+     *
      * @param callable $predicate
      * @param mixed $prop
      * @param array $array
@@ -334,6 +372,8 @@ class F {
     /**
      * Performs left-to-right function composition. Like the unix pipe (|). All the function must be unary.
      *
+     * @code ((a → b), (b → c), ... , (y → z)) → (a → z) @endcode
+     *
      * @param callable[] ...$fns
      * @return callable
      */
@@ -346,7 +386,9 @@ class F {
     }
 
     /**
-     * Performs right-to-left function composition. Like the unix pipe (|). All the function must be unary.
+     * Performs right-to-left function composition. Like the unix pipe (|), but reversed ! All the function must be unary.
+     *
+     * @code ((y → z), (x → y), ... ,(a → b)) → (a → z) @endcode
      *
      * @param callable[] ...$fns
      * @return callable
@@ -358,6 +400,8 @@ class F {
     /**
      * Takes a function and an array of arguments. Applies the arguments to the function and returns a new
      * function awaiting the rest of the arguments.
+     *
+     * @code ((a, b, ..., n) → x) → [a, b, ...] → ((d, e, ..., n) → x) @endcode
      *
      * @param callable $fn
      * @param array $args
@@ -373,6 +417,8 @@ class F {
 
     /**
      * Takes a value and returns the it's `!` (NOT Logical operator). Returns true when passed a falsy value, and false when passed a truthy one.
+     *
+     * @code * → Bool @endcode
      *
      * @param mixed $value
      * @return bool

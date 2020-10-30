@@ -74,7 +74,13 @@ Contains all the methods to be used
 \subsubsection{\texorpdfstring{compose()}{compose()}}
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::compose (\begin{DoxyParamCaption}\item[{}]{\$fns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Performs right-\/to-\/left function composition. Like the unix pipe ($\vert$). All the function must be unary.
+Performs right-\/to-\/left function composition. Like the unix pipe ($\vert$), but reversed ! All the function must be unary.
+
+
+\begin{DoxyCode}
+((y → z), (x → y), ... ,(a → b)) → (a → z) 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}{Parameters}
@@ -90,7 +96,13 @@ callable
 \subsubsection{\texorpdfstring{each()}{each()}}
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::each (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Iterate over an {\ttfamily iterable}, calling a provided function \$fn for each element. Returns the original array.
+Iterate over an iterable, calling a provided function \$fn for each element. Returns the original array.
+
+
+\begin{DoxyCode}
+(a → \_) → [a] → [a] 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -108,7 +120,13 @@ array
 \subsubsection{\texorpdfstring{every()}{every()}}
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::every (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Takes a predicate and a {\ttfamily iterable} and returns true if all of the iterable members satisfies the predicate.
+Takes a predicate and a iterable and returns true if all of the iterable members satisfies the predicate.
+
+
+\begin{DoxyCode}
+((a, i, [a]) → Bool) → [a] → Bool 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -126,7 +144,13 @@ bool
 \subsubsection{\texorpdfstring{filter()}{filter()}}
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::filter (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Takes a predicate and a {\ttfamily iterable} and returns an array containing the members of the given iterable which satisfy the given predicate.
+Takes a predicate and a iterable and returns an array containing the members of the given iterable which satisfy the given predicate.
+
+
+\begin{DoxyCode}
+((a, i, [a]) → Bool) → [a] → [a] 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -147,6 +171,12 @@ array
 Returns the first element of the list which matches the predicate, or null if no element matches.
 
 
+\begin{DoxyCode}
+((a, i, [a]) → Bool) → [a] → a 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 callable & {\em \$predicate} & \\
 \hline
@@ -165,6 +195,12 @@ array
 Returns the index of the first element of the list which matches the predicate, or null if no element matches.
 
 
+\begin{DoxyCode}
+((a, i, [a]) → Bool) → [a] → i 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 callable & {\em \$predicate} & \\
 \hline
@@ -180,7 +216,13 @@ array
 \subsubsection{\texorpdfstring{flat\+Map()}{flatMap()}}
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::flat\+Map (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Takes a function and a {\ttfamily iterable}, apply the function to each of the iterable value and then flatten the result.
+Takes a function and a iterable, apply the function to each of the iterable value and then flatten the result.
+
+
+\begin{DoxyCode}
+((a, i, [a]) → [b]) → [a] → [b] 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -201,6 +243,12 @@ array
 Takes a value and an array. Returns true if the value is in the array and false otherwise.
 
 
+\begin{DoxyCode}
+a → [a] → Bool 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 mixed & {\em \$needle} & \\
 \hline
@@ -216,7 +264,13 @@ bool
 \subsubsection{\texorpdfstring{map()}{map()}}
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::map (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Takes a function and a {\ttfamily iterable} and returns an array containing the results of function applied to each iterable values.
+Takes a function and a iterable and returns an array containing the results of function applied to each iterable values.
+
+
+\begin{DoxyCode}
+((a, i, [a]) → b) → [a] → [b] 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -234,7 +288,13 @@ array
 \subsubsection{\texorpdfstring{merge()}{merge()}}
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::merge (\begin{DoxyParamCaption}\item[{}]{\$obj,  }\item[{}]{\$objs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Takes an (associative) array and at leat one other (variadic on the second argument) and returns all these arrays merged together.
+Takes an (associative) array and at least one other (variadic on the second argument) and returns all these arrays merged together.
+
+
+\begin{DoxyCode}
+\{k: v\} → (\{k: v\}, ..., \{k: v\}) → \{k: v\} 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -255,6 +315,12 @@ array
 Takes a value and returns the it\textquotesingle{}s {\ttfamily !} (N\+OT Logical operator). Returns true when passed a falsy value, and false when passed a truthy one.
 
 
+\begin{DoxyCode}
+* → Bool 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 mixed & {\em \$value} & \\
 \hline
@@ -269,6 +335,12 @@ bool
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::partial (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Takes a function and an array of arguments. Applies the arguments to the function and returns a new function awaiting the rest of the arguments.
+
+
+\begin{DoxyCode}
+((a, b, ..., n) → x) → [a, b, ...] → ((d, e, ..., n) → x) 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -289,6 +361,12 @@ callable
 Takes a list of properties and an (associative) array. Returns a partial copy of the (associative) array containing only the keys specified.
 
 
+\begin{DoxyCode}
+[k] → \{k: v\} → \{k: v\} | null 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 array & {\em \$props} & \\
 \hline
@@ -307,6 +385,12 @@ array
 Performs left-\/to-\/right function composition. Like the unix pipe ($\vert$). All the function must be unary.
 
 
+\begin{DoxyCode}
+((a → b), (b → c), ... , (y → z)) → (a → z) 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}{Parameters}
 {\em callable\mbox{[}$\,$\mbox{]}} & ...\$fns \\
 \hline
@@ -321,6 +405,12 @@ callable
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::prop (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Takes a property and an array and returns the array\textquotesingle{}s property value.
+
+
+\begin{DoxyCode}
+k → \{k: v\} → v | null 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -339,6 +429,12 @@ mixed
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::prop\+Eq (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Takes a property, a value and an (associative) array. Returns true if the specified array property is equal to the supplied value and false otherwise.
+
+
+\begin{DoxyCode}
+k → v → \{k: v\} → Bool 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -361,6 +457,12 @@ bool
 Takes a property, an array and a default value. Returns the array\textquotesingle{}s property value if it exists and the default value otherwise.
 
 
+\begin{DoxyCode}
+k → d → \{k: v\} → v | d 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 string  |  int & {\em \$prop} & \\
 \hline
@@ -379,6 +481,12 @@ mixed
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::prop\+Satisfies (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Takes a predicate, a property and an (associative) array. Returns true if the specified array property matches the predicate and false otherwise.
+
+
+\begin{DoxyCode}
+(v → Bool) → k → \{k: v\} → Bool 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -401,6 +509,12 @@ bool
 Takes an iterable, a function and a starting (or default) value. Reduces the iterable to a single value by successively calling the function, passing it an accumulator value and the current value from the iterable, and then passing the result to the next call.
 
 
+\begin{DoxyCode}
+((a, b) → a) → a → [b] → a 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 callable & {\em \$fn} & \\
 \hline
@@ -421,6 +535,12 @@ mixed
 Takes an array (NO O\+B\+J\+E\+C\+TS) and returns a reversed copy of the array.
 
 
+\begin{DoxyCode}
+[a] → [a] 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 array & {\em \$arr} & \\
 \hline
@@ -434,7 +554,13 @@ array
 \subsubsection{\texorpdfstring{some()}{some()}}
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::some (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Takes a predicate and a {\ttfamily iterable} and returns true if one of the iterable members satisfies the predicate.
+Takes a predicate and a iterable and returns true if one of the iterable members satisfies the predicate.
+
+
+\begin{DoxyCode}
+((a, i, [a]) → Bool) → [a] → Bool 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -455,6 +581,12 @@ bool
 Takes a comparison function and an array (NO O\+B\+J\+E\+C\+TS) and return a copy of the array sorted according to the comparison function.
 
 
+\begin{DoxyCode}
+((a, a) → Bool) → [a] → [a] 
+\end{DoxyCode}
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 callable & {\em \$fn} & \\
 \hline
@@ -471,6 +603,12 @@ array
 {\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::uniq (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Takes an array and returns a new array containing only one copy of each element in the original one. Warning \+: re-\/indexes the array.
+
+
+\begin{DoxyCode}
+[a] → [a] 
+\end{DoxyCode}
+
 
 
 \begin{DoxyParams}[1]{Parameters}

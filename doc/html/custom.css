@@ -174,6 +174,39 @@ div.toc h3 {
 	  background-image: none;
 }
 
+.memproto {
+    display: none;
+}
+
+.memdoc {
+    display: flex;
+    flex-direction: column;
+    background: inherit;
+    border-color: #000000;
+}
+
+.memdoc > * {
+    order: 5;
+}
+
+.memdoc > dl,
+.memdoc > p {
+    margin-bottom: 0;
+}
+
+.memdoc > .fragment {
+    order: 1;
+    margin-top: 5px;
+    width: fit-content;
+    padding-left: 10px;
+}
+
+.memdoc > .fragment > .line {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+}
+
 /*********************************************/
 /**             TOP navigation              **/
 /*********************************************/
