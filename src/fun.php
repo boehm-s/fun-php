@@ -364,9 +364,9 @@ class F {
      * @return callable
      */
     public static function partial(...$args) {
-        return _curry2(function($fn, $args) {
-            return function() use ($fn, $args) {
-                return call_user_func_array($fn, array_merge($args, func_get_args()));
+        return _curry2(function($fn, $params) {
+            return function(...$rest_params) use ($fn, $params) {
+                return call_user_func_array($fn, array_merge($params, $rest_params));
             };
         })(...$args);
     }

@@ -14,9 +14,28 @@ final class SpecialUseCaseTest extends TestCase
         return $n + 1;
     }
 
+    public static function plus($x, $y)
+    {
+        return $x + $y;
+    }
+
     public function testMap(): void
     {
         $res = F::map([static::class, 'plusOne'], $this->numArray5);
         $this->assertEquals([2, 3, 4, 5, 6], $res);
+    }
+
+    public function testPartialWithStaticMethod(): void
+    {
+        $res = F::map(F::partial([static::class, 'plus'], [1]), $this->numArray5);
+        $this->assertEquals([2, 3, 4, 5, 6], $res);
+    }
+
+    public function testPartialCurried(): void
+    {
+        $partialPlus = F::partial([static::class, 'plus']);
+        $plusTwo = $partialPlus([2]);
+        $res = F::map($plusTwo, $this->numArray5);
+        $this->assertEquals([3, 4, 5, 6, 7], $res);
     }
 }
