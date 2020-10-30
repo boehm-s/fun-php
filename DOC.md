@@ -56,7 +56,7 @@ F::map(F::_, ['hello', 'world', '!'])('strtoupper');
 
 # Documentation
 
-Please review the [API documentation](/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864 "API documentation")
+Please review the [API documentation](/fun-php/classboehm__s_1_1F.html#a1712c41e5be41e6f6e2088ed5d54a864 "API documentation")
 
 # Running the test suite
 
