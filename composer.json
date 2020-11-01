@@ -22,7 +22,7 @@
         "php": "^7.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8"
+        "phpunit/phpunit": "^8.5"
     },
     "autoload": {
         "classmap": [
@@ -30,7 +30,7 @@
         ]
     },
     "scripts": {
-        "test": "phpunit",
+        "test": "phpunit --coverage-clover coverage.xml",
         "doc": "docker run --rm -v $(pwd):/data phpdoc/phpdoc:3 run -f src/fun.php -t doc/"
     }
 }
