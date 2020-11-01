@@ -30,6 +30,7 @@ class F {
      * of the given iterable which satisfy the given predicate.
      *
      * @code ((a, i, [a]) → Bool) → [a] → [a] @endcode
+     * @snippet lists.php filter
      *
      * @param callable $predicate
      * @param iterable $arr
@@ -46,6 +47,7 @@ class F {
      * Returns the original array.
      *
      * @code (a → _) → [a] → [a] @endcode
+     * @snippet lists.php each
      *
      * @param callable $fn
      * @param iterable $arr
@@ -65,6 +67,7 @@ class F {
      * of function applied to each iterable values.
      *
      * @code ((a, i, [a]) → b) → [a] → [b] @endcode
+     * @snippet lists.php map
      *
      * @param callable $fn
      * @param iterable $arr
@@ -81,6 +84,7 @@ class F {
      * value and then flatten the result.
      *
      * @code ((a, i, [a]) → [b]) → [a] → [b] @endcode
+     * @snippet lists.php flatMap
      *
      * @param callable $fn
      * @param iterable $arr
@@ -99,6 +103,7 @@ class F {
      * no element matches.
      *
      * @code ((a, i, [a]) → Bool) → [a] → a @endcode
+     * @snippet lists.php find
      *
      * @param callable $predicate
      * @param iterable $arr
@@ -121,6 +126,7 @@ class F {
      * or null if no element matches.
      *
      * @code ((a, i, [a]) → Bool) → [a] → i @endcode
+     * @snippet lists.php findIndex
      *
      * @param callable $predicate
      * @param iterable $arr
@@ -143,6 +149,7 @@ class F {
      * iterable members satisfies the predicate.
      *
      * @code ((a, i, [a]) → Bool) → [a] → Bool @endcode
+     * @snippet lists.php some
      *
      * @param callable $predicate
      * @param iterable $arr
@@ -165,6 +172,7 @@ class F {
      * iterable members satisfies the predicate.
      *
      * @code ((a, i, [a]) → Bool) → [a] → Bool @endcode
+     * @snippet lists.php every
      *
      * @param callable $predicate
      * @param iterable $arr
@@ -187,6 +195,7 @@ class F {
      * sorted according to the comparison function.
      *
      * @code ((a, a) → Bool) → [a] → [a] @endcode
+     * @snippet lists.php sort
      *
      * @param callable $fn
      * @param array $arr
@@ -194,9 +203,8 @@ class F {
      */
     public static function sort(...$args) {
         return _curry2(function($fn, $array) {
-            $copiedArray = $array;
-            usort($copiedArray, $fn);
-            return $copiedArray;
+            usort($array, $fn);
+            return $array;
 
         })(...$args);
     }
@@ -205,6 +213,7 @@ class F {
      * Takes an array (NO OBJECTS) and returns a reversed copy of the array.
      *
      * @code [a] → [a] @endcode
+     * @snippet lists.php reverse
      *
      * @param array $arr
      * @return array
@@ -223,6 +232,7 @@ class F {
      * from the iterable, and then passing the result to the next call.
      *
      * @code ((a, b) → a) → a → [b] → a @endcode
+     * @snippet lists.php reduce
      *
      * @param callable $fn
      * @param mixed $arr
@@ -239,12 +249,13 @@ class F {
      * Takes a value and an array. Returns true if the value is in the array and false otherwise.
      *
      * @code a → [a] → Bool @endcode
+     * @snippet lists.php includes
      *
      * @param mixed $needle
      * @param array $haystack
      * @return bool
      */
-    public static function includes(...$args) {
+    public static function includes(...$args) { // TODO: make it work with strings
         return _curry2(function($value, $array) {
             return in_array($value, $array);
         })(...$args);
@@ -255,6 +266,7 @@ class F {
      * Takes a property and an array and returns the array's property value.
      *
      * @code k → {k: v} → v | null @endcode
+     * @snippet assoc.php prop
      *
      * @param string | int $prop
      * @param array $array
@@ -271,6 +283,7 @@ class F {
      * exists and the default value otherwise.
      *
      * @code k → d → {k: v} → v | d @endcode
+     * @snippet assoc.php propOr
      *
      * @param string | int $prop
      * @param mixed $default
@@ -288,6 +301,7 @@ class F {
      * (associative) array containing only the keys specified.
      *
      * @code [k] → {k: v} → {k: v} | null @endcode
+     * @snippet assoc.php pick
      *
      * @param array $props
      * @param array $array
@@ -297,7 +311,9 @@ class F {
         return _curry2(function($props, $obj) {
             $newObj = [];
             foreach ($props as $prop) {
-                $newObj[$prop] = $obj[$prop];
+                if (isset($obj[$prop])) {
+                    $newObj[$prop] = $obj[$prop];
+                }
             }
 
             return $newObj;
@@ -309,6 +325,7 @@ class F {
      * Warning : re-indexes the array.
      *
      * @code [a] → [a] @endcode
+     * @snippet lists.php uniq
      *
      * @param array $array
      * @return array
@@ -324,6 +341,7 @@ class F {
      * all these arrays merged together.
      *
      * @code {k: v} → ({k: v}, ..., {k: v}) → {k: v} @endcode
+     * @snippet assoc.php merge
      *
      * @param array $array1
      * @param array[] ...$array2
@@ -340,6 +358,7 @@ class F {
      * equal to the supplied value and false otherwise.
      *
      * @code k → v → {k: v} → Bool @endcode
+     * @snippet assoc.php propEq
      *
      * @param string $prop
      * @param mixed $value
@@ -357,6 +376,7 @@ class F {
      * matches the predicate and false otherwise.
      *
      * @code (v → Bool) → k → {k: v} → Bool @endcode
+     * @snippet assoc.php propSatisfies
      *
      * @param callable $predicate
      * @param mixed $prop
@@ -373,6 +393,7 @@ class F {
      * Performs left-to-right function composition. Like the unix pipe (|). All the function must be unary.
      *
      * @code ((a → b), (b → c), ... , (y → z)) → (a → z) @endcode
+     * @snippet func.php pipe
      *
      * @param callable[] ...$fns
      * @return callable
@@ -389,6 +410,7 @@ class F {
      * Performs right-to-left function composition. Like the unix pipe (|), but reversed ! All the function must be unary.
      *
      * @code ((y → z), (x → y), ... ,(a → b)) → (a → z) @endcode
+     * @snippet func.php compose
      *
      * @param callable[] ...$fns
      * @return callable
@@ -402,6 +424,7 @@ class F {
      * function awaiting the rest of the arguments.
      *
      * @code ((a, b, ..., n) → x) → [a, b, ...] → ((d, e, ..., n) → x) @endcode
+     * @snippet func.php partial
      *
      * @param callable $fn
      * @param array $args
@@ -419,6 +442,7 @@ class F {
      * Takes a value and returns the it's `!` (NOT Logical operator). Returns true when passed a falsy value, and false when passed a truthy one.
      *
      * @code * → Bool @endcode
+     * @snippet logic.php not
      *
      * @param mixed $value
      * @return bool

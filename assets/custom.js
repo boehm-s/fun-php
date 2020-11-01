@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', _ => {
-    const isApiDocPage = window.location.pathname == "/classboehm__s_1_1F.html";
+    const isApiDocPage = window.location.pathname.includes("/classboehm__s_1_1F");
     const searchInput = document.getElementById('MSearchField');
 
     if (isApiDocPage) {
@@ -40,9 +40,19 @@ document.addEventListener('DOMContentLoaded', _ => {
         };
 
         searchInput.oninput = searchInputHandler;
-        // searchInput.onclick = searchInputHandler;
         searchInput.addEventListener('focusout', resetCards);
         searchInput.onchange = null;
         searchInput.onkeyup = null;
+
+        const paramsContainers = Array.from(contentsDiv.querySelectorAll('dl.params'));
+
+        paramsContainers.forEach(paramContainer => {
+            paramContainer.classList.toggle('hide');
+            const paramElem = paramContainer.getElementsByTagName('dt')[0];
+
+            paramElem.onclick = e => {
+                paramContainer.classList.toggle('hide');
+            };
+        });
     }
 });

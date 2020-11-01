@@ -178,6 +178,10 @@ div.toc h3 {
     display: none;
 }
 
+.memtitle {
+    border-bottom: 1px solid #32363d !important;
+}
+
 .memdoc {
     display: flex;
     flex-direction: column;
@@ -195,7 +199,6 @@ div.toc h3 {
 }
 
 .memdoc > .fragment {
-    order: 1;
     margin-top: 5px;
     width: fit-content;
     padding-left: 10px;
@@ -206,6 +209,67 @@ div.toc h3 {
     line-height: 1.5;
     letter-spacing: 0.3px;
 }
+
+.memdoc > .fragment:nth-of-type(1) {
+    order: 1;
+}
+
+.memdoc > .fragment:nth-of-type(2) {
+    order: 10;
+    margin-left: -11px;
+    margin-bottom: -3px;
+    width: calc(100% - 10px);
+    margin-top: 15px;
+    padding: 15px;
+    background: black;
+}
+
+.memdoc > .fragment:nth-of-type(2) > .line {
+    line-height: 2;
+}
+
+
+
+.memdoc > dl {
+    display: block;
+}
+
+.memdoc > .params.hide > dd,
+.memdoc > .params.hide + .return {
+    display: none;
+}
+
+.memdoc > .params > dt {
+    cursor: pointer;
+    text-decoration: underline;
+    width: fit-content;
+}
+
+.memdoc > .params > dt::after {
+    content: ' ';
+    width: 0;
+    height: 0px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #fff;
+    margin-left: 10px;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.memdoc > .params.hide > dt::after {
+    content: ' ';
+    width: 0;
+    height: 0px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #fff;
+    border-bottom: none !important;
+    margin-left: 10px;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
 
 /*********************************************/
 /**             TOP navigation              **/
