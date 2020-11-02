@@ -11,10 +11,10 @@ body, table, div, p, dl {
     font: 400 18px/30px Roboto,sans-serif;
 }
 
-.textblock > h1 {
+.textblock > h1:first-of-type {
     font-size: 4em;
     height: 50px;
-    margin-top: 60px;
+    margin-top: 58px !important;
     margin-bottom: 30px;
     border: none;
 }
