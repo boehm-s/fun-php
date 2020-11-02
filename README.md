@@ -1,7 +1,6 @@
 # fun-php ![Build Status](https://travis-ci.com/boehm-s/fun-php.svg?branch=master) [![codecov](https://codecov.io/gh/boehm-s/fun-php/branch/master/graph/badge.svg?token=LIWXGDM2NN)](https://codecov.io/gh/boehm-s/fun-php)
 
 
-
 **fun**ctional programming utilities for PHP ! Inspired by *Ramda*, Javascript, lodash and many other things !
 
 ## Why ? 
@@ -17,9 +16,9 @@ composer require boehm_s/fun
 
 # How to use it ?
 
-You can use it just like Ramda, in fact you can even rely on the excellent [Ramda documentation!](https://ramdajs.com/docs/) !
+You can review the [API Documentation](https://boehm-s.github.io/fun-php/)
 
-As with Ramda, fun-php methods are automatically curried : 
+Or, if you're familiar with Ramda, you can start writing code right now. As with Ramda, fun-php methods are automatically curried : 
 
 `F::map($fn, $array)` &nbsp; ⇔  &nbsp; `F::map($fn)($array)` &nbsp; ⇔  &nbsp; `F::map()($fn)($array)`
 

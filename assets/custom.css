@@ -11,6 +11,26 @@ body, table, div, p, dl {
     font: 400 18px/30px Roboto,sans-serif;
 }
 
+.textblock > h1 {
+    font-size: 4em;
+    height: 50px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    border: none;
+}
+
+.badges {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-size: 25px;
+    zoom: 1.5;
+}
+
+.badges > .images {
+    margin-right: 10px;
+}
+
 /*********************************************/
 /**               Main content              **/
 /*********************************************/
