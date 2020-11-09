@@ -31,6 +31,6 @@
     },
     "scripts": {
         "test": "phpunit --coverage-clover coverage.xml",
-        "doc": "docker run --rm -v $(pwd):/data phpdoc/phpdoc:3 run -f src/fun.php -t doc/"
+        "doc": "cd ./doc && doxygen ./doxygen.conf && cd -"
     }
 }
