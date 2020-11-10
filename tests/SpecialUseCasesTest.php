@@ -38,4 +38,9 @@ final class SpecialUseCaseTest extends TestCase
         $res = F::map($plusTwo, $this->numArray5);
         $this->assertEquals([3, 4, 5, 6, 7], $res);
     }
+
+    public function testNot(): void
+    {
+        $this->assertEquals(false, F::not(true));
+    }
 }

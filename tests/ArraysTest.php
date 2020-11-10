@@ -41,6 +41,21 @@ final class ArraysTest extends TestCase
 
         $squared = $curried($this->numArray5);
         $this->assertEquals([1, 4, 9, 16, 25], $squared);
+    }
+
+    public function testEach(): void
+    {
+        $square = function($n) { return $n * $n; };
+        $not_squared = F::each($square, $this->numArray5);
+        $this->assertEquals($not_squared, $this->numArray5);
+
+        $i = 0;
+        $curried = F::each(function($_) use (&$i) { $i += 1; return 0; });
+        $this->assertIsCallable($curried);
+
+        $not_squared = $curried($this->numArray5);
+        $this->assertEquals($not_squared, $this->numArray5);
+        $this->assertEquals($i, 5);
 
     }
 
@@ -71,6 +86,9 @@ final class ArraysTest extends TestCase
 
         $this->assertEquals(6, F::find($moreThan5, $this->numArray10));
         $this->assertEquals(5, $findFifth($this->numArray10));
+
+        $tenth = function($_n, $i) { return $i === 9; };
+        $this->assertEquals(null, F::find($tenth, $this->numArray5));
     }
 
     public function testFindIndex(): void
@@ -81,6 +99,9 @@ final class ArraysTest extends TestCase
 
         $this->assertEquals(5, F::findIndex($moreThan5, $this->numArray10));
         $this->assertEquals(4, $findFifth($this->numArray10));
+
+        $tenth = function($_n, $i) { return $i === 9; };
+        $this->assertEquals(null, F::findIndex($tenth, $this->numArray5));
     }
 
     public function testSome(): void

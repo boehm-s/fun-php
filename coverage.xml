@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604269588">
-  <project timestamp="1604269588">
+<coverage generated="1605036076">
+  <project timestamp="1605036076">
     <package name="boehm_s">
       <file name="/home/boehm_s/Documents/fun-php/src/fun.php">
         <class name="boehm_s\F" namespace="boehm_s">
-          <metrics complexity="37" methods="23" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="68" coveredstatements="60" elements="91" coveredelements="79"/>
+          <metrics complexity="37" methods="23" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="68" coveredstatements="68" elements="91" coveredelements="91"/>
         </class>
         <line num="12" type="stmt" count="1"/>
         <line num="13" type="stmt" count="1"/>
@@ -16,11 +16,11 @@
         <line num="39" type="method" name="filter" visibility="public" complexity="1" crap="1" count="6"/>
         <line num="41" type="stmt" count="5"/>
         <line num="42" type="stmt" count="6"/>
-        <line num="56" type="method" name="each" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="58" type="stmt" count="0"/>
-        <line num="59" type="stmt" count="0"/>
-        <line num="61" type="stmt" count="0"/>
-        <line num="62" type="stmt" count="0"/>
+        <line num="56" type="method" name="each" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="1"/>
         <line num="76" type="method" name="map" visibility="public" complexity="1" crap="1" count="9"/>
         <line num="78" type="stmt" count="9"/>
         <line num="79" type="stmt" count="9"/>
@@ -28,17 +28,17 @@
         <line num="95" type="stmt" count="3"/>
         <line num="97" type="stmt" count="3"/>
         <line num="98" type="stmt" count="3"/>
-        <line num="112" type="method" name="find" visibility="public" complexity="3" crap="3.07" count="1"/>
+        <line num="112" type="method" name="find" visibility="public" complexity="3" crap="3" count="1"/>
         <line num="114" type="stmt" count="1"/>
         <line num="115" type="stmt" count="1"/>
         <line num="116" type="stmt" count="1"/>
-        <line num="120" type="stmt" count="0"/>
+        <line num="120" type="stmt" count="1"/>
         <line num="121" type="stmt" count="1"/>
-        <line num="135" type="method" name="findIndex" visibility="public" complexity="3" crap="3.07" count="1"/>
+        <line num="135" type="method" name="findIndex" visibility="public" complexity="3" crap="3" count="1"/>
         <line num="137" type="stmt" count="1"/>
         <line num="138" type="stmt" count="1"/>
         <line num="139" type="stmt" count="1"/>
-        <line num="143" type="stmt" count="0"/>
+        <line num="143" type="stmt" count="1"/>
         <line num="144" type="stmt" count="1"/>
         <line num="158" type="method" name="some" visibility="public" complexity="3" crap="3" count="1"/>
         <line num="160" type="stmt" count="1"/>
@@ -85,9 +85,9 @@
         <line num="350" type="method" name="merge" visibility="public" complexity="2" crap="2" count="2"/>
         <line num="351" type="stmt" count="2"/>
         <line num="353" type="stmt" count="2"/>
-        <line num="368" type="method" name="propEq" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="370" type="stmt" count="2"/>
-        <line num="371" type="stmt" count="2"/>
+        <line num="368" type="method" name="propEq" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="370" type="stmt" count="3"/>
+        <line num="371" type="stmt" count="3"/>
         <line num="386" type="method" name="propSatisfies" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="388" type="stmt" count="1"/>
         <line num="389" type="stmt" count="1"/>
@@ -101,10 +101,10 @@
         <line num="436" type="stmt" count="4"/>
         <line num="437" type="stmt" count="4"/>
         <line num="438" type="stmt" count="4"/>
-        <line num="450" type="method" name="not" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="452" type="stmt" count="0"/>
-        <line num="453" type="stmt" count="0"/>
-        <metrics loc="456" ncloc="195" classes="1" methods="23" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="75" coveredstatements="67" elements="98" coveredelements="86"/>
+        <line num="450" type="method" name="not" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="452" type="stmt" count="1"/>
+        <line num="453" type="stmt" count="1"/>
+        <metrics loc="456" ncloc="195" classes="1" methods="23" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="75" coveredstatements="75" elements="98" coveredelements="98"/>
       </file>
     </package>
     <file name="/home/boehm_s/Documents/fun-php/src/internals/_arity.php">
@@ -120,78 +120,64 @@
     </file>
     <file name="/home/boehm_s/Documents/fun-php/src/internals/_curry1.php">
       <line num="3" type="stmt" count="1"/>
-      <line num="7" type="stmt" count="20"/>
-      <line num="8" type="stmt" count="20"/>
-      <line num="9" type="stmt" count="20"/>
-      <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="4" coveredelements="4"/>
+      <line num="7" type="stmt" count="23"/>
+      <line num="8" type="stmt" count="23"/>
+      <line num="11" type="stmt" count="23"/>
+      <line num="13" type="stmt" count="23"/>
+      <metrics loc="14" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="5" coveredelements="5"/>
     </file>
     <file name="/home/boehm_s/Documents/fun-php/src/internals/_curry2.php">
       <line num="3" type="stmt" count="1"/>
       <line num="4" type="stmt" count="1"/>
-      <line num="8" type="stmt" count="23"/>
-      <line num="9" type="stmt" count="23"/>
-      <line num="10" type="stmt" count="23"/>
-      <line num="11" type="stmt" count="1"/>
-      <line num="12" type="stmt" count="23"/>
-      <line num="14" type="stmt" count="15"/>
-      <line num="15" type="stmt" count="15"/>
+      <line num="8" type="stmt" count="25"/>
+      <line num="9" type="stmt" count="25"/>
+      <line num="10" type="stmt" count="25"/>
+      <line num="12" type="stmt" count="25"/>
+      <line num="13" type="stmt" count="25"/>
+      <line num="15" type="stmt" count="25"/>
       <line num="17" type="stmt" count="17"/>
-      <line num="18" type="stmt" count="1"/>
-      <line num="19" type="stmt" count="16"/>
+      <line num="18" type="stmt" count="17"/>
+      <line num="20" type="stmt" count="18"/>
       <line num="21" type="stmt" count="1"/>
-      <line num="22" type="stmt" count="1"/>
-      <line num="23" type="stmt" count="16"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="26" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="16"/>
-      <line num="31" type="stmt" count="23"/>
-      <metrics loc="32" ncloc="32" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="17" elements="19" coveredelements="17"/>
+      <line num="22" type="stmt" count="17"/>
+      <line num="24" type="stmt" count="17"/>
+      <line num="27" type="stmt" count="17"/>
+      <line num="29" type="stmt" count="25"/>
+      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="16" coveredelements="16"/>
     </file>
     <file name="/home/boehm_s/Documents/fun-php/src/internals/_curry3.php">
       <line num="3" type="stmt" count="1"/>
       <line num="4" type="stmt" count="1"/>
       <line num="5" type="stmt" count="1"/>
+      <line num="8" type="stmt" count="5"/>
       <line num="9" type="stmt" count="5"/>
-      <line num="10" type="stmt" count="5"/>
       <line num="11" type="stmt" count="5"/>
       <line num="12" type="stmt" count="0"/>
       <line num="13" type="stmt" count="5"/>
-      <line num="15" type="stmt" count="1"/>
-      <line num="16" type="stmt" count="1"/>
-      <line num="17" type="stmt" count="5"/>
-      <line num="18" type="stmt" count="4"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="21" type="stmt" count="4"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="4"/>
-      <line num="27" type="stmt" count="0"/>
+      <line num="15" type="stmt" count="4"/>
+      <line num="23" type="stmt" count="2"/>
+      <line num="24" type="stmt" count="2"/>
+      <line num="25" type="stmt" count="2"/>
+      <line num="27" type="stmt" count="2"/>
       <line num="28" type="stmt" count="0"/>
-      <line num="31" type="stmt" count="4"/>
-      <line num="32" type="stmt" count="4"/>
-      <line num="36" type="stmt" count="2"/>
-      <line num="37" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="2"/>
+      <line num="31" type="stmt" count="2"/>
+      <line num="33" type="stmt" count="2"/>
+      <line num="35" type="stmt" count="2"/>
+      <line num="37" type="stmt" count="2"/>
       <line num="39" type="stmt" count="2"/>
-      <line num="41" type="stmt" count="0"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="43" type="stmt" count="2"/>
-      <line num="45" type="stmt" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="47" type="stmt" count="2"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="50" type="stmt" count="0"/>
-      <line num="51" type="stmt" count="2"/>
-      <line num="53" type="stmt" count="0"/>
-      <line num="54" type="stmt" count="0"/>
-      <line num="55" type="stmt" count="2"/>
-      <line num="57" type="stmt" count="0"/>
-      <line num="58" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="2"/>
+      <line num="48" type="stmt" count="6"/>
+      <line num="49" type="stmt" count="6"/>
+      <line num="50" type="stmt" count="6"/>
+      <line num="52" type="stmt" count="6"/>
+      <line num="54" type="stmt" count="1"/>
+      <line num="55" type="stmt" count="1"/>
+      <line num="56" type="stmt" count="6"/>
+      <line num="57" type="stmt" count="5"/>
       <line num="59" type="stmt" count="2"/>
-      <line num="61" type="stmt" count="0"/>
-      <line num="62" type="stmt" count="0"/>
-      <line num="64" type="stmt" count="2"/>
-      <line num="68" type="stmt" count="5"/>
-      <metrics loc="69" ncloc="69" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="24" elements="43" coveredelements="24"/>
+      <line num="61" type="stmt" count="6"/>
+      <metrics loc="62" ncloc="62" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="29" elements="31" coveredelements="29"/>
     </file>
     <file name="/home/boehm_s/Documents/fun-php/src/internals/_filter.php">
       <line num="3" type="stmt" count="1"/>
@@ -206,7 +192,7 @@
       <metrics loc="19" ncloc="19" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="9" coveredelements="9"/>
     </file>
     <file name="/home/boehm_s/Documents/fun-php/src/internals/_isPlaceholder.php">
-      <line num="6" type="stmt" count="28"/>
+      <line num="6" type="stmt" count="31"/>
       <metrics loc="7" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
     </file>
     <file name="/home/boehm_s/Documents/fun-php/src/internals/_map.php">
@@ -231,6 +217,6 @@
       <line num="16" type="stmt" count="6"/>
       <metrics loc="17" ncloc="17" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="8" coveredelements="8"/>
     </file>
-    <metrics files="9" loc="645" ncloc="381" classes="1" methods="23" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="175" coveredstatements="146" elements="198" coveredelements="165"/>
+    <metrics files="9" loc="640" ncloc="376" classes="1" methods="23" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="161" coveredstatements="159" elements="184" coveredelements="182"/>
   </project>
 </coverage>
