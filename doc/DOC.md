@@ -5,6 +5,7 @@
 <div class="badges">
 ![Build Status](https://travis-ci.com/boehm-s/fun-php.svg?branch=master) 
 ![codecov](https://codecov.io/gh/boehm-s/fun-php/branch/master/graph/badge.svg?token=LIWXGDM2NN)
+[![Maintainability](https://api.codeclimate.com/v1/badges/612d5dac269def2e0900/maintainability)](https://codeclimate.com/github/boehm-s/fun-php/maintainability)
 </div>
 
 A practical functional library for PHP programmers.
