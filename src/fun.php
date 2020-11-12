@@ -1,10 +1,10 @@
 <?php
 /**
- * @brief fun-php | Bringing FP th PHP
+ * @brief fun-php | Bringing FP to PHP
  * @file fun.php
  * @author  Steven BOEHM <steven.boehm.dev@gmail.com>
  * @package boehm_s\fun-php
- * @version v1.2.1
+ * @version v1.2.2
  */
 
 namespace boehm_s;
@@ -18,12 +18,32 @@ require_once(realpath(dirname(__FILE__) . '/internals/_map.php'));
 require_once(realpath(dirname(__FILE__) . '/internals/_reduce.php'));
 
 /**
- * @brief Class F - fun.php
- *
- * Contains all the methods to be used
+ * This class contains all the methods of the fun-php library.
+ * These "methods" are all static, so these are just functions.
  */
 class F {
+
+
+    /**
+     * @brief `F::_` is a special placeholder value used to specify "gaps" within curried functions,
+     *        allowing partial application of any combination of arguments, regardless of their positions.
+     *
+     *        If g is a curried ternary function and `_` is `F::_`, the following are equivalent:
+     *
+     * @code _ @endcode
+     *
+     * @code
+     *    g(1, 2, 3);
+     *    g(_, 2, 3)(1)
+     *    g(_, _, 3)(1)(2);
+     *    g(_, 2, _)(1, 3);
+     *    g(_, 2)(1)(3);
+     *    g(_, 2)(1, 3);
+     *    g(_, 2)(_, 3)(1);
+     * @endcode
+     */
     const _ = '@@fun-php/placeholder';
+
 
     /**
      * Takes a predicate and a iterable and returns an array containing the members
@@ -46,7 +66,7 @@ class F {
      * Iterate over an iterable, calling a provided function $fn for each element.
      * Returns the original array.
      *
-     * @code (a → _) → [a] → [a] @endcode
+     * @code (a → *) → [a] → [a] @endcode
      * @snippet lists.php each
      *
      * @param callable $fn

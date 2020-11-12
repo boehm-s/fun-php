@@ -1,10 +1,5 @@
 \hypertarget{classboehm__s_1_1F}{}\section{boehm\+\_\+s\textbackslash{}F Class Reference}
 \label{classboehm__s_1_1F}\index{boehm\+\_\+s\textbackslash{}F@{boehm\+\_\+s\textbackslash{}F}}
-
-
-Class \hyperlink{classboehm__s_1_1F}{F} -\/ \hyperlink{fun_8php}{fun.\+php}.  
-
-
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -57,15 +52,12 @@ static \hyperlink{classboehm__s_1_1F_a0cf3df6448dbfa748f755494974d13ab}{not} (..
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}\label{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}} 
-const {\bfseries \+\_\+} = \textquotesingle{}@@fun-\/php/placeholder\textquotesingle{}
-\end{DoxyCompactItemize}
+const \hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\+\_\+} = \textquotesingle{}@@fun-\/php/placeholder\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em {\ttfamily \hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{F\+::\+\_\+}} is a special placeholder value used to specify \char`\"{}gaps\char`\"{} within curried functions, allowing partial application of any combination of arguments, regardless of their positions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Class \hyperlink{classboehm__s_1_1F}{F} -\/ \hyperlink{fun_8php}{fun.\+php}. 
-
-Contains all the methods to be used 
+This class contains all the methods of the fun-\/php library. These \char`\"{}methods\char`\"{} are all static, so these are just functions. 
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classboehm__s_1_1F_a1712c41e5be41e6f6e2088ed5d54a864}\label{classboehm__s_1_1F_a1712c41e5be41e6f6e2088ed5d54a864}} 
@@ -105,7 +97,7 @@ Iterate over an iterable, calling a provided function \$fn for each element. Ret
 
 
 \begin{DoxyCode}
-(a → \_) → [a] → [a] 
+(a → *) → [a] → [a] 
 \end{DoxyCode}
  
 \begin{DoxyCodeInclude}
@@ -567,7 +559,7 @@ Takes a predicate, a property and an (associative) array. Returns true if the sp
 
 $travels = [[\textcolor{stringliteral}{'type'} => \textcolor{stringliteral}{'train'}, \textcolor{stringliteral}{'id'} => 11], [\textcolor{stringliteral}{'type'} => \textcolor{stringliteral}{'flight'}, \textcolor{stringliteral}{'id'} => 42], [\textcolor{stringliteral}{'type'} => \textcolor{stringliteral}{'hotel'}, \textcolor{stringliteral}{'id'} => 
       45]];
-$isFlightOrTrain = \hyperlink{classboehm__s_1_1F_aa695a4a8ea655ab5d7011f205eb49de7}{F::includes}(F::\_, [\textcolor{stringliteral}{'train'}, \textcolor{stringliteral}{'flight'}]);
+$isFlightOrTrain = \hyperlink{classboehm__s_1_1F_aa695a4a8ea655ab5d7011f205eb49de7}{F::includes}(\hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{F::\_}, [\textcolor{stringliteral}{'train'}, \textcolor{stringliteral}{'flight'}]);
 \hyperlink{classboehm__s_1_1F_a80fe06fb52d10a68a0d6b36ca821463f}{F::filter}(\hyperlink{classboehm__s_1_1F_a6d71ddfdd2b6c90fe356808bd332bb3f}{F::propSatisfies}($isFlightOrTrain, \textcolor{stringliteral}{'type'}), $travels); \textcolor{comment}{//=> [['type' =>
        'train', 'id' => 11], ['type' => 'flight', 'id' => 42]]}
 \end{DoxyCodeInclude}
@@ -725,6 +717,37 @@ array & {\em \$array} & \\
 array 
 \end{DoxyReturn}
 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}\label{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!\+\_\+@{\+\_\+}}
+\index{\+\_\+@{\+\_\+}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{\+\_\+}{\_}}
+{\footnotesize\ttfamily const boehm\+\_\+s\textbackslash{}\+F\+::\+\_\+ = \textquotesingle{}@@fun-\/php/placeholder\textquotesingle{}}
+
+
+
+{\ttfamily \hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{F\+::\+\_\+}} is a special placeholder value used to specify \char`\"{}gaps\char`\"{} within curried functions, allowing partial application of any combination of arguments, regardless of their positions. 
+
+If g is a curried ternary function and {\ttfamily \+\_\+} is {\ttfamily \hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{F\+::\+\_\+}}, the following are equivalent\+:
+
+
+\begin{DoxyCode}
+\hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_} 
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+g(1, 2, 3);
+g(\hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_}, 2, 3)(1)
+g(\hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_}, \hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_}, 3)(1)(2);
+g(\hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_}, 2, \hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_})(1, 3);
+g(\hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_}, 2)(1)(3);
+g(\hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_}, 2)(1, 3);
+g(\hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_}, 2)(\hyperlink{classboehm__s_1_1F_ab837ec3c9abe3d1a244817fd4c18eda7}{\_}, 3)(1);
+\end{DoxyCode}
+ 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

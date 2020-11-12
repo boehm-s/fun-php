@@ -35,6 +35,8 @@ body, table, div, p, dl {
 /**               Main content              **/
 /*********************************************/
 .contents {
+    display: flex;
+    flex-direction: column;
     width: 80%;
 	  margin-left: 20% !important;
 	  padding: 0 10px;
@@ -199,7 +201,10 @@ div.toc h3 {
 }
 
 .memtitle {
+    width: fit-content;
+    margin-right: 0;
     border-bottom: 1px solid #32363d !important;
+    z-index: 999;
 }
 
 .memdoc {
@@ -288,6 +293,34 @@ div.toc h3 {
     margin-left: 10px;
     display: inline-block;
     margin-bottom: 2px;
+}
+
+
+/* Putting Member Data Documentation on top of the page */
+
+.contents > h2.groupheader:nth-child(n+10),
+.contents > .groupheader + a:last-of-type,
+.contents > .memtitle:last-of-type,
+.contents > .memitem:last-of-type {
+    order: -1 !important;
+}
+
+/* Members data have no type signature */
+.contents > .memitem:last-of-type > .memdoc > div.fragment:first-of-type {
+    display: none;
+}
+
+.contents > h2:first-of-type,
+.contents > div.textblock {
+    order: -2 !important;
+}
+
+/*********************************************/
+/**             Class members               **/
+/*********************************************/
+
+.memberdecls {
+    display: none;
 }
 
 
