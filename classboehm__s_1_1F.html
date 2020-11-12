@@ -87,9 +87,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">boehm_s\F Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Class <a class="el" href="classboehm__s_1_1F.html" title="Class F - fun.php. ">F</a> - <a class="el" href="fun_8php.html" title="fun-php | Bringing FP th PHP ">fun.php</a>.  
- <a href="classboehm__s_1_1F.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -142,13 +139,12 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ab837ec3c9abe3d1a244817fd4c18eda7"><td class="memItemLeft" align="right" valign="top"><a id="ab837ec3c9abe3d1a244817fd4c18eda7"></a>
-const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/placeholder'</td></tr>
+<tr class="memitem:ab837ec3c9abe3d1a244817fd4c18eda7"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a> = '@@fun-php/placeholder'</td></tr>
+<tr class="memdesc:ab837ec3c9abe3d1a244817fd4c18eda7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code><a class="el" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7" title="F::_ is a special placeholder value used to specify &quot;gaps&quot; within curried functions, allowing partial application of any combination of arguments, regardless of their positions. ">F::_</a></code> is a special placeholder value used to specify "gaps" within curried functions, allowing partial application of any combination of arguments, regardless of their positions.  <a href="#ab837ec3c9abe3d1a244817fd4c18eda7">More...</a><br /></td></tr>
 <tr class="separator:ab837ec3c9abe3d1a244817fd4c18eda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class <a class="el" href="classboehm__s_1_1F.html" title="Class F - fun.php. ">F</a> - <a class="el" href="fun_8php.html" title="fun-php | Bringing FP th PHP ">fun.php</a>. </p>
-<p>Contains all the methods to be used </p>
+<div class="textblock"><p>This class contains all the methods of the fun-php library. These "methods" are all static, so these are just functions. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1712c41e5be41e6f6e2088ed5d54a864"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1712c41e5be41e6f6e2088ed5d54a864">&#9670;&nbsp;</a></span>compose()</h2>
@@ -208,7 +204,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Iterate over an iterable, calling a provided function $fn for each element. Returns the original array.</p>
-<div class="fragment"><div class="line">(a → _) → [a] → [a] </div></div><!-- fragment --> <div class="fragment"><div class="line">$isEven = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n % 2 == 0; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#adf594aee11edbf796efae99d00dc8f46">F::each</a>($isEven, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; [1, 2, 3, 4, 5]</span></div><div class="line"><span class="comment">// has no effect, returns the original input, good for logging / debugging</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">(a → *) → [a] → [a] </div></div><!-- fragment --> <div class="fragment"><div class="line">$isEven = <span class="keyword">function</span>($n) { <span class="keywordflow">return</span> $n % 2 == 0; };</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#adf594aee11edbf796efae99d00dc8f46">F::each</a>($isEven, [1, 2, 3, 4, 5]); <span class="comment">//=&gt; [1, 2, 3, 4, 5]</span></div><div class="line"><span class="comment">// has no effect, returns the original input, good for logging / debugging</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$fn</td><td></td></tr>
     <tr><td class="paramtype">iterable</td><td class="paramname">$arr</td><td></td></tr>
@@ -778,7 +774,7 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </table>
 </div><div class="memdoc">
 <p>Takes a predicate, a property and an (associative) array. Returns true if the specified array property matches the predicate and false otherwise.</p>
-<div class="fragment"><div class="line">(v → Bool) → k → {k: v} → Bool </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#a6d71ddfdd2b6c90fe356808bd332bb3f">F::propSatisfies</a>(<span class="keyword">function</span>($x) { <span class="keywordflow">return</span> $x &gt; 1; }, <span class="charliteral">&#39;p&#39;</span>, [<span class="charliteral">&#39;p&#39;</span> =&gt; 42]); <span class="comment">//=&gt; true</span></div><div class="line"></div><div class="line">$travels = [[<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;train&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 11], [<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;flight&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 42], [<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;hotel&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 45]];</div><div class="line">$isFlightOrTrain = <a class="code" href="classboehm__s_1_1F.html#aa695a4a8ea655ab5d7011f205eb49de7">F::includes</a>(F::_, [<span class="stringliteral">&#39;train&#39;</span>, <span class="stringliteral">&#39;flight&#39;</span>]);</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a80fe06fb52d10a68a0d6b36ca821463f">F::filter</a>(<a class="code" href="classboehm__s_1_1F.html#a6d71ddfdd2b6c90fe356808bd332bb3f">F::propSatisfies</a>($isFlightOrTrain, <span class="stringliteral">&#39;type&#39;</span>), $travels); <span class="comment">//=&gt; [[&#39;type&#39; =&gt; &#39;train&#39;, &#39;id&#39; =&gt; 11], [&#39;type&#39; =&gt; &#39;flight&#39;, &#39;id&#39; =&gt; 42]]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">(v → Bool) → k → {k: v} → Bool </div></div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#a6d71ddfdd2b6c90fe356808bd332bb3f">F::propSatisfies</a>(<span class="keyword">function</span>($x) { <span class="keywordflow">return</span> $x &gt; 1; }, <span class="charliteral">&#39;p&#39;</span>, [<span class="charliteral">&#39;p&#39;</span> =&gt; 42]); <span class="comment">//=&gt; true</span></div><div class="line"></div><div class="line">$travels = [[<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;train&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 11], [<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;flight&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 42], [<span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="stringliteral">&#39;hotel&#39;</span>, <span class="stringliteral">&#39;id&#39;</span> =&gt; 45]];</div><div class="line">$isFlightOrTrain = <a class="code" href="classboehm__s_1_1F.html#aa695a4a8ea655ab5d7011f205eb49de7">F::includes</a>(<a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">F::_</a>, [<span class="stringliteral">&#39;train&#39;</span>, <span class="stringliteral">&#39;flight&#39;</span>]);</div><div class="line"><a class="code" href="classboehm__s_1_1F.html#a80fe06fb52d10a68a0d6b36ca821463f">F::filter</a>(<a class="code" href="classboehm__s_1_1F.html#a6d71ddfdd2b6c90fe356808bd332bb3f">F::propSatisfies</a>($isFlightOrTrain, <span class="stringliteral">&#39;type&#39;</span>), $travels); <span class="comment">//=&gt; [[&#39;type&#39; =&gt; &#39;train&#39;, &#39;id&#39; =&gt; 11], [&#39;type&#39; =&gt; &#39;flight&#39;, &#39;id&#39; =&gt; 42]]</span></div></div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">callable</td><td class="paramname">$predicate</td><td></td></tr>
     <tr><td class="paramtype">mixed</td><td class="paramname">$prop</td><td></td></tr>
@@ -962,6 +958,24 @@ const&#160;</td><td class="memItemRight" valign="bottom"><b>_</b> = '@@fun-php/p
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array </dd></dl>
 
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab837ec3c9abe3d1a244817fd4c18eda7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab837ec3c9abe3d1a244817fd4c18eda7">&#9670;&nbsp;</a></span>_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const boehm_s\F::_ = '@@fun-php/placeholder'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code><a class="el" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7" title="F::_ is a special placeholder value used to specify &quot;gaps&quot; within curried functions, allowing partial application of any combination of arguments, regardless of their positions. ">F::_</a></code> is a special placeholder value used to specify "gaps" within curried functions, allowing partial application of any combination of arguments, regardless of their positions. </p>
+<p>If g is a curried ternary function and <code>_</code> is <code><a class="el" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7" title="F::_ is a special placeholder value used to specify &quot;gaps&quot; within curried functions, allowing partial application of any combination of arguments, regardless of their positions. ">F::_</a></code>, the following are equivalent:</p>
+<div class="fragment"><div class="line"><a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a> </div></div><!-- fragment --><div class="fragment"><div class="line">g(1, 2, 3);</div><div class="line">g(<a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a>, 2, 3)(1)</div><div class="line">g(<a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a>, <a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a>, 3)(1)(2);</div><div class="line">g(<a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a>, 2, <a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a>)(1, 3);</div><div class="line">g(<a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a>, 2)(1)(3);</div><div class="line">g(<a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a>, 2)(1, 3);</div><div class="line">g(<a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a>, 2)(<a class="code" href="classboehm__s_1_1F.html#ab837ec3c9abe3d1a244817fd4c18eda7">_</a>, 3)(1);</div></div><!-- fragment --> 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

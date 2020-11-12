@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['uniq',['uniq',['../classboehm__s_1_1F.html#a9015b4c01377f2a42e1ec9069f79d9e4',1,'boehm_s::F']]]
+  ['some',['some',['../classboehm__s_1_1F.html#aee63ff04d9ecde792865a5435a6e8cc9',1,'boehm_s::F']]],
+  ['sort',['sort',['../classboehm__s_1_1F.html#a742910125ee71afd3149a16262506600',1,'boehm_s::F']]]
 ];
