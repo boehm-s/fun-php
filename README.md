@@ -23,7 +23,7 @@ Or, if you're familiar with Ramda, you can start writing code right now. As with
 
 Also placeholders are implemented. fun-php placeholder is `F::_` : 
 
-`F::map(F::_, $array)($fn)` &nbsp; ⇔  &nbsp; `F::map($fn)(F::_)($fn)` &nbsp; ⇔  &nbsp; `F::map(F::_)($fn)($array)`
+`F::map(F::_, $array)($fn)` &nbsp; ⇔  &nbsp; `F::map($fn)(F::_)($array)` &nbsp; ⇔  &nbsp; `F::map(F::_)($fn)($array)`
 
 
 ## Example
@@ -95,7 +95,7 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 | --------- | ----------------------------------------- | ------------    | ----------------------------------------- |
 | *prop*    | `k → {k: v} → v \| null`                  | *pick*          | `[k] → {k: v} → {k: v} \| null`           |
 | *propEq*  | `k → v → {k: v} → Bool`                   | *propSatisfies* | `(v → Bool) → k → {k: v} → Bool`          |
-| *propOr*  | `k → d → {k: v} → v | d`                  | *merge*         | `{k: v} → ({k: v}, ..., {k: v}) → {k: v}` |
+| *propOr*  | `k → d → {k: v} → v \| d`                 | *merge*         | `{k: v} → ({k: v}, ..., {k: v}) → {k: v}` |
 
 ### For function composition
 
