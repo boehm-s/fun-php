@@ -71,7 +71,7 @@ class F {
      *
      * @param callable $fn
      * @param iterable $arr
-     * @return array
+     * @return iterable
      */
     public static function each(...$args) {
         return _curry2(function($fn, $array) {
@@ -125,9 +125,10 @@ class F {
      * @code ((a, i, [a]) → Bool) → [a] → a @endcode
      * @snippet lists.php find
      *
+     * @template T
      * @param callable $predicate
-     * @param iterable $arr
-     * @return array
+     * @param iterable<T> $arr
+     * @return T
      */
     public static function find(...$args) {
         return _curry2(function($fn, $array) {
@@ -150,7 +151,7 @@ class F {
      *
      * @param callable $predicate
      * @param iterable $arr
-     * @return array
+     * @return int | string
      */
     public static function findIndex(...$args) {
         return _curry2(function($fn, $array) {
@@ -364,7 +365,7 @@ class F {
      * @snippet assoc.php merge
      *
      * @param array $array1
-     * @param array[] ...$array2
+     * @param array ...$array2
      * @return array
      */
     public static function merge($obj, ...$objs) {
@@ -415,7 +416,7 @@ class F {
      * @code ((a → b), (b → c), ... , (y → z)) → (a → z) @endcode
      * @snippet func.php pipe
      *
-     * @param callable[] ...$fns
+     * @param callable ...$fns
      * @return callable
      */
     public static function pipe(...$fns) {
@@ -432,7 +433,7 @@ class F {
      * @code ((y → z), (x → y), ... ,(a → b)) → (a → z) @endcode
      * @snippet func.php compose
      *
-     * @param callable[] ...$fns
+     * @param callable ...$fns
      * @return callable
      */
     public static function compose(...$fns) {
