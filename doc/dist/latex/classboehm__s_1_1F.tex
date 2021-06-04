@@ -5,6 +5,8 @@
 \item 
 static \hyperlink{classboehm__s_1_1F_a80fe06fb52d10a68a0d6b36ca821463f}{filter} (... \$args)
 \item 
+static \hyperlink{classboehm__s_1_1F_aa5978174a7fe6498a561ee7ea4262f7b}{partition} (... \$args)
+\item 
 static \hyperlink{classboehm__s_1_1F_adf594aee11edbf796efae99d00dc8f46}{each} (... \$args)
 \item 
 static \hyperlink{classboehm__s_1_1F_a5b9016a3452e48e05c20c3ca94e5b4e8}{map} (... \$args)
@@ -29,11 +31,17 @@ static \hyperlink{classboehm__s_1_1F_aa695a4a8ea655ab5d7011f205eb49de7}{includes
 \item 
 static \hyperlink{classboehm__s_1_1F_a6c075d73d686e5bb71456a03e13d6d16}{prop} (... \$args)
 \item 
+static \hyperlink{classboehm__s_1_1F_a8379bded5dfb235caad236ab4c6f14c0}{props} (... \$args)
+\item 
 static \hyperlink{classboehm__s_1_1F_a0b5ab6c3448ef372f531576bc390d88a}{prop\+Or} (... \$args)
 \item 
 static \hyperlink{classboehm__s_1_1F_a1ed294c2887f1f3bb520236a993259fd}{pick} (... \$args)
 \item 
 static \hyperlink{classboehm__s_1_1F_a9015b4c01377f2a42e1ec9069f79d9e4}{uniq} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_aaa4015fb11b07b71a3532631720852d9}{uniq\+By} (... \$args)
+\item 
+static \hyperlink{classboehm__s_1_1F_a7187437d20f86874a6c8115e0f8b3959}{split\+At} (... \$args)
 \item 
 static \hyperlink{classboehm__s_1_1F_ac833c309186225e5587fd45dfef22aca}{merge} (\$obj,... \$objs)
 \item 
@@ -81,7 +89,7 @@ $yellHello(\textcolor{stringliteral}{'Punky'}); \textcolor{comment}{//=> HELLO P
 \end{DoxyCodeInclude}
  
 \begin{DoxyParams}{Parameters}
-{\em callable\mbox{[}$\,$\mbox{]}} & ...\$fns \\
+{\em callable} & ...\$fns \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -113,7 +121,7 @@ iterable & {\em \$arr} & \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-array 
+iterable 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classboehm__s_1_1F_a559bfb165c4ec768a49830173fa709e3}\label{classboehm__s_1_1F_a559bfb165c4ec768a49830173fa709e3}} 
 \index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!every@{every}}
@@ -190,15 +198,15 @@ $fifth = \textcolor{keyword}{function}($\_, $i) \{ \textcolor{keywordflow}{retur
 \hyperlink{classboehm__s_1_1F_a68db344c2eabeb0f3139ec3000a8b039}{F::find}($moreThan5, [1, 2, 3, 4, 5]); \textcolor{comment}{//=> null}
 \hyperlink{classboehm__s_1_1F_a68db344c2eabeb0f3139ec3000a8b039}{F::find}($fifth, [1, 2, 3, 4, 5]); \textcolor{comment}{//=> 5}
 \end{DoxyCodeInclude}
- 
+  T 
 \begin{DoxyParams}[1]{Parameters}
 callable & {\em \$predicate} & \\
 \hline
-iterable & {\em \$arr} & \\
+ & {\em iterable$<$\+T$>$} & \$arr \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-array 
+T 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classboehm__s_1_1F_a385a847258b151462eb4fa8e6e06a069}\label{classboehm__s_1_1F_a385a847258b151462eb4fa8e6e06a069}} 
 \index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!find\+Index@{find\+Index}}
@@ -225,7 +233,7 @@ iterable & {\em \$arr} & \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-array 
+int $\vert$ string 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classboehm__s_1_1F_a92bf70afadb55e6b39bad69909c6e697}\label{classboehm__s_1_1F_a92bf70afadb55e6b39bad69909c6e697}} 
 \index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!flat\+Map@{flat\+Map}}
@@ -331,7 +339,7 @@ Takes an (associative) array and at least one other (variadic on the second argu
 \begin{DoxyParams}[1]{Parameters}
 array & {\em \$array1} & \\
 \hline
- & {\em array\mbox{[}$\,$\mbox{]}} & ...\$array2 \\
+ & {\em array} & ...\$array2 \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -391,6 +399,33 @@ array & {\em \$args} & \\
 \begin{DoxyReturn}{Returns}
 callable 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_aa5978174a7fe6498a561ee7ea4262f7b}\label{classboehm__s_1_1F_aa5978174a7fe6498a561ee7ea4262f7b}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!partition@{partition}}
+\index{partition@{partition}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{partition()}{partition()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::partition (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a predicate and a list and returns the pair of elements which do and do not satisfy the predicate, respectively.
+
+
+\begin{DoxyCode}
+((a, i, [a]) → Bool) → [a] → [[a], [a]] 
+\end{DoxyCode}
+ 
+\begin{DoxyCodeInclude}
+$isEven = \textcolor{keyword}{function}($n) \{ \textcolor{keywordflow}{return} $n % 2 == 0; \};
+\hyperlink{classboehm__s_1_1F_aa5978174a7fe6498a561ee7ea4262f7b}{F::partition}($isEven, [1, 2, 3, 4, 5]); \textcolor{comment}{//=> [[2, 4], [1, 3, 5]]}
+\end{DoxyCodeInclude}
+ 
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$predicate} & \\
+\hline
+iterable & {\em \$arr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classboehm__s_1_1F_a1ed294c2887f1f3bb520236a993259fd}\label{classboehm__s_1_1F_a1ed294c2887f1f3bb520236a993259fd}} 
 \index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!pick@{pick}}
 \index{pick@{pick}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
@@ -444,7 +479,7 @@ $addReducer = \textcolor{keyword}{function}($acc, $val) \{ \textcolor{keywordflo
 \end{DoxyCodeInclude}
  
 \begin{DoxyParams}{Parameters}
-{\em callable\mbox{[}$\,$\mbox{]}} & ...\$fns \\
+{\em callable} & ...\$fns \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -540,6 +575,34 @@ array & {\em \$array} & \\
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 mixed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a8379bded5dfb235caad236ab4c6f14c0}\label{classboehm__s_1_1F_a8379bded5dfb235caad236ab4c6f14c0}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!props@{props}}
+\index{props@{props}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{props()}{props()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::props (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Acts as multiple {\ttfamily prop} array of keys in, array of values out. Preserves order.
+
+
+\begin{DoxyCode}
+[k] → \{k: v\} → [v] 
+\end{DoxyCode}
+ 
+\begin{DoxyCodeInclude}
+\hyperlink{classboehm__s_1_1F_a8379bded5dfb235caad236ab4c6f14c0}{F::props}([\textcolor{charliteral}{'x'}, \textcolor{charliteral}{'y'}], [\textcolor{charliteral}{'x'} => 42, \textcolor{charliteral}{'y'} => \textcolor{stringliteral}{'foo'}]); \textcolor{comment}{//=> [42, 'foo']}
+\hyperlink{classboehm__s_1_1F_a8379bded5dfb235caad236ab4c6f14c0}{F::props}([\textcolor{charliteral}{'y'}, \textcolor{charliteral}{'z'}], [\textcolor{charliteral}{'x'} => 42, \textcolor{charliteral}{'y'} => \textcolor{stringliteral}{'foo'}]); \textcolor{comment}{//=> ['foo', null]}
+\hyperlink{classboehm__s_1_1F_a8379bded5dfb235caad236ab4c6f14c0}{F::props}([1], [42, 21]); \textcolor{comment}{//=> [21]}
+\end{DoxyCodeInclude}
+ 
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$props} & \\
+\hline
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classboehm__s_1_1F_a6d71ddfdd2b6c90fe356808bd332bb3f}\label{classboehm__s_1_1F_a6d71ddfdd2b6c90fe356808bd332bb3f}} 
 \index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!prop\+Satisfies@{prop\+Satisfies}}
@@ -687,6 +750,33 @@ array & {\em \$arr} & \\
 \begin{DoxyReturn}{Returns}
 array 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_a7187437d20f86874a6c8115e0f8b3959}\label{classboehm__s_1_1F_a7187437d20f86874a6c8115e0f8b3959}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!split\+At@{split\+At}}
+\index{split\+At@{split\+At}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{split\+At()}{splitAt()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::split\+At (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Splits a given list at a given index.
+
+
+\begin{DoxyCode}
+Number → [a] → [[a], [a]] 
+\end{DoxyCode}
+ 
+\begin{DoxyCodeInclude}
+\hyperlink{classboehm__s_1_1F_a7187437d20f86874a6c8115e0f8b3959}{F::splitAt}(2, [1, 2, 3, 4, 5]); \textcolor{comment}{//=> [[1, 2], [3, 4, 5]]}
+\hyperlink{classboehm__s_1_1F_a7187437d20f86874a6c8115e0f8b3959}{F::splitAt}(0, [1, 2, 3]); \textcolor{comment}{//=> [[], [1, 2, 3]]}
+\end{DoxyCodeInclude}
+ 
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$fn} & \\
+\hline
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classboehm__s_1_1F_a9015b4c01377f2a42e1ec9069f79d9e4}\label{classboehm__s_1_1F_a9015b4c01377f2a42e1ec9069f79d9e4}} 
 \index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!uniq@{uniq}}
 \index{uniq@{uniq}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
@@ -710,6 +800,37 @@ $arr = [\textcolor{charliteral}{'a'} => 1, \textcolor{charliteral}{'b'} => 3, \t
 \end{DoxyCodeInclude}
  
 \begin{DoxyParams}[1]{Parameters}
+array & {\em \$array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classboehm__s_1_1F_aaa4015fb11b07b71a3532631720852d9}\label{classboehm__s_1_1F_aaa4015fb11b07b71a3532631720852d9}} 
+\index{boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}!uniq\+By@{uniq\+By}}
+\index{uniq\+By@{uniq\+By}!boehm\+\_\+s\+::F@{boehm\+\_\+s\+::F}}
+\subsubsection{\texorpdfstring{uniq\+By()}{uniqBy()}}
+{\footnotesize\ttfamily static boehm\+\_\+s\textbackslash{}\+F\+::uniq\+By (\begin{DoxyParamCaption}\item[{}]{\$args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a new list containing only one copy of each element in the original list, based upon the value returned by applying the supplied function to each list element. Prefers the first item if the supplied function produces the same value on two items.
+
+
+\begin{DoxyCode}
+(a → b) → [a] → [a] 
+\end{DoxyCode}
+ 
+\begin{DoxyCodeInclude}
+$arr = [
+    [ \textcolor{charliteral}{'a'} => 4,  \textcolor{charliteral}{'b'} => 8],
+    [ \textcolor{charliteral}{'a'} => 15, \textcolor{charliteral}{'b'} => 16],
+    [ \textcolor{charliteral}{'a'} => 4,  \textcolor{charliteral}{'b'} => 23],
+];
+\hyperlink{classboehm__s_1_1F_aaa4015fb11b07b71a3532631720852d9}{F::uniqBy}(\hyperlink{classboehm__s_1_1F_a6c075d73d686e5bb71456a03e13d6d16}{F::prop}(\textcolor{charliteral}{'a'}), $arr); \textcolor{comment}{//=> [[ 'a' => 4,  'b' => 8], [ 'a' => 15, 'b' => 16]]}
+\end{DoxyCodeInclude}
+ 
+\begin{DoxyParams}[1]{Parameters}
+callable & {\em \$fn} & \\
+\hline
 array & {\em \$array} & \\
 \hline
 \end{DoxyParams}

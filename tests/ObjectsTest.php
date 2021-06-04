@@ -26,6 +26,19 @@ final class ObjectsTest extends TestCase
         $this->assertEquals(5, $getKey1($this->obj1));
     }
 
+    public function testProps(): void
+    {
+        $getKey1and2 = F::props(['key1', 'key2']);
+
+        $this->assertIsCallable($getKey1and2);
+        $this->assertEquals([5, 42], $getKey1and2($this->obj1));
+
+        $this->assertEquals(
+            [5, null],
+            F::props(['key1', 'z'], $this->obj1)
+        );
+    }
+
     public function testPropOr(): void
     {
         $getKey42 = F::propOr('key42', []);

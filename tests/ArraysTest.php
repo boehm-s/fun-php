@@ -30,6 +30,15 @@ final class ArraysTest extends TestCase
         $this->assertEquals($this->numArray5, $first5);
     }
 
+    public function testPartition(): void
+    {
+        $isEven = function($n) { return $n % 2 == 0; };
+        list($even, $odds) = F::partition($isEven, $this->numArray10);
+
+        $this->assertEquals([2, 4, 6, 8, 10], $even);
+        $this->assertEquals([1, 3, 5, 7, 9], $odds);
+    }
+
     public function testMap(): void
     {
         $square = function($n) { return $n * $n; };
@@ -161,6 +170,38 @@ final class ArraysTest extends TestCase
         $array = [1, 2, 4, 2, 5, 1, 3];
         $expected = [1, 2, 4, 5, 3];
         $actual = F::uniq($array);
+        $this->assertEquals($expected, $actual);
+    }
+
+    public function testUniqBy(): void
+    {
+        $array    = [
+            ['a' => 4,  'b' => 8],
+            ['a' => 15, 'b' => 16],
+            ['a' => 4,  'b' => 23],
+        ];
+
+        $expected = [
+            ['a' => 4,  'b' => 8],
+            ['a' => 15, 'b' => 16],
+        ];
+
+        $actual   =  F::uniqBy(F::prop('a'), $array);
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    public function testSplitAt(): void
+    {
+        $array = [1, 2, 3];
+        $expected = [[1], [2, 3]];
+        $actual = F::splitAt(1, $array);
+
+        $this->assertEquals($expected, $actual);
+
+        $expected = [[], [1, 2, 3]];
+        $actual = F::splitAt(0, $array);
+
         $this->assertEquals($expected, $actual);
     }
 }

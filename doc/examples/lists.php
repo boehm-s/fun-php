@@ -7,6 +7,11 @@ $isEven = function($n) { return $n % 2 == 0; };
 F::filter($isEven, [1, 2, 3, 4, 5]); //=> [2, 4]
 //! [filter]
 
+//! [partition]
+$isEven = function($n) { return $n % 2 == 0; };
+F::partition($isEven, [1, 2, 3, 4, 5]); //=> [[2, 4], [1, 3, 5]]
+//! [partition]
+
 //! [each]
 $isEven = function($n) { return $n % 2 == 0; };
 F::each($isEven, [1, 2, 3, 4, 5]); //=> [1, 2, 3, 4, 5]
@@ -80,3 +85,18 @@ $arr = ['a' => 1, 'b' => 3, 'c' => 2, 'd' => 3, 'e' => 4, 'f' => 1, 'g' => 5, 'h
 F::uniq($arr); //=> [1, 3, 2, 4, 5]
 // WARNING : F::uniq re-indexes arrays
 //! [uniq]
+
+
+//! [uniqBy]
+$arr = [
+    [ 'a' => 4,  'b' => 8],
+    [ 'a' => 15, 'b' => 16],
+    [ 'a' => 4,  'b' => 23],
+];
+F::uniqBy(F::prop('a'), $arr); //=> [[ 'a' => 4,  'b' => 8], [ 'a' => 15, 'b' => 16]]
+//! [uniqBy]
+
+//! [splitAt]
+F::splitAt(2, [1, 2, 3, 4, 5]); //=> [[1, 2], [3, 4, 5]]
+F::splitAt(0, [1, 2, 3]); //=> [[], [1, 2, 3]]
+//! [splitAt]

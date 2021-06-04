@@ -63,6 +63,23 @@ class F {
     }
 
     /**
+     * Takes a predicate and a list and returns the pair of elements which do and do not satisfy
+     * the predicate, respectively.
+     *
+     * @code ((a, i, [a]) → Bool) → [a] → [[a], [a]] @endcode
+     * @snippet lists.php partition
+     *
+     * @param callable $predicate
+     * @param iterable $arr
+     * @return array
+     */
+    public static function partition(...$args) {
+        return _curry2(function($fn, $array) {
+            return _partition($fn, $array);
+        })(...$args);
+    }
+
+    /**
      * Iterate over an iterable, calling a provided function $fn for each element.
      * Returns the original array.
      *
@@ -294,10 +311,33 @@ class F {
      * @return mixed
      */
     public static function prop(...$args) {
-        return _curry2(function($prop, $obj) {
-            return $obj[$prop];
+        return _curry2(function($prop, $arr) {
+            return $arr[$prop];
         })(...$args);
     }
+
+    /**
+     * Acts as multiple `prop` array of keys in, array of values out. Preserves order.
+     *
+     * @code [k] → {k: v} → [v] @endcode
+     * @snippet assoc.php props
+     *
+     * @param array $props
+     * @param array $array
+     * @return array
+     */
+    public static function props(...$args) {
+        return _curry2(function($props, $arr) {
+            $res = [];
+
+            foreach ($props as $prop) {
+                $res[] = $arr[$prop] ?? null;
+            }
+
+            return $res;
+        })(...$args);
+    }
+
 
     /**
      * Takes a property, an array and a default value. Returns the array's property value if it
@@ -356,6 +396,64 @@ class F {
             return array_values(array_unique($arr, SORT_REGULAR));
         })(...$args);
     }
+
+    /**
+     * Returns a new list containing only one copy of each element in the original list, based upon the value
+     * returned by applying the supplied function to each list element. Prefers the first item if the supplied
+     * function produces the same value on two items.
+     *
+     * @code (a → b) → [a] → [a] @endcode
+     * @snippet lists.php uniqBy
+     *
+     * @param callable $fn
+     * @param array $array
+     * @return array
+     */
+    public static function uniqBy(...$args) {
+        return _curry2(function($fn, $array) {
+            $set         = [];
+            $result      = [];
+
+            foreach ($array as $item) {
+                $appliedItem = $fn($item);
+                if (!in_array($appliedItem, $set)) {
+                    $set[]    = $appliedItem;
+                    $result[] = $item;
+                }
+            }
+
+            return $result;
+        })(...$args);
+    }
+
+    /**
+     * Splits a given list at a given index.
+     *
+     * @code Number → [a] → [[a], [a]] @endcode
+     * @snippet lists.php splitAt
+     *
+     * @param int $fn
+     * @param array $array
+     * @return array
+     */
+    public static function splitAt(...$args) {
+        return _curry2(function($idx, $list) {
+            $len = count($list);
+            $fst = $snd = [];
+
+            for ($i = 0; $i < $len; ++$i) {
+                if ($i < $idx) {
+                    $fst[] = $list[$i];
+                } else {
+                    $snd[] = $list[$i];
+                }
+            }
+
+            return [$fst, $snd];
+        })(...$args);
+    }
+
+
 
     /**
      * Takes an (associative) array and at least one other (variadic on the second argument) and returns

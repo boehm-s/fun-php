@@ -17,3 +17,21 @@ function _filter(Callable $fn, iterable $array) {
 
     return $result;
 }
+
+function _partition(Callable $fn, iterable $array) {
+    $ok = $ko = [];
+    $fnArity = _arity($fn);
+
+    foreach ($array as $key => $value) {
+        $args = [$value, $key, $array];
+        $tailoredArgs = array_slice($args, 0, $fnArity);
+
+        if ($fn(...$tailoredArgs)) {
+            $ok[] = $value;
+        } else {
+            $ko[] = $value;
+        }
+    }
+
+    return [$ok, $ko];
+}

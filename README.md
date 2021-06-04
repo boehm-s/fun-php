@@ -79,23 +79,26 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 
 ### For Lists / Arrays
 
-| function   | type                                  | function     | type                                |
-| ---------  | ------------------------------------- | ------------ | ----------------------------------- |
-| *map*      | `((a, i, [a]) → b) → [a] → [b]`       | *flatMap*    | `((a, i, [a]) → [b]) → [a] → [b]`   |
-| *filter*   | `((a, i, [a]) → Bool) → [a] → [a]`    | *reduce*     | `((a, b) → a) → a → [b] → a`        |
-| *each*     | `(a → _) → [a] → [a]`                 |              |                                     |
-| *find*     | `((a, i, [a]) → Bool) → [a] → a`      | *findIndex*  | `((a, i, [a]) → Bool) → [a] → i`    |
-| *some*     | `((a, i, [a]) → Bool) → [a] → Bool`   | *every*      | `((a, i, [a]) → Bool) → [a] → Bool` |
-| *sort*     | `((a, a) → Bool) → [a] → [a]`         | *reverse*    | `[a] → [a]`                         |
-| *includes* | `a → [a] → Bool`                      | *uniq*       | `[a] → [a]`                         |
+| function   | type                                | function    | type                                |
+|------------|-------------------------------------|-------------|-------------------------------------|
+| *map*      | `((a, i, [a]) → b) → [a] → [b]`     | *flatMap*   | `((a, i, [a]) → [b]) → [a] → [b]`   |
+| *filter*   | `((a, i, [a]) → Bool) → [a] → [a]`  | *reduce*    | `((a, b) → a) → a → [b] → a`        |
+| *each*     | `(a → _) → [a] → [a]`               |             |                                     |
+| *find*     | `((a, i, [a]) → Bool) → [a] → a`    | *findIndex* | `((a, i, [a]) → Bool) → [a] → i`    |
+| *some*     | `((a, i, [a]) → Bool) → [a] → Bool` | *every*     | `((a, i, [a]) → Bool) → [a] → Bool` |
+| *sort*     | `((a, a) → Bool) → [a] → [a]`       | *reverse*   | `[a] → [a]`                         |
+| *includes* | `a → [a] → Bool`                    | *uniq*      | `[a] → [a]`                         |
+| *splitAt*  | `Number → [a] → [[a], [a]]`         | *uniqBy*    | `(a → b) → [a] → [a]`               |
+|            |                                     |             |                                     |
 
 ### For Objects / Associative arrays
 
-| function  | type                                      | function        | type                                      |
-| --------- | ----------------------------------------- | ------------    | ----------------------------------------- |
-| *prop*    | `k → {k: v} → v \| null`                  | *pick*          | `[k] → {k: v} → {k: v} \| null`           |
-| *propEq*  | `k → v → {k: v} → Bool`                   | *propSatisfies* | `(v → Bool) → k → {k: v} → Bool`          |
-| *propOr*  | `k → d → {k: v} → v \| d`                 | *merge*         | `{k: v} → ({k: v}, ..., {k: v}) → {k: v}` |
+| function | type                      | function        | type                                      |
+|----------|---------------------------|-----------------|-------------------------------------------|
+| *prop*   | `k → {k: v} → v \| null`  | *pick*          | `[k] → {k: v} → {k: v} \| null`           |
+| *props*  | `[k] → {k: v} → [v]`      |                 |                                           |
+| *propEq* | `k → v → {k: v} → Bool`   | *propSatisfies* | `(v → Bool) → k → {k: v} → Bool`          |
+| *propOr* | `k → d → {k: v} → v \| d` | *merge*         | `{k: v} → ({k: v}, ..., {k: v}) → {k: v}` |
 
 ### For function composition
 
