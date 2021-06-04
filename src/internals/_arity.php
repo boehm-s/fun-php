@@ -16,3 +16,10 @@ function _arity(Callable $fn) {
 
     return count($arguments);
 }
+
+function _call_fn_right_arity(callable $fn, array $args) {
+    $fnArity = _arity($fn);
+    $tailoredArgs = array_slice($args, 0, $fnArity);
+
+    return $fn(...$tailoredArgs);
+}

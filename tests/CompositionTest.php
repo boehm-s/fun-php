@@ -186,4 +186,13 @@ final class CompositionTest extends TestCase
         $this->assertEquals('HELLO WORLD !', $values[0]);
         $this->assertEquals('HOW ARE YOU ?', $values[1]);
     }
+
+    public function testSomeIsNull(): void
+    {
+        $arr = [0, 2, 5, null, 1];
+        $test = F::some('is_null', $arr);
+
+        $this->assertEquals(true, $test);
+    }
+
 }

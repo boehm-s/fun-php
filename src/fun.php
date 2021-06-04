@@ -16,6 +16,7 @@ require_once(realpath(dirname(__FILE__) . '/internals/_isPlaceholder.php'));
 require_once(realpath(dirname(__FILE__) . '/internals/_filter.php'));
 require_once(realpath(dirname(__FILE__) . '/internals/_map.php'));
 require_once(realpath(dirname(__FILE__) . '/internals/_reduce.php'));
+require_once(realpath(dirname(__FILE__) . '/internals/_arity.php'));
 
 /**
  * This class contains all the methods of the fun-php library.
@@ -150,7 +151,7 @@ class F {
     public static function find(...$args) {
         return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
-                if ($fn($value, $key, $array) === true) {
+                if (_call_fn_right_arity($fn, [$value, $key, $array]) === true) {
                     return $value;
                 }
             }
@@ -173,7 +174,7 @@ class F {
     public static function findIndex(...$args) {
         return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
-                if ($fn($value, $key, $array) === true) {
+                if (_call_fn_right_arity($fn, [$value, $key, $array]) === true) {
                     return $key;
                 }
             }
@@ -196,7 +197,7 @@ class F {
     public static function some(...$args) {
         return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
-                if ($fn($value, $key, $array) === true) {
+                if (_call_fn_right_arity($fn, [$value, $key, $array])=== true) {
                     return true;
                 }
             }
@@ -219,7 +220,7 @@ class F {
     public static function every(...$args) {
         return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
-                if ($fn($value, $key, $array) === false) {
+                if (_call_fn_right_arity($fn, [$value, $key, $array]) === false) {
                     return false;
                 }
             }
@@ -414,11 +415,11 @@ class F {
             $set         = [];
             $result      = [];
 
-            foreach ($array as $item) {
-                $appliedItem = $fn($item);
-                if (!in_array($appliedItem, $set)) {
-                    $set[]    = $appliedItem;
-                    $result[] = $item;
+            foreach ($array as $key => $value) {
+                $appliedValue = _call_fn_right_arity($fn, [$value, $key, $array]);
+                if (!in_array($appliedValue, $set)) {
+                    $set[]    = $appliedValue;
+                    $result[] = $value;
                 }
             }
 
