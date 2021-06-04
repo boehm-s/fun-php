@@ -113,3 +113,12 @@ var_dump($travels_users);  //  ["Jimmy Page", "Roy Harper", "Robert Plant", "Joh
 | function  | type          |
 | --------- | ------------- |
 | *not*     | `* → Bool`    |
+
+
+# Notes (to myself)
+
+Deploying the doc : 
+
+```
+git subtree push --prefix doc/dist/html origin gh-pages
+```
