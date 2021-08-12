@@ -197,7 +197,7 @@ class F {
     public static function some(...$args) {
         return _curry2(function($fn, $array) {
             foreach ($array as $key => $value) {
-                if (_call_fn_right_arity($fn, [$value, $key, $array])=== true) {
+                if (_call_fn_right_arity($fn, [$value, $key, $array]) === true) {
                     return true;
                 }
             }
@@ -487,7 +487,7 @@ class F {
      */
     public static function propEq(...$args) {
         return _curry3(function($prop, $value, $obj) {
-            return $obj[$prop] === $value;
+            return isset($obj[$prop]) && $obj[$prop] === $value;
         })(...$args);
     }
 
@@ -505,7 +505,7 @@ class F {
      */
     public static function propSatisfies(...$args) {
         return _curry3(function($fn, $prop, $obj) {
-            return $fn($obj[$prop]) === true;
+            return isset($obj[$prop]) && $fn($obj[$prop]) === true;
         })(...$args);
     }
 
